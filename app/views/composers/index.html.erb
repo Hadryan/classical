@@ -7,13 +7,13 @@
   </head>
   <body>
     <h1>Composers</h1>
-    <%= link_to "New", :new_composer %>
+    <% link_to "New", :new_composer %>
 
-    <%= @composers.each do |f| %>
+    <% @composers.each do |f| %>
       <p>
         <b>Name:</b>
         <%=h f.name %>
       </p>
-    <%= end %>    
+    <% end %>
   </body>
 </html>
