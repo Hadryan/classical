@@ -1,2 +1,35 @@
-<h1>Composer#new</h1>
-<p>Find me in app/views/composer/new.html.erb</p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Classical</title>
+  </head>
+  <body>
+    <% form_for(@composer) do |f| %>
+      <%= f.error_messages %>
+
+      <p>
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.label :nationality %><br />
+        <%= f.text_field :nationality %>
+      </p>
+      <p>
+        <%= f.label :birthDate %><br />
+        <%= f.date_select :birthDate, :start_year => 1750, :end_year => 1850 %>
+      </p>
+      <p>
+        <%= f.label :deathDate %><br />
+        <%= f.date_select :deathDate, :start_year => 1750, :end_year => 1850 %>
+      </p>
+      <p>
+        <%= f.submit "Create" %>
+      </p>
+    <% end %>
+
+    <%= link_to 'Back', composers_path %>
+  </body>
+</html>

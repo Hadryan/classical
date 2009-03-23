@@ -6,14 +6,20 @@
     <title>Classical - Composers</title>
   </head>
   <body>
-    <h1>Composers</h1>
-    <%= link_to "New", :new_composer %>
+    <h1>Composer</h1>
+    
 
-    <%= @composers.each do |f| %>
-      <p>
-        <b>Name:</b>
-        <%=h f.name %>
-      </p>
-    <%= end %>    
+    <p>
+      <b>Name:</b>
+      <%=h @composer.name %>
+    </p>
+
+    <p>
+      <b>Title:</b>
+      <%=h @composer.nationality %>
+    </p>
+
+    <%= link_to 'Edit', edit_composer_path(@composer) %> |
+    <%= link_to 'Back', composers_path %>
   </body>
 </html>
