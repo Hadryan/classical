@@ -1,0 +1,25 @@
+<% form_for( composer ) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :nationality %><br />
+    <%= f.text_field :nationality %>
+  </p>
+  <p>
+    <%= f.label :birthDate %><br />
+    <%= f.date_select :birthDate, :start_year => 1750, :end_year => 1850 %>
+  </p>
+  <p>
+    <%= f.label :deathDate %><br />
+    <%= f.date_select :deathDate, :start_year => 1750, :end_year => 1850 %>
+  </p>
+  <p>
+    <%= f.submit button_label %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', composers_path %>

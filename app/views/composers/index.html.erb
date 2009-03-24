@@ -7,12 +7,15 @@
   </head>
   <body>
     <h1>Composers</h1>
-    <% link_to "New", :new_composer %>
-
-    <% @composers.each do |f| %>
+    <%= link_to "New", :new_composer %>
+    <br>
+    <% @composers.each do | composer | %>
       <p>
         <b>Name:</b>
-        <%=h f.name %>
+        <%=h composer.name %>
+        <%= link_to "Show", composer %>
+        <%= link_to "Edit", edit_composer_path(composer) %>
+        <%= link_to "Delete", composer, :confirm => 'Are you sure?', :method => :delete %>
       </p>
     <% end %>
   </body>
