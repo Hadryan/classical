@@ -11,7 +11,7 @@
     <br>
     <% @composers.each do | composer | %>
       <p>
-        <%=h composer.name + ' (' + composer.birthDate.year.to_s + '-' + composer.deathDate.year.to_s + ')' %>
+        <%=h composer.name + (' (' + composer.birthDate.year.to_s + '-' + composer.deathDate.year.to_s + ')') if !composer.birthDate.nil? %>
         
         <%= link_to "Show", composer %>
         <%= link_to "Edit", edit_composer_path(composer) %>
