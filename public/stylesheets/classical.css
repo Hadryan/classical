@@ -1,0 +1,29 @@
+/* 
+    Document   : classical
+    Created on : 25/03/2009, 17:38:01
+    Author     : fsaenz
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+div#side {
+    width: 150px;
+    height: auto;
+    padding: 10px;
+    background-color:gray;
+    color:white;
+}
+
+div#side a {
+    color:aqua
+}
+
