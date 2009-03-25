@@ -1,0 +1,16 @@
+<% form_for( obraType ) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit button_label %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', obra_types_path %>
+
+
+

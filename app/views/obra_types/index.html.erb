@@ -1,2 +1,28 @@
-<h1>ObraTypes#index</h1>
-<p>Find me in app/views/obra_types/index.html.erb</p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Classical - Obra Types</title>
+  </head>
+  <body>
+    <h1>Obra Types</h1>
+
+    <%= link_to "New", :new_obra_type %>
+
+    <br>
+    <% @obraTypes.each do | obraType | %>
+      <p>
+        <%=h obraType.id %>
+        <%=h obraType.name %>
+
+        <%= link_to "Show", obraType %>
+        <%= link_to "Edit", edit_obra_type_path(obraType) %>
+        <%= link_to "Delete", obraType, :confirm => 'Are you sure?', :method => :delete %>
+      </p>
+    <% end %>
+    <br>
+    <%= link_to "Home", :controller => :home %>
+
+  </body>
+</html>
