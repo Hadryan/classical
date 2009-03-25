@@ -11,12 +11,14 @@
     <br>
     <% @composers.each do | composer | %>
       <p>
-        <b>Name:</b>
-        <%=h composer.name %>
+        <%=h composer.name + ' (' + composer.birthDate.year.to_s + '-' + composer.deathDate.year.to_s + ')' %>
+        
         <%= link_to "Show", composer %>
         <%= link_to "Edit", edit_composer_path(composer) %>
         <%= link_to "Delete", composer, :confirm => 'Are you sure?', :method => :delete %>
       </p>
     <% end %>
+    <br>
+    <%= link_to "Home", :controller => :home %>
   </body>
 </html>
