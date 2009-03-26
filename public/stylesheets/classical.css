@@ -11,14 +11,16 @@
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
 
-root { 
-    display: block;
+div#banner{
+    background-color:#676770
 }
+
 
 div#side {
     width: 150px;
     height: auto;
     padding: 10px;
+    float:left;
     background-color:gray;
     color:white;
 }
