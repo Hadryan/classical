@@ -15,7 +15,8 @@
 }
 
 #head {
-	
+	color:white;
+	padding-left:5px;
 }
 
 #content {
@@ -31,4 +32,5 @@
 
 .classical_form{
 	background-color:white;
+	padding:10px;
 }
