@@ -1,0 +1,19 @@
+<div class="classical_form">
+  <fieldset class="field_form">
+    <legend>Director Details</legend>
+    
+    <% form_for( director ) do |f| %>
+      <%= f.error_messages %>
+
+      <p>
+        <%= f.label :description %><br />
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.submit button_label %>
+      </p>
+    <% end %>
+  </fieldset>
+</div>
+
+<%= link_to 'Back', directors_path %>

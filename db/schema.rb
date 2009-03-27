@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090325004447) do
+ActiveRecord::Schema.define(:version => 20090327012306) do
 
   create_table "composers", :force => true do |t|
     t.string   "name",        :null => false
@@ -20,7 +20,19 @@ ActiveRecord::Schema.define(:version => 20090325004447) do
     t.datetime "updated_at"
   end
 
+  create_table "directors", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "obra_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "solists", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

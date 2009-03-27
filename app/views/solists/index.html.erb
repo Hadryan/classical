@@ -1,2 +1,28 @@
-<h1>Solists#index</h1>
-<p>Find me in app/views/solists/index.html.erb</p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Classical - Solists</title>
+  </head>
+  <body>
+    <h1>Solists</h1>
+
+    <%= link_to "New", :new_solist %>
+
+    <br>
+    <% @solists.each do | solist | %>
+      <p>
+        <%=h solist.id %>
+        <%=h solist.name %>
+
+        <%= link_to "Show", solist %>
+        <%= link_to "Edit", edit_solist_path(solist) %>
+        <%= link_to "Delete", solist, :confirm => 'Are you sure?', :method => :delete %>
+      </p>
+    <% end %>
+    <br>
+    <%= link_to "Home", :controller => :home %>
+
+  </body>
+</html>
