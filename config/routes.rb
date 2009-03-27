@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :composers
   map.resources :obra_types
+  map.resources :solists
+  map.resources :directors
 
   # The priority is based upon order of creation: first created -> highest priority.
 

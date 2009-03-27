@@ -35,10 +35,10 @@ ul#menu li {
 }
 
 #menu li a:hover, 
-.home #menu li#home a,
-.single #menu li#single a,
-.dropdown #menu li#dropdown a,
-.dropline #menu li#dropline a,
+.composer #menu li#home a,
+.obratype #menu li#single a,
+.solist #menu li#dropdown a,
+.director #menu li#dropline a,
 .flyout #menu li#flyout a,
 .support #menu li#support a,
 .contact #menu li#contact a {
@@ -48,10 +48,10 @@ ul#menu li {
 }
 
 #menu li a:hover b,
-.home #menu li#home a b,
-.single #menu li#single a b,
-.dropdown #menu li#dropdown a b,
-.dropline #menu li#dropline a b,
+.composer #menu li#home a b,
+.obratype #menu li#single a b,
+.solist #menu li#dropdown a b,
+.director #menu li#dropline a b,
 .flyout #menu li#flyout a b,
 .support #menu li#support a b,
 .contact #menu li#contact a b { 
