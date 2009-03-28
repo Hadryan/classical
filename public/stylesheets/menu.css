@@ -39,7 +39,7 @@ ul#menu li {
 .obratype #menu li#single a,
 .solist #menu li#dropdown a,
 .director #menu li#dropline a,
-.flyout #menu li#flyout a,
+.orchestra #menu li#flyout a,
 .support #menu li#support a,
 .contact #menu li#contact a {
 	background-position:right -51px; 
@@ -52,7 +52,7 @@ ul#menu li {
 .obratype #menu li#single a b,
 .solist #menu li#dropdown a b,
 .director #menu li#dropline a b,
-.flyout #menu li#flyout a b,
+.orchestra #menu li#flyout a b,
 .support #menu li#support a b,
 .contact #menu li#contact a b { 
 	background-position:left -51px; 
