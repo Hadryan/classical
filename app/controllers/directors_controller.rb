@@ -2,11 +2,11 @@ class DirectorsController < ApplicationController
   before_filter :find_director,  :only => [:show, :edit, :update, :destroy]
   
   def index
-    @directors = Directors.find(:all)
+    @directors = Director.find(:all)
   end
 
   def new
-    @director = Directors.new
+    @director = Director.new
   end
 
   def edit
@@ -16,11 +16,11 @@ class DirectorsController < ApplicationController
   end
 
   def create
-    @director = Directors.new(params[:director])
+    @director = Director.new(params[:director])
 
     respond_to do |format|
       if @director.save
-        flash[:notice] = 'Solist was successfully created.'
+        flash[:notice] = 'Director was successfully created.'
         format.html { redirect_to(@director) }
         format.xml  { render :xml => @director, :status => :created,
                     :location => @director }
@@ -56,6 +56,6 @@ class DirectorsController < ApplicationController
 
   private
     def find_director
-      @director = Directors.find(params[:id])
+      @director = Director.find(params[:id])
     end
 end
