@@ -9,7 +9,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090328051115) do
+ActiveRecord::Schema.define(:version => 20090329214114) do
+
+  create_table "albums", :force => true do |t|
+    t.string   "name"
+    t.integer  "composer_id"
+    t.integer  "obraType_id"
+    t.string   "musicTone"
+    t.integer  "number"
+    t.string   "opusNumber"
+    t.string   "instrument"
+    t.integer  "solist_id"
+    t.integer  "director_id"
+    t.integer  "orchest_id"
+    t.integer  "cdNumber"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "composers", :force => true do |t|
     t.string   "name",        :null => false

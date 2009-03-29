@@ -34,12 +34,13 @@ ul#menu li {
 	cursor:pointer;
 }
 
-#menu li a:hover, 
-.composer #menu li#home a,
-.obratype #menu li#single a,
-.solist #menu li#dropdown a,
-.director #menu li#dropline a,
-.orchestra #menu li#flyout a,
+#menu li a:hover,
+.album #menu li#album a,
+.composer #menu li#composer a,
+.obratype #menu li#obratype a,
+.solist #menu li#solist a,
+.director #menu li#director a,
+.orchestra #menu li#orchestra a,
 .support #menu li#support a,
 .contact #menu li#contact a {
 	background-position:right -51px; 
@@ -48,11 +49,12 @@ ul#menu li {
 }
 
 #menu li a:hover b,
-.composer #menu li#home a b,
-.obratype #menu li#single a b,
-.solist #menu li#dropdown a b,
-.director #menu li#dropline a b,
-.orchestra #menu li#flyout a b,
+.album #menu li#album a b,
+.composer #menu li#composer a b,
+.obratype #menu li#obratype a b,
+.solist #menu li#solist a b,
+.director #menu li#director a b,
+.orchestra #menu li#orchestra a b,
 .support #menu li#support a b,
 .contact #menu li#contact a b { 
 	background-position:left -51px; 
