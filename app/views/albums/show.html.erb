@@ -1,2 +1,20 @@
-<h1>Albums#show</h1>
-<p>Find me in app/views/albums/show.html.erb</p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Classical - Album</title>
+  </head>
+  <body>
+    <h1>Album</h1>
+    
+
+    <p>
+      <b>Name:</b>
+      <%=h @album.name %>
+    </p>
+
+    <%= link_to 'Edit', edit_album_path(@album) %> |
+    <%= link_to 'Back', albums_path %>
+  </body>
+</html>

@@ -1,2 +1,24 @@
-<h1>Albums#index</h1>
-<p>Find me in app/views/albums/index.html.erb</p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Classical - Albums</title>
+  </head>
+  <body>
+    <h1>Albums</h1>
+    <%= link_to "New", :new_album %>
+    <br>
+    <% @albums.each do | album | %>
+      <p>
+        <%=h album.name %>
+        
+        <%= link_to "Show", album %>
+        <%= link_to "Edit", edit_album_path(album) %>
+        <%= link_to "Delete", album, :confirm => 'Are you sure?', :method => :delete %>
+      </p>
+    <% end %>
+    <br>
+    <%= link_to "Home", :controller => :home %>
+  </body>
+</html>
