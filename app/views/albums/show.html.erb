@@ -7,11 +7,49 @@
   </head>
   <body>
     <h1>Album</h1>
-    
-
+    <p>
+      <b>Composer:</b>
+      <%=h @album.composer.name %>
+    </p>
+    <p>
+      <b>Obra Type:</b>
+      <%=h @album.obraType.name %>
+    </p>
     <p>
       <b>Name:</b>
       <%=h @album.name %>
+    </p>
+    <p>
+      <b>Music Tone:</b>
+      <%=h @album.musicTone %>
+    </p>
+    <p>
+      <b>Obra Number:</b>
+      <%=h @album.number %>
+    </p>
+    <p>
+      <b>Opus Number:</b>
+      <%=h @album.opusNumber %>
+    </p>
+    <p>
+      <b>Instrument:</b>
+      <%=h @album.instrument %>
+    </p>
+    <p>
+      <b>Solist:</b>
+      <%=h @album.solist.name %>
+    </p>
+    <p>
+      <b>Director:</b>
+      <%=h @album.director.name %>
+    </p>
+    <p>
+      <b>Orchestra:</b>
+      <%=h @album.orchestra.name %>
+    </p>
+    <p>
+      <b>Cd Number:</b>
+      <%=h @album.cdNumber %>
     </p>
 
     <%= link_to 'Edit', edit_album_path(@album) %> |

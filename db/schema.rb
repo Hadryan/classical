@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20090329214114) do
     t.string   "instrument"
     t.integer  "solist_id"
     t.integer  "director_id"
-    t.integer  "orchest_id"
+    t.integer  "orchestra_id"
     t.integer  "cdNumber"
     t.datetime "created_at"
     t.datetime "updated_at"

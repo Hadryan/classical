@@ -6,10 +6,49 @@
       <%= f.error_messages %>
 
       <p>
-        <%= f.label :name %><br />
+        <%= f.label :composer %>
+        <%=  select("album", "composer_id", Composer.find(:all).collect {|p| [ p.name, p.id ] }, { :include_blank => true })%>
+      </p>
+      <p>
+        <%= f.label :Obra_Type %>
+        <%=  select("album", "obraType_id", ObraType.find(:all).collect {|p| [ p.name, p.id ] }, { :include_blank => true })%>
+      </p>
+      <p>
+        <%= f.label :name %>
         <%= f.text_field :name %>
       </p>
-
+      <p>
+        <%= f.label :music_tone %>
+        <%= f.text_field :musicTone %>
+      </p>
+      <p>
+        <%= f.label :obra_number %>
+        <%= f.text_field :number %>
+      </p>
+      <p>
+        <%= f.label :opus_number %>
+        <%= f.text_field :opusNumber %>
+      </p>
+      <p>
+        <%= f.label :instrument %>
+        <%= f.text_field :instrument %>
+      </p>
+      <p>
+        <%= f.label :solist %>
+        <%=  select("album", "solist_id", Solist.find(:all).collect {|p| [ p.name, p.id ] }, { :include_blank => true })%>
+      </p>
+      <p>
+        <%= f.label :director %>
+        <%=  select("album", "director_id", Director.find(:all).collect {|p| [ p.name, p.id ] }, { :include_blank => true })%>
+      </p>
+      <p>
+        <%= f.label :orchestra %>
+        <%=  select("album", "orchestra_id", Orchestra.find(:all).collect {|p| [ p.name, p.id ] }, { :include_blank => true })%>
+      </p>
+      <p>
+        <%= f.label :cd_number %>
+        <%= f.text_field :cdNumber %>
+      </p>
       <p>
         <%= f.submit button_label %>
       </p>

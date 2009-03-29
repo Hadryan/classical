@@ -10,7 +10,7 @@ class CreateAlbums < ActiveRecord::Migration
       t.string :instrument
       t.references :solist
       t.references :director
-      t.references :orchest
+      t.references :orchestra
       t.integer :cdNumber
 
       t.timestamps

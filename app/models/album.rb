@@ -3,5 +3,5 @@ class Album < ActiveRecord::Base
   belongs_to :obraType
   belongs_to :solist
   belongs_to :director
-  belongs_to :orchest
+  belongs_to :orchestra
 end
