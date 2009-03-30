@@ -6,19 +6,20 @@
       <%= f.error_messages %>
 
       <p>
-        <%= f.label :name %><br />
+        <%= f.label :name %>
         <%= f.text_field :name %>
       </p>
       <p>
-        <%= f.label :nationality %><br />
+        <%= f.label :nationality %>
         <%= f.text_field :nationality %>
+        <%= f.country_select :nationality , ["United States"]%>
       </p>
       <p>
-        <%= f.label :birthDate %><br />
+        <%= f.label :birthDate %>
         <%= f.date_select :birthDate, :start_year => 1750, :end_year => 1850 %>
       </p>
       <p>
-        <%= f.label :deathDate %><br />
+        <%= f.label :deathDate %>
         <%= f.date_select :deathDate, :start_year => 1750, :end_year => 1850 %>
       </p>
       <p>
