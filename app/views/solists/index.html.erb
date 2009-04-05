@@ -29,7 +29,7 @@
           :url    => { :action => 'solist_completion' },
           :frequency => 1,
           :before => "Element.show('spinner')",
-          :complete => "Element.hide('spinner')",
+          :complete => [ visual_effect(:highlight, :results), "Element.hide('spinner')" ],
           :update => :results,
           :with   => 'prefix' %>
   </body>
