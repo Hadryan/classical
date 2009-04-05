@@ -4,25 +4,33 @@
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <title>Classical - Solists</title>
+	
   </head>
   <body>
     <h1>Solists</h1>
 
     <%= link_to "New", :new_solist %>
-
+    
+    <% form_tag  do -%>
+      Search:
+      <%= text_field_tag :search_field %>
+      <%= image_tag 'spinner.gif', :id => 'spinner', :style => 'display: none' %>
+    <% end -%>
+    
     <br>
-    <% @solists.each do | solist | %>
-      <p>
-        <%=h solist.id %>
-        <%=h solist.name %>
+      
+    <div id='results'>      
+    </div>
 
-        <%= link_to "Show", solist %>
-        <%= link_to "Edit", edit_solist_path(solist) %>
-        <%= link_to "Delete", solist, :confirm => 'Are you sure?', :method => :delete %>
-      </p>
-    <% end %>
     <br>
     <%= link_to "Home", :controller => :home %>
 
+    <%= observe_field 'search_field',
+          :url    => { :action => 'solist_completion' },
+          :frequency => 1,
+          :before => "Element.show('spinner')",
+          :complete => "Element.hide('spinner')",
+          :update => :results,
+          :with   => 'prefix' %>
   </body>
 </html>
