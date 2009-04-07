@@ -2,7 +2,7 @@ class SolistsController < ApplicationController
   before_filter :find_solist,  :only => [:show, :edit, :update, :destroy]
   
   def index
-    
+    @solists = Solist.find(:all)
   end
 
   def new
@@ -25,12 +25,12 @@ class SolistsController < ApplicationController
   def solist_completion
     prefix = params[:prefix]
 
-    @matches = Solist.find(:all, :conditions => ["name LIKE ?", "#{prefix}%"])
+    matches = Solist.find(:all, :conditions => ["name LIKE ?", "#{prefix}%"])
 
-    if @matches.empty?
+    if matches.empty?
       render :text => "No solists found."
     else
-      render :partial => 'result', :collection => @matches
+      render :partial => 'result', :collection => matches
     end
   end
 

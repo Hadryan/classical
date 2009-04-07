@@ -14,12 +14,14 @@
     <% form_tag  do -%>
       Search:
       <%= text_field_tag :search_field %>
+  
       <%= image_tag 'spinner.gif', :id => 'spinner', :style => 'display: none' %>
     <% end -%>
     
     <br>
       
-    <div id='results'>      
+    <div id='results'> 
+		<%=	render :partial => 'result'	, :collection => @solists %>
     </div>
 
     <br>
