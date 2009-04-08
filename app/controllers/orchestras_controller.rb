@@ -2,7 +2,7 @@ class OrchestrasController < ApplicationController
   before_filter :find_orchestra,  :only => [:show, :edit, :update, :destroy]
 
   def index
-    @orchestras = Orchestra.find(:all)
+    @orchestras = Orchestra.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
   end
 
   def new

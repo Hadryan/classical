@@ -2,7 +2,7 @@ class SolistsController < ApplicationController
   before_filter :find_solist,  :only => [:show, :edit, :update, :destroy]
   
   def index
-    @solists = Solist.find(:all)
+    @solists = Solist.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
   end
 
   def new

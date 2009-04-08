@@ -3,15 +3,15 @@ class CreateAlbums < ActiveRecord::Migration
     create_table :albums do |t|
       t.string :name
       t.references :composer
-      t.references :obraType
-      t.string :musicTone
+      t.references :obra_type
+      t.string :music_tone
       t.integer :number
-      t.string :opusNumber
+      t.string :opus_number
       t.string :instrument
       t.references :solist
       t.references :director
       t.references :orchestra
-      t.integer :cdNumber
+      t.integer :cd_number
 
       t.timestamps
     end

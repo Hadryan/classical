@@ -7,11 +7,15 @@
 
       <p>
         <%= f.label :composer %>
-        <%=  select("album", "composer_id", Composer.find(:all).collect {|p| [ p.name, p.id ] }, { :include_blank => true })%>
+        <%= text_field_with_auto_complete :album, :composer_name, { :size => 40 }, { :url => formatted_composers_path(:js), 
+											:method => :get, 
+											:with => "'search=' + element.value" } %>  
       </p>
       <p>
         <%= f.label :Obra_Type %>
-        <%=  select("album", "obraType_id", ObraType.find(:all).collect {|p| [ p.name, p.id ] }, { :include_blank => true })%>
+        <%= text_field_with_auto_complete :album, :obra_type_name, { :size => 40 }, { :url => formatted_obra_types_path(:js), 
+											:method => :get, 
+											:with => "'search=' + element.value" } %> 
       </p>
       <p>
         <%= f.label :name %>
@@ -19,7 +23,7 @@
       </p>
       <p>
         <%= f.label :music_tone %>
-        <%= f.text_field :musicTone %>
+        <%= f.text_field :music_tone %>
       </p>
       <p>
         <%= f.label :obra_number %>
@@ -27,7 +31,7 @@
       </p>
       <p>
         <%= f.label :opus_number %>
-        <%= f.text_field :opusNumber %>
+        <%= f.text_field :opus_number %>
       </p>
       <p>
         <%= f.label :instrument %>
@@ -35,19 +39,25 @@
       </p>
       <p>
         <%= f.label :solist %>
-        <%=  select("album", "solist_id", Solist.find(:all).collect {|p| [ p.name, p.id ] }, { :include_blank => true })%>
+        <%= text_field_with_auto_complete :album, :solist_name, { :size => 40 }, { :url => formatted_solists_path(:js), 
+											:method => :get, 
+											:with => "'search=' + element.value" } %>        
       </p>
       <p>
         <%= f.label :director %>
-        <%=  select("album", "director_id", Director.find(:all).collect {|p| [ p.name, p.id ] }, { :include_blank => true })%>
+        <%= text_field_with_auto_complete :album, :director_name, { :size => 40 }, { :url => formatted_directors_path(:js), 
+											:method => :get, 
+											:with => "'search=' + element.value" } %>
       </p>
       <p>
         <%= f.label :orchestra %>
-        <%=  select("album", "orchestra_id", Orchestra.find(:all).collect {|p| [ p.name, p.id ] }, { :include_blank => true })%>
+        <%= text_field_with_auto_complete :album, :orchestra_name, { :size => 40 }, { :url => formatted_orchestras_path(:js), 
+											:method => :get, 
+											:with => "'search=' + element.value" } %>
       </p>
       <p>
         <%= f.label :cd_number %>
-        <%= f.text_field :cdNumber %>
+        <%= f.text_field :cd_number %>
       </p>
       <p>
         <%= f.submit button_label %>

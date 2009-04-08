@@ -2,7 +2,7 @@ class DirectorsController < ApplicationController
   before_filter :find_director,  :only => [:show, :edit, :update, :destroy]
   
   def index
-    @directors = Director.find(:all)
+    @directors = Director.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
   end
 
   def new

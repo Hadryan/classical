@@ -2,28 +2,15 @@ class ComposersController < ApplicationController
   before_filter :find_composer,  :only => [:show, :edit, :update, :destroy]
   
   def index
-    @composers = Composer.find(:all)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml { render :xml => @composers }
-    end
+    @composers = Composer.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
   end
 
   def new
     @composer = Composer.new
-
-    respond_to do |format|
-      format.html # edit.html.erb
-      format.xml { render :xml }
-    end
   end
 
   def edit
-    respond_to do |format|
-      format.html # edit.html.erb
-      format.xml { render :xml }
-    end
+
   end
 
   def update
@@ -40,10 +27,7 @@ class ComposersController < ApplicationController
   end
 
   def show
-    respond_to do |format|
-      format.html # edit.html.erb
-      format.xml { render :xml => @composer}
-    end
+
   end
 
   def create

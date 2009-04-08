@@ -18,6 +18,10 @@
       <%= image_tag 'spinner.gif', :id => 'spinner', :style => 'display: none' %>
     <% end -%>
     
+	<%= text_field_with_auto_complete :solist, :name %>
+		
+	<div class="auto_complete" id="pick_a_language" ></div>
+	
     <br>
       
     <div id='results'> 

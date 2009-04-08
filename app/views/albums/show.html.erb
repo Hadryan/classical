@@ -9,11 +9,11 @@
     <h1>Album</h1>
     <p>
       <b>Composer:</b>
-      <%=h @album.composer.name %>
+      <%=h @album.composer.name if @album.composer %>
     </p>
     <p>
       <b>Obra Type:</b>
-      <%=h @album.obraType.name %>
+      <%=h @album.obra_type.name if @album.obra_type %>
     </p>
     <p>
       <b>Name:</b>
@@ -21,7 +21,7 @@
     </p>
     <p>
       <b>Music Tone:</b>
-      <%=h @album.musicTone %>
+      <%=h @album.music_tone %>
     </p>
     <p>
       <b>Obra Number:</b>
@@ -29,7 +29,7 @@
     </p>
     <p>
       <b>Opus Number:</b>
-      <%=h @album.opusNumber %>
+      <%=h @album.opus_number %>
     </p>
     <p>
       <b>Instrument:</b>
@@ -37,19 +37,19 @@
     </p>
     <p>
       <b>Solist:</b>
-      <%=h @album.solist.name %>
+      <%=h @album.solist.name if @album.solist %>
     </p>
     <p>
       <b>Director:</b>
-      <%=h @album.director.name %>
+      <%=h @album.director.name if @album.director %>
     </p>
     <p>
       <b>Orchestra:</b>
-      <%=h @album.orchestra.name %>
+      <%=h @album.orchestra.name if @album.orchestra %>
     </p>
     <p>
       <b>Cd Number:</b>
-      <%=h @album.cdNumber %>
+      <%=h @album.cd_number %>
     </p>
 
     <%= link_to 'Edit', edit_album_path(@album) %> |
