@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<%= stylesheet_link_tag "registration" , :media => "all" %>
+
+    <title>Classical</title>
+  </head>
+  <body>
+  	<div id="contenedor">
+	    <div id="head">
+	      <h1>Classical</h1>
+	    </div>
+		
+	    <div id="content">
+	    	<%= render(:partial => "formRegistration", :locals => {:user => @user})%>
+	    </div>
+		
+		<%= link_to 'Cancel', logins_path %>
+		
+		<div id="footer">
+			<p>Copyright 2009</p>
+		</div>
+	</div>
+  </body>
+</html>
