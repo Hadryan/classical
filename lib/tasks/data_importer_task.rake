@@ -25,10 +25,8 @@ def create_composser(composser)
     new_composser.name = composser_name(composser)
     
     if !Composer.find_by_name(new_composser.name)
-      puts "Posta! - " + new_composser.name
       new_composser.save
-    else
-      puts "ya existe! - " + new_composser.name
+      puts "New Composer - " + new_composser.name
     end
       
   end
