@@ -17,16 +17,11 @@
   
       <%= image_tag 'spinner.gif', :id => 'spinner', :style => 'display: none' %>
     <% end -%>
-
-	<div class="auto_complete" id="pick_a_language" ></div>
-	
-    <br>
       
     <div id='results'> 
 		<%=	render :partial => 'result'	, :collection => @solists %>
     </div>
 
-    <br>
     <%= link_to "Home", :controller => :home %>
 
     <%= observe_field 'search_field',

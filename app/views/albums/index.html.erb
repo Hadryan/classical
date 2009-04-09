@@ -1,24 +1,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
+
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <title>Classical - Albums</title>
   </head>
+
   <body>
+
     <h1>Albums</h1>
-    <%= link_to "New", :new_album %>
+    <%= link_to "New", :new_album  %>
+    
     <br>
-    <% @albums.each do | album | %>
-      <p>
-        <%=h album.name %>
-        
-        <%= link_to "Show", album %>
-        <%= link_to "Edit", edit_album_path(album) %>
-        <%= link_to "Delete", album, :confirm => 'Are you sure?', :method => :delete %>
-      </p>
-    <% end %>
-    <br>
+
+    <% form_tag  do -%>
+      Search:
+      <%= text_field_tag :search_field %>
+
+      <%= image_tag 'spinner.gif', :id => 'spinner', :style => 'display: none' %>
+    <% end -%>
+
+    <div id='results'>
+		<%=	render :partial => 'result'	, :collection => @albums %>
+    </div>
+
     <%= link_to "Home", :controller => :home %>
+
+    <%= observe_field 'search_field',
+          :url    => { :action => 'albums_completion' },
+          :frequency => 1,
+          :before => "Element.show('spinner')",
+          :complete => [ visual_effect(:highlight, :results), "Element.hide('spinner')" ],
+          :update => :results,
+          :with   => 'prefix' %>
   </body>
+
 </html>
