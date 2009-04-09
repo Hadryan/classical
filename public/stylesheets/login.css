@@ -1,0 +1,40 @@
+/* 
+    Document   : login
+    Created on : 07/04/2009, 23:45:01
+    Author     : alejandro.claveir
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#contenedor {
+  width: 50%;
+  font-family:"Arial";
+  background: blue;
+  margin: 0 auto;
+
+}
+
+.errorExplanation {
+    color:red;
+}
+
+#head {
+	color:white;
+	padding-left:5px;
+}
+
+#content {
+	background-color:white;
+	float: left;
+  	width: 700px;
+	margin: 0 auto;
+}
+
+#footer {
+	color:white;
+	clear: both;
+}
+
+#buttonLogin {
+	
+}
