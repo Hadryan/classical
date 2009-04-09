@@ -41,7 +41,7 @@ ActionController::Routing::Routes.draw do |map|
   # map.root :controller => "welcome"
 
   # See how all your routes lay out with "rake routes"
-  map.index 'index', :controller => "home", :action => "index"
+  map.index 'login', :controller => "login", :action => "login"
   map.root :index
     
   # Install the default routes as the lowest priority.

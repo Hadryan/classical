@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090329214114) do
+ActiveRecord::Schema.define(:version => 20090409020507) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20090329214114) do
   end
 
   create_table "composers", :force => true do |t|
-    t.string   "name",        :null => false
+    t.string   "name",        :default => "", :null => false
     t.string   "nationality"
     t.datetime "birthDate"
     t.datetime "deathDate"
@@ -56,6 +56,20 @@ ActiveRecord::Schema.define(:version => 20090329214114) do
 
   create_table "solists", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "secondName"
+    t.string   "userName"
+    t.string   "password"
+    t.string   "confirmPassword"
+    t.string   "email"
+    t.string   "gender"
+    t.datetime "birthday"
+    t.string   "urlImage"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
