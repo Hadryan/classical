@@ -5,6 +5,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :directors
   map.resources :orchestras
   map.resources :albums
+  map.resources :users
+  map.resources :logins
+  map.resources :registrations
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -41,7 +44,7 @@ ActionController::Routing::Routes.draw do |map|
   # map.root :controller => "welcome"
 
   # See how all your routes lay out with "rake routes"
-  map.index 'login', :controller => "login", :action => "login"
+  map.index 'logins', :controller => "logins", :action => "index"
   map.root :index
     
   # Install the default routes as the lowest priority.
