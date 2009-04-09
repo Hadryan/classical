@@ -6,7 +6,7 @@
         Purpose of the stylesheet follows.
 */
 
-#contenedor {
+#contenedorLogin {
   width: 50%;
   font-family:"Arial";
   background: blue;
@@ -18,19 +18,19 @@
     color:red;
 }
 
-#head {
+#headLogin {
 	color:white;
 	padding-left:5px;
 }
 
-#content {
+#contentLogin {
 	background-color:white;
 	float: left;
   	width: 700px;
 	margin: 0 auto;
 }
 
-#footer {
+#footerLogin {
 	color:white;
 	clear: both;
 }
