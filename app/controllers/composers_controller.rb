@@ -57,23 +57,15 @@ class ComposersController < ApplicationController
   end
 
   def composers_completion
-
     prefix = params[:prefix]
-
-    matches = Composer.find(:all, :conditions => ["name like ?", "#{prefix}%"])
+    matches = Composer.find(:all, :conditions => ["name like ?", "%#{prefix}%"])
 
     if matches.empty?
-
       render :text => "The search returns any results."
-
     else
-
       render :partial => 'result', :collection => matches
-
     end
-
   end
-
 
   private
   def find_composer
