@@ -2,7 +2,7 @@ class ComposersController < ApplicationController
   before_filter :find_composer,  :only => [:show, :edit, :update, :destroy]
   
   def index
-    @composers = Composer.find(:all) #, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
+    @composers = Composer.find(:all , :conditions => ['name LIKE ?', "%#{params[:search]}%"])
   end
 
   def new

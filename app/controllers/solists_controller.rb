@@ -15,13 +15,6 @@ class SolistsController < ApplicationController
   def show
   end
 
-  def myresponse    
-  end
-  
-  def get_time    
-    render :text => Time.now
-  end
-
   def solist_completion
     prefix = params[:prefix]
 

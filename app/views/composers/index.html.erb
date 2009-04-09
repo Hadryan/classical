@@ -17,7 +17,7 @@
 	<% end -%>
 	
     <div id='results'>
-        <% render :partial => 'result', :collection => Composer.find(:all) %>
+        <%= render :partial => 'result', :collection => @composers %>
     </div>	
     <br>
     <%= link_to "Home", :controller => :home %>
