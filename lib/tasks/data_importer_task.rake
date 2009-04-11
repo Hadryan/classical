@@ -1,9 +1,13 @@
 require 'csv'
-require 'generator'
 
 namespace :importer do
   desc "Import initial data"
   task(:data => :environment) do
+
+  end
+  
+  desc "Only import Composers"
+  task(:composer => :environment) do
     if File.exists?("#{RAILS_ROOT}/db/data/data.csv")
       CSV.open("#{RAILS_ROOT}/db/data/data.csv", 'r') do |row|
         albumName,composser,director,
@@ -27,8 +31,7 @@ def create_composser(composser)
     if !Composer.find_by_name(new_composser.name)
       new_composser.save
       puts "New Composer - " + new_composser.name
-    end
-      
+    end      
   end
 end
 
