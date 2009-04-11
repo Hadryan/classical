@@ -1,8 +1,14 @@
 <p>
-  <%=h result.id %>
-  <%=h result.name %>
-
-  <%= link_to "Show", result %>
-  <%= link_to "Edit", edit_solist_path(result) %>
-  <%= link_to "Delete", result, :confirm => 'Are you sure?', :method => :delete %>
+	<div id='data'>
+		<%=h result.name %>	
+	</div>
+  
+	<div id='controls'>
+		<%= link_to "Show", result %>
+		<%= link_to "Edit", edit_solist_path(result) %>
+		<%= link_to "Delete", result, :confirm => 'Are you sure?', :method => :delete %>	
+	</div>  
 </p>
+
+<br>
+

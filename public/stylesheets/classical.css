@@ -34,6 +34,15 @@
 	clear: both;
 }
 
+#data {
+	float:left;
+	width:50%;
+}
+
+#controls {
+	float:left;
+}
+
 .classical_form{
 	background-color:white;
 	padding:10px;

@@ -2,7 +2,7 @@ class ObraTypesController < ApplicationController
   before_filter :find_obra_type,  :only => [:show, :edit, :update, :destroy]
   
   def index
-    @obraTypes = ObraType.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
+    @obraTypes = ObraType.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"], :order => :name)
   end
 
   def new
