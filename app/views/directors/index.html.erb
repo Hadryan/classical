@@ -10,16 +10,10 @@
 
     <%= link_to "New", :new_director %>
 
-    <br>
-    <% @directors.each do | director | %>
-      <p>
-        <%=h director.name %>
+    <div id='results'>
+        <%= render :partial => 'result', :collection => @directors %>
+    </div>	
 
-        <%= link_to "Show", director %>
-        <%= link_to "Edit", edit_director_path(director) %>
-        <%= link_to "Delete", director, :confirm => 'Are you sure?', :method => :delete %>
-      </p>
-    <% end %>
     <br>
     <%= link_to "Home", :controller => :home %>
 

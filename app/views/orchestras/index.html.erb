@@ -10,16 +10,10 @@
 
     <%= link_to "New", :new_orchestra %>
 
-    <br>
-    <% @orchestras.each do | orchestra | %>
-      <p>
-        <%=h orchestra.name %>
-
-        <%= link_to "Show", orchestra %>
-        <%= link_to "Edit", edit_orchestra_path(orchestra) %>
-        <%= link_to "Delete", orchestra, :confirm => 'Are you sure?', :method => :delete %>
-      </p>
-    <% end %>
+    <div id='results'>
+        <%= render :partial => 'result', :collection => @orchestras %>
+    </div>	
+	
     <br>
     <%= link_to "Home", :controller => :home %>
 

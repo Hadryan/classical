@@ -10,16 +10,10 @@
 
     <%= link_to "New", :new_obra_type %>
 
-    <br>
-    <% @obraTypes.each do | obraType | %>
-      <p>
-        <%=h obraType.name %>
-
-        <%= link_to "Show", obraType %>
-        <%= link_to "Edit", edit_obra_type_path(obraType) %>
-        <%= link_to "Delete", obraType, :confirm => 'Are you sure?', :method => :delete %>
-      </p>
-    <% end %>
+    <div id='results'>
+        <%= render :partial => 'result', :collection => @obra_types %>
+    </div>
+		
     <br>
     <%= link_to "Home", :controller => :home %>
 

@@ -2,11 +2,11 @@ class ObraTypesController < ApplicationController
   before_filter :find_obra_type,  :only => [:show, :edit, :update, :destroy]
   
   def index
-    @obraTypes = ObraType.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"], :order => :name)
+    @obra_types = ObraType.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"], :order => :name)
   end
 
   def new
-    @obraType = ObraType.new
+    @obra_type = ObraType.new
   end
 
   def edit
@@ -16,17 +16,17 @@ class ObraTypesController < ApplicationController
   end
 
   def create
-    @obraType = ObraType.new(params[:obra_type])
+    @obra_type = ObraType.new(params[:obra_type])
 
     respond_to do |format|
-      if @obraType.save
+      if @obra_type.save
         flash[:notice] = 'ObraType was successfully created.'
-        format.html { redirect_to(@obraType) }
-        format.xml  { render :xml => @obraType, :status => :created,
-                    :location => @obraType }
+        format.html { redirect_to(@obra_type) }
+        format.xml  { render :xml => @obra_type, :status => :created,
+                    :location => @obra_type }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @obraType.errors,
+        format.xml  { render :xml => @obra_type.errors,
                     :status => :unprocessable_entity }
       end
     end
@@ -34,19 +34,19 @@ class ObraTypesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @obraType.update_attributes(params[:obra_type])
+      if @obra_type.update_attributes(params[:obra_type])
         flash[:notice] = 'ObraType was successfully updated.'
-        format.html { redirect_to(@obraType) }
+        format.html { redirect_to(@obra_type) }
         format.xml { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml { render :xml => @obraType.errors,  :status => :unprocessable_entity }
+        format.xml { render :xml => @obra_type.errors,  :status => :unprocessable_entity }
       end
     end
   end
 
   def destroy
-    @obraType.destroy
+    @obra_type.destroy
 
      respond_to do |format|
        format.html { redirect_to(obra_types_url) }
@@ -56,6 +56,6 @@ class ObraTypesController < ApplicationController
 
   private
     def find_obra_type
-      @obraType = ObraType.find(params[:id])
+      @obra_type = ObraType.find(params[:id])
     end
 end
