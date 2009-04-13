@@ -1,3 +1,7 @@
+require 'rubygems'
+require 'hpricot'
+require 'open-uri'
+
 class ComposersController < ApplicationController
   before_filter :find_composer,  :only => [:show, :edit, :update, :destroy]
   
@@ -27,7 +31,16 @@ class ComposersController < ApplicationController
   end
 
   def show
-
+      data = ''          
+    
+    begin    
+      data = Hpricot(open('http://en.wikipedia.org/w/index.php?action=render&title=' + @composer.name.sub(' ', '_') ))
+      data.search("//img[@src='/skins-1.5/common/images/magnify-clip.png']").remove
+    rescue
+      data = "Data Composer Not Found."      
+    end
+    
+    @title = data
   end
 
   def create
