@@ -3,7 +3,7 @@ require 'hpricot'
 require 'open-uri'
 
 class ComposersController < ApplicationController
-  before_filter :find_composer,  :only => [:show, :edit, :update, :destroy]
+  before_filter :find_composer,  :only => [:show, :edit, :update, :destroy, :wiki_data ]
   
   def index
     @composers = Composer.find(:all , :conditions => ['name LIKE ?', "%#{params[:search]}%"], :order => :name)
@@ -31,16 +31,23 @@ class ComposersController < ApplicationController
   end
 
   def show
-      data = ''          
     
+  end
+  
+  def wiki_data
+    data = ''          
+      
     begin    
       data = Hpricot(open('http://en.wikipedia.org/w/index.php?action=render&title=' + @composer.name.sub(' ', '_') ))
       data.search("//img[@src='/skins-1.5/common/images/magnify-clip.png']").remove
+      data.search("//span[@class='editsection']").remove
     rescue
       data = "Data Composer Not Found."      
     end
     
     @title = data
+    
+    render :text => data
   end
 
   def create

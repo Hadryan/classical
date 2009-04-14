@@ -1,10 +1,3 @@
-require 'rubygems'
-require 'hpricot'
-require 'open-uri'
-require 'net/http'
-require 'yaml'
-require 'uri'
-
 class OrchestrasController < ApplicationController
   before_filter :find_orchestra,  :only => [:show, :edit, :update, :destroy]
 
@@ -20,8 +13,6 @@ class OrchestrasController < ApplicationController
   end
 
   def show
-    doc = Hpricot(open('http://en.wikipedia.org/w/index.php?action=render&title=beethoven' ))
-    @title = doc
   end
 
   def create

@@ -21,10 +21,13 @@
     </p>
 
     <%= link_to 'Edit', edit_composer_path(@composer) %> |
-    <%= link_to 'Back', composers_path %>
+    <%= link_to 'Back', composers_path %> | 
 	
-	<p>
-      	<%= @title %>
-    </p>
+	<%= link_to_remote 'Get More info from Wikipedia',
+						:url => { :action => "wiki_data", :id => @composer.id },
+						:update => :wiki_content %>
+	
+	<div id='wiki_content'>
+    </div>
   </body>
 </html>
