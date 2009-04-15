@@ -10,12 +10,30 @@
 
     <%= link_to "New", :new_director %>
 
+    <% form_tag do -%>
+      <p>
+        Search:
+           <%= text_field_tag :search_field %>
+
+           <%= image_tag 'spinner.gif', :id => 'spinner', :style => 'display: none' %>
+      </p>
+    <%end%>
+
     <div id='results'>
         <%= render :partial => 'result', :collection => @directors %>
     </div>	
 
     <br>
     <%= link_to "Home", :controller => :home %>
+
+	<%= observe_field 'search_field',
+              :url            => {:action => 'directors_completion'},
+	          :frequency      => 1,
+	          :before         => "Element.show('spinner')",
+	          :complete       => [ visual_effect(:highlight, :results), "Element.hide('spinner')"],
+	          :update         => :results,
+	          :with           => 'prefix' %>
+
 
   </body>
 </html>

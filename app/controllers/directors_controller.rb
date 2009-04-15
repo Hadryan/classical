@@ -54,6 +54,19 @@ class DirectorsController < ApplicationController
      end
   end
 
+  def directors_completion
+    prefix = params[:prefix]
+
+    matches = Director.find(:all, :conditions => ["name like ?", "%#{prefix}%"], :order => :name)
+
+    if matches.empty?
+      render :text => "The serch returns any results"
+    else
+      render :partial => 'result', :collection => matches
+    end
+
+  end
+
   private
     def find_director
       @director = Director.find(params[:id])

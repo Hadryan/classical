@@ -54,6 +54,19 @@ class OrchestrasController < ApplicationController
      end
   end
 
+  def orchestra_completion
+
+    prefix = params[:prefix]
+    matches = Orchestra.find(:all, :conditions => ["name like ?", "%#{prefix}%"], :order => :name)
+
+    if matches.empty?
+      render :text => "The serch returns any result"
+    else
+      render :partial => 'result', :collection => matches
+    end
+
+  end
+
   private
     def find_orchestra
       @orchestra = Orchestra.find(params[:id])

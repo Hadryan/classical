@@ -54,6 +54,19 @@ class ObraTypesController < ApplicationController
      end
   end
 
+
+  def obra_completion
+
+   prefix = params[:prefix]
+   matches = ObraType.find(:all, :conditions => ["name like ?", "%#{prefix}%"], :order => :name)
+
+   if matches.empty?
+     render :text => "The search returns any results."
+   else
+     render :partial => 'result', :collection => matches
+   end
+  end
+
   private
     def find_obra_type
       @obra_type = ObraType.find(params[:id])
