@@ -18,7 +18,7 @@ ul#menu li {
 	display:block; 
 	height:38px; 
 	line-height:38px; 
-	padding:0 20px 0 0; 
+	padding:0 10px 0 0; 
 	float:left; 
 	background: url(/images/menu/tab_a.gif) no-repeat right top #676770; 
 	color:black;
@@ -29,7 +29,7 @@ ul#menu li {
 	display:block; 
 	height:38px; 
 	float:left; 
-	padding:0 0 0 20px; 
+	padding:0 0 0 10px; 
 	background: url(/images/menu/tab_b.gif) left top; 
 	cursor:pointer;
 }
@@ -41,7 +41,7 @@ ul#menu li {
 .solist #menu li#solist a,
 .director #menu li#director a,
 .orchestra #menu li#orchestra a,
-.support #menu li#support a,
+.instrument #menu li#instrument a,
 .contact #menu li#contact a {
 	background-position:right -51px; 
 	margin-top:-2px; 
@@ -55,7 +55,7 @@ ul#menu li {
 .solist #menu li#solist a b,
 .director #menu li#director a b,
 .orchestra #menu li#orchestra a b,
-.support #menu li#support a b,
+.instrument #menu li#instrument a b,
 .contact #menu li#contact a b { 
 	background-position:left -51px; 
 	height:40px;

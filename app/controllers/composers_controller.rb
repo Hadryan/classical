@@ -88,7 +88,7 @@ class ComposersController < ApplicationController
   end
 
   private
-  def find_composer
-    @composer = Composer.find(params[:id])
-  end
+    def find_composer
+      @composer = Composer.find(params[:id])
+    end
 end

@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :instruments
+
   map.resources :composers
   map.resources :obra_types
   map.resources :solists

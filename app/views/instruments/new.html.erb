@@ -3,17 +3,9 @@
 <html>
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <title>Classical - Director</title>
+    <title>Classical</title>
   </head>
   <body>
-    <h1>Director</h1>    
-
-    <p>
-      <b>Name:</b>
-      <%=h @director.name %>
-    </p>
-
-    <%= link_to 'Edit', edit_director_path(@director) %> |
-    <%= link_to 'Back', directors_path %>
+    <%= render :partial => "form", :locals => { :button_label => "Create", :instrument => @instrument } %>
   </body>
 </html>

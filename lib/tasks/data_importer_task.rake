@@ -4,8 +4,14 @@ FILE_NAME = "#{RAILS_ROOT}/db/data/data.csv"
 
 namespace :importer do
   desc "Import initial data"
-  task(:data => :environment) do
+  task(:all => :environment) do
+    tasks = [ 'director', 
+              'obra_type',
+              'composer',
+              'orchestra',
+              'solist' ]
 
+    tasks.each {|task| Rake::Task['importer:' + task].execute }    
   end
 
   desc "Only import Directors"

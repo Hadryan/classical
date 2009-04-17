@@ -33,10 +33,15 @@
                 <li id="orchestra">
 	           <%= link_to "<b>Orchestras</b>", orchestras_path %>
 	        </li>
+			</li>
+            <li id="instrument">
+	           <%= link_to "<b>Instruments</b>", instruments_path %>
+	        </li>
 	      </ul>
 		  
 	    </div>
 	    <div id="content">
+	    	<p style="color: green"><%= flash[:notice] %></p>
 	    	<%= yield(:content) or yield %>
 	    </div>
 		<div id="footer">

@@ -4,6 +4,7 @@ class Album < ActiveRecord::Base
   belongs_to :solist
   belongs_to :director
   belongs_to :orchestra
+  belongs_to :instrument
   
   def composer_name
     composer.name if composer
@@ -43,5 +44,13 @@ class Album < ActiveRecord::Base
   
   def solist_name=(name)
     self.solist = Solist.find_or_create_by_name(name) unless name.blank?
+  end
+  
+  def instrument_name
+    instrument.name if instrument
+  end
+    
+  def instrument_name=(name)
+    self.instrument = Instrument.find_or_create_by_name(name) unless name.blank?
   end
 end
