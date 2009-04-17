@@ -3,6 +3,13 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
+  before_filter :set_locale
+  
+  def set_locale
+    # if this is nil then I18n.default_locale will be used
+    I18n.locale = 'es-AR' 
+  end
+
   #protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   # Scrub sensitive parameters from your log
