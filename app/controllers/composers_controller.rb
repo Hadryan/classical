@@ -6,7 +6,7 @@ class ComposersController < ApplicationController
   before_filter :find_composer,  :only => [:show, :edit, :update, :destroy, :wiki_data ]
   
   def index
-    @composers = Composer.find(:all , :conditions => ['name LIKE ?', "%#{params[:search]}%"], :order => :name)
+    @composers = Composer.find_by_name_like params[:search]
   end
 
   def new
@@ -38,7 +38,7 @@ class ComposersController < ApplicationController
     data = ''          
       
     begin    
-      data = Hpricot(open('http://en.wikipedia.org/w/index.php?action=render&title=' + @composer.name.sub(' ', '_') ))
+      data = Hpricot(open('http://en.wikipedia.org/w/index.php?action=render&title=' + @composer.wiki_name ))
       data.search("//img[@src='/skins-1.5/common/images/magnify-clip.png']").remove
       data.search("//span[@class='editsection']").remove
     rescue
@@ -77,8 +77,7 @@ class ComposersController < ApplicationController
   end
 
   def composers_completion
-    prefix = params[:prefix]
-    matches = Composer.find(:all, :conditions => ["name like ?", "%#{prefix}%"], :order => :name)
+    matches = Composer.find_by_name_like params[:prefix]
 
     if matches.empty?
       render :text => "The search returns any results."

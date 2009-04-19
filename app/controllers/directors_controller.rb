@@ -2,7 +2,7 @@ class DirectorsController < ApplicationController
   before_filter :find_director,  :only => [:show, :edit, :update, :destroy]
   
   def index
-    @directors = Director.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"], :order => :name)
+    @directors = Director.find_by_name_like params[:search]
   end
 
   def new
@@ -55,9 +55,7 @@ class DirectorsController < ApplicationController
   end
 
   def directors_completion
-    prefix = params[:prefix]
-
-    matches = Director.find(:all, :conditions => ["name like ?", "%#{prefix}%"], :order => :name)
+    matches = Director.find_by_name_like params[:prefix]
 
     if matches.empty?
       render :text => "The serch returns any results"

@@ -35,7 +35,9 @@
       </p>
       <p>
         <%= f.label :instrument %>
-        <%= f.text_field :instrument %>
+        <%= text_field_with_auto_complete :instruments, :instruments_name, { :size => 40 }, { :url => formatted_instruments_path(:js), 
+											:method => :get, 
+											:with => "'search=' + element.value" } %> 
       </p>
       <p>
         <%= f.label :solist %>

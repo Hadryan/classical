@@ -11,8 +11,7 @@
 
     <p>
       <b>Name:</b>
-      <%=h @composer.name %>
-	  <%=h' (' + @composer.birthDate.year.to_s + '-' + @composer.deathDate.year.to_s + ')' if @composer.birthDate && @composer.deathDate %>
+      <%=h @composer.full_name %>
     </p>
 
     <p>

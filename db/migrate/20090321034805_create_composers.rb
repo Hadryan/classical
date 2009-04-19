@@ -1,10 +1,10 @@
 class CreateComposers < ActiveRecord::Migration
   def self.up
     create_table :composers do |t|
-      t.string :name, :null => false
+      t.string :name
       t.string :nationality
-      t.datetime :birthDate
-      t.datetime :deathDate
+      t.date :birthDate
+      t.date :deathDate
 
       t.timestamps
     end

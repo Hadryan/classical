@@ -1,10 +1,9 @@
 <p>
 	<div id='data'>
-		<%=h result.name %>	
+		<%= link_to result.full_name, result, :id => 'link_to_data'  %>	
 	</div>
   
 	<div id='controls'>
-		<%= link_to "Show", result %>
 		<%= link_to "Edit", edit_composer_path(result) %>
 		<%= link_to "Delete", result, :confirm => 'Are you sure?', :method => :delete %>	
 	</div>  

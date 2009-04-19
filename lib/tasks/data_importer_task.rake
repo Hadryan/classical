@@ -44,15 +44,30 @@ namespace :importer do
     end
   end
   
-  desc "Only import Composers"
-  task(:composer => :environment) do
+  desc "Only import Instruments"
+  task(:instrument => :environment) do
     if File.exists?(FILE_NAME)
       CSV.open(FILE_NAME, 'r') do |row|
         albumName,composser,director,
         orchestra,solist,instrument,obraType,
         musicTone,obraNumber,opusNumber,cDNumber = row
 
-        create_composser(composser)
+        create_instrument(instrument)       
+      end
+    else
+      puts "#{FILE_NAME} doesn't exist."
+    end
+  end
+  
+  desc "Only import Composers"
+  task(:composer => :environment) do
+    if File.exists?(FILE_NAME)
+      CSV.open(FILE_NAME, 'r') do |row|
+        albumName,composer,director,
+        orchestra,solist,instrument,obraType,
+        musicTone,obraNumber,opusNumber,cDNumber = row
+
+        create_composer(composer)
        
       end
     else
@@ -120,18 +135,6 @@ def create_solist(value)
   end
 end
 
-def create_composser(composser)
-  unless composser.nil?
-    new_composser = Composer.new
-    new_composser.name = composser_name(composser)
-    
-    unless Composer.find_by_name(new_composser.name)
-      new_composser.save
-      puts "New Composer - " + new_composser.name
-    end      
-  end
-end
-
 def create_director(name)
   unless name.nil?
     new_director = Director.new
@@ -187,6 +190,21 @@ def create_obra_type(value)
   end
 end
 
+def create_instrument(value)
+  unless value.nil?
+    new_instrument = Instrument.new
+    
+    new_instrument.name = String.new
+    
+    gen(value.strip) {|a| new_instrument.name << a if !a.nil?}
+    
+    unless Instrument.find_by_name(new_instrument.name)
+      new_instrument.save
+      puts "New ObraType - " + new_instrument.name
+    end      
+  end
+end
+
 def create_orchestra(value)
   unless value.nil?
     new_orchestra = Orchestra.new
@@ -202,14 +220,18 @@ def create_orchestra(value)
   end
 end
 
-def create_composser(composser)
-  unless composser.nil?
-    new_composser = Composer.new
-    new_composser.name = composser_name(composser)
+def create_composer(composer)
+  unless composer.nil?
+    new_composer = Composer.new
     
-    unless Composer.find_by_name(new_composser.name)
-      new_composser.save
-      puts "New Composer - " + new_composser.name
+    names = composer_name(composer)
+    
+    new_composer.first_name = names.first.strip
+    new_composer.last_name = names.last.strip
+    
+    if Composer.find_by_full_name(new_composer.full_name).empty?
+      new_composer.save
+      puts "New Composer - " + new_composer.full_name
     end      
   end
 end
@@ -254,12 +276,6 @@ def extract_name(value)
   return ''
 end
 
-def composser_name(composser)
-  name = composser.split('-')[0] unless composser.nil?
-
-  extract_name(name)
-end
-
 def gen(collection)
   collection.each(' ') { | s | yield s.capitalize! if !s.nil? } 
 end
@@ -271,10 +287,23 @@ def ano(value)
   return ano
 end
 
-def composser_name(composser)
-  name = composser.split('-')[0] unless composser.nil?
+def composer_name(composer)
+  name = composer.split('-', 2).first.strip unless composer.nil?
 
-  extract_name(name)
+  surname, name = name.split(",")
+    
+  name = "" if name.nil?
+  surname = "" if surname.nil?  
+
+  name.strip!
+  surname.strip!
+  name_temp = String.new
+  surname_temp = String.new
+  
+  gen(name) {|a| name_temp << a if !a.nil?}
+  gen(surname) {|a| surname_temp << a if !a.nil?}
+
+  [name_temp, surname_temp]
 end
 
 def gen(collection)

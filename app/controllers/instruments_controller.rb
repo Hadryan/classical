@@ -4,32 +4,15 @@ class InstrumentsController < ApplicationController
   # GET /instruments
   # GET /instruments.xml
   def index
-    @instruments = Instrument.find(:all , :conditions => ['name LIKE ?', "%#{params[:search]}%"], :order => :name)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @instruments }
-    end
+    @instruments = Instrument.find_by_name_like params[:search]
   end
 
-  # GET /instruments/1
-  # GET /instruments/1.xml
   def show
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @instrument }
-    end
+
   end
 
-  # GET /instruments/new
-  # GET /instruments/new.xml
   def new
     @instrument = Instrument.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @instrument }
-    end
   end
 
   # GET /instruments/1/edit
@@ -81,8 +64,7 @@ class InstrumentsController < ApplicationController
   end
   
   def instruments_completion
-    prefix = params[:prefix]
-    matches = Instrument.find(:all, :conditions => ["name like ?", "%#{prefix}%"], :order => :name)
+    matches = Instrument.find_by_name_like params[:prefix]
 
     if matches.empty?
       render :text => "The search returns any results."

@@ -2,7 +2,7 @@ class OrchestrasController < ApplicationController
   before_filter :find_orchestra,  :only => [:show, :edit, :update, :destroy]
 
   def index
-    @orchestras = Orchestra.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"], :order => :name)
+    @orchestras = Orchestra.find_by_name_like params[:search]
   end
 
   def new
@@ -55,9 +55,7 @@ class OrchestrasController < ApplicationController
   end
 
   def orchestra_completion
-
-    prefix = params[:prefix]
-    matches = Orchestra.find(:all, :conditions => ["name like ?", "%#{prefix}%"], :order => :name)
+    matches = Orchestra.find_by_name_like params[:prefix]
 
     if matches.empty?
       render :text => "The serch returns any result"

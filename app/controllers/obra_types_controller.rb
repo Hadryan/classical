@@ -2,7 +2,7 @@ class ObraTypesController < ApplicationController
   before_filter :find_obra_type,  :only => [:show, :edit, :update, :destroy]
   
   def index
-    @obra_types = ObraType.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"], :order => :name)
+    @obra_types = ObraType.find_by_name_like params[:search]
   end
 
   def new
@@ -56,15 +56,13 @@ class ObraTypesController < ApplicationController
 
 
   def obra_completion
-
-   prefix = params[:prefix]
-   matches = ObraType.find(:all, :conditions => ["name like ?", "%#{prefix}%"], :order => :name)
-
-   if matches.empty?
-     render :text => "The search returns any results."
-   else
-     render :partial => 'result', :collection => matches
-   end
+     matches = ObraType.find_by_name_like params[:prefix] 
+    
+     if matches.empty?
+       render :text => "The search returns any results."
+     else
+       render :partial => 'result', :collection => matches
+     end
   end
 
   private

@@ -4,8 +4,8 @@ class Album < ActiveRecord::Base
   belongs_to :solist
   belongs_to :director
   belongs_to :orchestra
-  belongs_to :instrument
-  
+  has_and_belongs_to_many :instruments
+    
   def composer_name
     composer.name if composer
   end
@@ -20,6 +20,14 @@ class Album < ActiveRecord::Base
   
   def obra_type_name=(name)
     self.obra_type = ObraType.find_or_create_by_name(name) unless name.blank?
+  end
+  
+  def instruments_name
+    instruments[0].name if instruments
+  end
+  
+  def instruments_name=(name)
+    self.instruments << Instrument.find_or_create_by_name(name) unless name.blank?
   end
   
   def director_name
@@ -46,11 +54,5 @@ class Album < ActiveRecord::Base
     self.solist = Solist.find_or_create_by_name(name) unless name.blank?
   end
   
-  def instrument_name
-    instrument.name if instrument
-  end
-    
-  def instrument_name=(name)
-    self.instrument = Instrument.find_or_create_by_name(name) unless name.blank?
-  end
+  
 end

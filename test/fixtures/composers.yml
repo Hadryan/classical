@@ -1,7 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+one:
+    last_name: Saenz
+    first_name: Fernando
+
+two:
+    first_name: Fernando
+    last_name: Doo
