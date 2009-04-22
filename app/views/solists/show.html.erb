@@ -1,24 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-  <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <title>Classical - Solist</title>
-  </head>
-  <body>
-    <h1>Solist</h1>    
-	
-	<p>
-		<b>Id:</b>
-		<%=h @solist.id %>
-	</p>
+<h1>Solist</h1>    
 
-    <p>
-      <b>Name:</b>
-      <%=h @solist.name %>
-    </p>
+<p>
+	<b>Id:</b>
+	<%=h @solist.id %>
+</p>
 
-    <%= link_to 'Edit', edit_solist_path(@solist) %> |
-    <%= link_to 'Back', solists_path %>
-  </body>
-</html>
+<p>
+  <b>Name:</b>
+  <%=h @solist.name %>
+</p>
+
+<%= link_to 'Edit', edit_solist_path(@solist) %> |
+<%= link_to 'Back', solists_path %>
+

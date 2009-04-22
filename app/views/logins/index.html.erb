@@ -1,43 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-  <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<%= stylesheet_link_tag "login" , :media => "all" %>
+<div id="contenedorLogin">
+  <div id="headLogin">
+    <h1>Classical</h1>
+  </div>
 
-    <title>Classical</title>
-  </head>
-  <body>
-  	<div id="contenedorLogin">
-	    <div id="headLogin">
-	      <h1>Classical</h1>
-	    </div>
-		
-	    <div id="contentLogin">
-	    	<form action="logins/loginUser" method="post" accept-charset="utf-8">
-				<p>
-		    		<div style="float: left; width: 100px">Username:</div>
-					<div style="float: left;"><input type="text" name="username" id="username" size="30"/></div>
-				</p>
-				<br />
-				<p>
-					<div style="float: left; width: 100px">Password:</div>
-					<div style="float: left;"><input type="text" name="password" id="password" size="30" /></div>
-				</p>
-				<br />
-				<p>
-				<div id="buttonLogin" al>
-					<input type="submit" value="Login" />
-				</div>
-				</p>
-			</form>
-			
-			<%= link_to "Registrate puto...", registrations_path %>
-	    </div>
-		
-		<div id="footerLogin">
-			<p>Copyright 2009</p>
-		</div>
-	</div>
-  </body>
-</html>
+  <div id="contentLogin">
+		<form action="logins/loginUser" method="post" accept-charset="utf-8">
+			<p>
+		  		<div style="float: left; width: 100px">Username:</div>
+				<div style="float: left;"><input type="text" name="username" id="username" size="30"/></div>
+			</p>
+			<br>
+			<p>
+				<div style="float: left; width: 100px">Password:</div>
+				<div style="float: left;"><input type="text" name="password" id="password" size="30" /></div>
+			</p>
+			<br>
+			<p>
+				<div id="buttonLogin" al>	<input type="submit" value="Login" /></div>
+			</p>
+		</form>	
+		<%= link_to "Registrate puto...", registrations_path %>
+  </div>
+<div id="footerLogin">
+	<p>Copyright 2009</p>
+</div>

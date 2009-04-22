@@ -9,7 +9,8 @@ namespace :importer do
               'obra_type',
               'composer',
               'orchestra',
-              'solist' ]
+              'solist',
+              'instrument']
 
     tasks.each {|task| Rake::Task['importer:' + task].execute }    
   end

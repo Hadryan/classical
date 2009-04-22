@@ -1,24 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-  <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <title>Classical - Obra Type</title>
-  </head>
-  <body>
-    <h1>Obra Type</h1>    
-	
-	<p>
-		<b>Id:</b>
-		<%=h @obra_type.id %>
-	</p>
+<h1>Obra Type</h1>    
 
-    <p>
-      <b>Name:</b>
-      <%=h @obra_type.name %>
-    </p>
+<p>
+	<b>Id:</b>
+	<%=h @obra_type.id %>
+</p>
 
-    <%= link_to 'Edit', edit_obra_type_path(@obra_type) %> |
-    <%= link_to 'Back', obra_types_path %>
-  </body>
-</html>
+<p>
+  <b>Name:</b>
+  <%=h @obra_type.name %>
+</p>
+
+<%= link_to 'Edit', edit_obra_type_path(@obra_type) %> |
+<%= link_to 'Back', obra_types_path %>
+

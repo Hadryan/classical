@@ -45,8 +45,6 @@ class ComposersController < ApplicationController
       data = "Data Composer Not Found."      
     end
     
-    @title = data
-    
     render :text => data
   end
 

@@ -1,58 +1,48 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-  <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <title>Classical - Album</title>
-  </head>
-  <body>
-    <h1>Album</h1>
-    <p>
-      <b>Composer:</b>
-      <%=h @album.composer.name if @album.composer %>
-    </p>
-    <p>
-      <b>Obra Type:</b>
-      <%=h @album.obra_type.name if @album.obra_type %>
-    </p>
-    <p>
-      <b>Name:</b>
-      <%=h @album.name %>
-    </p>
-    <p>
-      <b>Music Tone:</b>
-      <%=h @album.music_tone %>
-    </p>
-    <p>
-      <b>Obra Number:</b>
-      <%=h @album.number %>
-    </p>
-    <p>
-      <b>Opus Number:</b>
-      <%=h @album.opus_number %>
-    </p>
-    <p>
-      <b>Instrument:</b>
-      <%=h @album.instruments %>
-    </p>
-    <p>
-      <b>Solist:</b>
-      <%=h @album.solist.name if @album.solist %>
-    </p>
-    <p>
-      <b>Director:</b>
-      <%=h @album.director.name if @album.director %>
-    </p>
-    <p>
-      <b>Orchestra:</b>
-      <%=h @album.orchestra.name if @album.orchestra %>
-    </p>
-    <p>
-      <b>Cd Number:</b>
-      <%=h @album.cd_number %>
-    </p>
+<h1>Album</h1>
+<p>
+  <b>Composer:</b>
+  <%=h @album.composer.name if @album.composer %>
+</p>
+<p>
+  <b>Obra Type:</b>
+  <%=h @album.obra_type.name if @album.obra_type %>
+</p>
+<p>
+  <b>Name:</b>
+  <%=h @album.name %>
+</p>
+<p>
+  <b>Music Tone:</b>
+  <%=h @album.music_tone %>
+</p>
+<p>
+  <b>Obra Number:</b>
+  <%=h @album.number %>
+</p>
+<p>
+  <b>Opus Number:</b>
+  <%=h @album.opus_number %>
+</p>
+<p>
+  <b>Instrument:</b>
+  <%=h @album.instruments %>
+</p>
+<p>
+  <b>Solist:</b>
+  <%=h @album.solist.name if @album.solist %>
+</p>
+<p>
+  <b>Director:</b>
+  <%=h @album.director.name if @album.director %>
+</p>
+<p>
+  <b>Orchestra:</b>
+  <%=h @album.orchestra.name if @album.orchestra %>
+</p>
+<p>
+  <b>Cd Number:</b>
+  <%=h @album.cd_number %>
+</p>
 
-    <%= link_to 'Edit', edit_album_path(@album) %> |
-    <%= link_to 'Back', albums_path %>
-  </body>
-</html>
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to 'Back', albums_path %>

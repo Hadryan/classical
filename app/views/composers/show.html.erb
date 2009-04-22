@@ -1,32 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-  <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <title>Classical - Composers</title>
-  </head>
-  <body>
-    <h1>Composer</h1>
-    
+<h1><%=h @composer.full_name %></h1>
+<p>
+  <b>Nationality:</b>
+  <%=h @composer.nationality %>
+</p>
 
-    <p>
-      <b>Name:</b>
-      <%=h @composer.full_name %>
-    </p>
+<%= link_to 'Edit', edit_composer_path(@composer) %> |
+<%= link_to 'Back', composers_path %> | 
 
-    <p>
-      <b>Nationality:</b>
-      <%=h @composer.nationality %>
-    </p>
+<%= link_to_remote 'Get More info from Wikipedia',
+                    :url => { :action => "wiki_data", :id => @composer.id },
+                    :update => :wiki_content %>
 
-    <%= link_to 'Edit', edit_composer_path(@composer) %> |
-    <%= link_to 'Back', composers_path %> | 
-	
-	<%= link_to_remote 'Get More info from Wikipedia',
-						:url => { :action => "wiki_data", :id => @composer.id },
-						:update => :wiki_content %>
-	
-	<div id='wiki_content'>
-    </div>
-  </body>
-</html>
+<div id='wiki_content'>
+</div>
