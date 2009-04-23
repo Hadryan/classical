@@ -12,7 +12,7 @@
   <body>
   	<div id="contenedor">
 	    <div id="head">
-	      <h1>Classical</h1>
+	      <h1><%= link_to 'Classical', home_path, :id => 'link_home' %></h1>
 		  
 	      <ul id="menu">
           <li id="album">
@@ -39,10 +39,14 @@
 	      </ul>
 	    </div>
 	    <div id="content">
-		    	<p style="color: green">
-					<%= flash[:notice] %>
+				<p>
+					<div id='error' style="color: red">
+						<%= flash[:error] %>
+					</div>
+					<div id='error' style="color: green">
+						<%= flash[:notice] %>
+					</div>
 				</p>
-
 		    	<%= yield(:content) or yield %>
 	    </div>
 		<div id="footer">

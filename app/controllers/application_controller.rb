@@ -3,7 +3,11 @@
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
-  before_filter :set_locale
+
+  include AuthenticatedSystem
+	
+	before_filter :login_required
+	before_filter :set_locale
   
   def set_locale
     # if this is nil then I18n.default_locale will be used

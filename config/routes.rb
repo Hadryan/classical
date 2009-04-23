@@ -1,6 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :instruments
+  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
+  map.login '/login', :controller => 'sessions', :action => 'new'
+  map.signup '/signup', :controller => 'users', :action => 'new'
+	map.home '/home', :controller => 'home'
 
+  map.resources :users
+	map.resource		:session
+  map.resources :instruments
   map.resources :composers
   map.resources :obra_types
   map.resources :solists
@@ -46,8 +52,8 @@ ActionController::Routing::Routes.draw do |map|
   # map.root :controller => "welcome"
 
   # See how all your routes lay out with "rake routes"
-  map.index 'logins', :controller => "logins", :action => "index"
-  map.root :index
+
+  map.root :controller => 'home'
     
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should

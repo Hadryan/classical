@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090419051407) do
+ActiveRecord::Schema.define(:version => 20090423015911) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -74,17 +74,14 @@ ActiveRecord::Schema.define(:version => 20090419051407) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "secondName"
-    t.string   "userName"
-    t.string   "password"
-    t.string   "confirmPassword"
+    t.string   "login"
     t.string   "email"
-    t.string   "gender"
-    t.datetime "birthday"
-    t.string   "urlImage"
+    t.string   "crypted_password",          :limit => 40
+    t.string   "salt",                      :limit => 40
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "remember_token"
+    t.datetime "remember_token_expires_at"
   end
 
 end
