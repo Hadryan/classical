@@ -7,7 +7,7 @@
     <%= stylesheet_link_tag "classical", "menu" , :media => "all" %>
 		<%= javascript_include_tag :defaults %>
 
-    <title>Classical - <%= yield :title || 'Lalala'	%></title>
+    <title>Classical - <%= (yield :title) || 'Lalala'	%></title>
   </head>
   <body>
   	<div id="contenedor">
@@ -19,22 +19,22 @@
 	          <%= link_to "<b>Albums</b>", albums_path %>
 	        </li>
 	        <li id="composer">
-	          <%= link_to "<b>#{t :compossers}</b>", composers_path %>
+	          <%= link_to "<b>#{t :composers}</b>", composers_path %>
 	        </li>
 	        <li id="obratype">
-	           <%= link_to "<b>Obra Types</b>", obra_types_path %>
+	           <%= link_to "<b>#{t :obratypes}</b>", obra_types_path %>
 	        </li>
 	        <li id="solist">
-	           <%= link_to "<b>Solists</b>", solists_path %>
+	           <%= link_to "<b>#{t :solists}</b>", solists_path %>
 	        </li>
 	        <li id="director">
-	           <%= link_to "<b>Directors</b>", directors_path %>
+	           <%= link_to "<b>#{t :directors}</b>", directors_path %>
 	        </li>
           <li id="orchestra">
-	           <%= link_to "<b>Orchestras</b>", orchestras_path %>
+	           <%= link_to "<b>#{t :orchestras}</b>", orchestras_path %>
 	        </li>
           <li id="instrument">
-	           <%= link_to "<b>Instruments</b>", instruments_path %>
+	           <%= link_to "<b>#{t :instruments}</b>", instruments_path %>
 	        </li>
 	      </ul>
 	    </div>

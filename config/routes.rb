@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
 	map.home '/home', :controller => 'home'
 
   map.resources :users
-	map.resource		:session
+	map.resource  :session
   map.resources :instruments
   map.resources :composers
   map.resources :obra_types
@@ -16,6 +16,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resources :logins
   map.resources :registrations
+  map.resources :app_languages
 
   # The priority is based upon order of creation: first created -> highest priority.
 

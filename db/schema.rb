@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090423015911) do
+ActiveRecord::Schema.define(:version => 20090424001506) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(:version => 20090423015911) do
   create_table "albums_instruments", :id => false, :force => true do |t|
     t.integer  "album_id"
     t.integer  "instrument_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "app_languages", :force => true do |t|
+    t.string   "locale_name"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -82,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20090423015911) do
     t.datetime "updated_at"
     t.string   "remember_token"
     t.datetime "remember_token_expires_at"
+    t.integer  "app_language_id"
   end
 
 end

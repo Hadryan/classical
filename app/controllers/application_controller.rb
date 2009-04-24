@@ -10,8 +10,14 @@ class ApplicationController < ActionController::Base
 	before_filter :set_locale
   
   def set_locale
-    # if this is nil then I18n.default_locale will be used
-    I18n.locale = 'es-AR' 
+		locale = 'en-US'
+
+		if current_user
+			locale = current_user.app_language.locale_name
+		end
+		
+    I18n.locale = locale
+    I18n.load_path += Dir[ File.join(RAILS_ROOT, 'lib', 'locale', '*.{rb,yml}') ]
   end
 
   #protect_from_forgery # See ActionController::RequestForgeryProtection for details

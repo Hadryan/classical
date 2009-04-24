@@ -12,11 +12,11 @@ class UsersController < ApplicationController
     # uncomment at your own risk
     # reset_session
     @user = User.new(params[:user])
-    @user.save
-    if @user.errors.empty?
+    flash[:notice] = params[:user]
+    if @user.save
       self.current_user = @user
       redirect_back_or_default('/')
-      flash[:notice] = "Thanks for signing up!"
+      #flash[:notice] = "Thanks for signing up!"
     else
       render :action => 'new'
     end
