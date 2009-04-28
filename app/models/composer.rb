@@ -8,10 +8,7 @@ class Composer < ActiveRecord::Base
   end
   
   def self.find_by_full_name(full_name)
-    names = full_name.strip.split(',', 2)
-    first_name = ''
-    first_name = names.last.strip unless names.length == 1
-    last_name = names.first.strip    
+    first_name, last_name = extract_names(full_name)
   
     find(:all, :conditions => { :first_name => first_name, :last_name => last_name })
   end
@@ -34,5 +31,15 @@ class Composer < ActiveRecord::Base
   
   def wiki_name
     [first_name, last_name].compact.join('_').sub(' ', '_')
+  end
+
+  def self.extract_names(full_name)
+    names = full_name.strip.split(',', 2)
+    first_name = ''
+    first_name = names.last.strip if names.length > 1
+    last_name = ''
+    last_name = names.first.strip unless names.first.blank?
+    
+    return first_name, last_name
   end
 end

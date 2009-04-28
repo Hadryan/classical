@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 		locale = 'en-US'
 
 		if current_user
-			locale = current_user.app_language.locale_name
+      locale = current_user.app_language.locale_name unless current_user.app_language.nil?
 		end
 		
     I18n.locale = locale
