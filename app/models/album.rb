@@ -6,6 +6,10 @@ class Album < ActiveRecord::Base
   belongs_to :orchestra
   has_and_belongs_to_many :instruments
 
+  def add_instrument
+
+  end
+
   def composer_full_name
     composer.full_name if composer
   end

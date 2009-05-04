@@ -2,7 +2,7 @@
   <fieldset class="field_form">
     <legend>Album Details</legend>
 
-    <% form_for( album ) do |f| %>
+    <% form_remote_for( album ) do |f| %>
       <%= f.error_messages %>
 
       <p>
@@ -38,6 +38,12 @@
         <%= text_field_with_auto_complete :instruments, :instruments_name, { :size => 40 }, { :url => formatted_instruments_path(:js),
 											:method => :get,
 											:with => "'search=' + element.value" } %>
+
+      <%= link_to_remote 'add', :url => { :action => "add_instrument" },
+                            :update => :list_instruments %>
+
+
+        <div id='list_instruments'></div>
       </p>
       <p>
         <%= f.label :solist %>
@@ -65,6 +71,7 @@
         <%= f.submit button_label %>
       </p>
     <% end %>
+
   </fieldset>
 </div>
 <%= link_to 'Back', albums_path %>
