@@ -1,21 +1,21 @@
 <div class="classical_form">
   <fieldset class="field_form">
     <legend>Album Details</legend>
-    
+
     <% form_for( album ) do |f| %>
       <%= f.error_messages %>
 
       <p>
         <%= f.label :composer %>
-        <%= text_field_with_auto_complete :album, :composer_name, { :size => 40 }, { :url => formatted_composers_path(:js), 
-											:method => :get, 
-											:with => "'search=' + element.value" } %>  
+        <%= text_field_with_auto_complete :album, :composer_full_name, { :size => 40 }, { :url => formatted_composers_path(:js),
+											:method => :get,
+											:with => "'search=' + element.value" } %>
       </p>
       <p>
         <%= f.label :Obra_Type %>
-        <%= text_field_with_auto_complete :album, :obra_type_name, { :size => 40 }, { :url => formatted_obra_types_path(:js), 
-											:method => :get, 
-											:with => "'search=' + element.value" } %> 
+        <%= text_field_with_auto_complete :album, :obra_type_name, { :size => 40 }, { :url => formatted_obra_types_path(:js),
+											:method => :get,
+											:with => "'search=' + element.value" } %>
       </p>
       <p>
         <%= f.label :name %>
@@ -35,26 +35,26 @@
       </p>
       <p>
         <%= f.label :instrument %>
-        <%= text_field_with_auto_complete :instruments, :instruments_name, { :size => 40 }, { :url => formatted_instruments_path(:js), 
-											:method => :get, 
-											:with => "'search=' + element.value" } %> 
+        <%= text_field_with_auto_complete :instruments, :instruments_name, { :size => 40 }, { :url => formatted_instruments_path(:js),
+											:method => :get,
+											:with => "'search=' + element.value" } %>
       </p>
       <p>
         <%= f.label :solist %>
-        <%= text_field_with_auto_complete :album, :solist_name, { :size => 40 }, { :url => formatted_solists_path(:js), 
-											:method => :get, 
-											:with => "'search=' + element.value" } %>        
+        <%= text_field_with_auto_complete :album, :solist_name, { :size => 40 }, { :url => formatted_solists_path(:js),
+											:method => :get,
+											:with => "'search=' + element.value" } %>
       </p>
       <p>
         <%= f.label :director %>
-        <%= text_field_with_auto_complete :album, :director_name, { :size => 40 }, { :url => formatted_directors_path(:js), 
-											:method => :get, 
+        <%= text_field_with_auto_complete :album, :director_name, { :size => 40 }, { :url => formatted_directors_path(:js),
+											:method => :get,
 											:with => "'search=' + element.value" } %>
       </p>
       <p>
         <%= f.label :orchestra %>
-        <%= text_field_with_auto_complete :album, :orchestra_name, { :size => 40 }, { :url => formatted_orchestras_path(:js), 
-											:method => :get, 
+        <%= text_field_with_auto_complete :album, :orchestra_name, { :size => 40 }, { :url => formatted_orchestras_path(:js),
+											:method => :get,
 											:with => "'search=' + element.value" } %>
       </p>
       <p>
@@ -68,3 +68,4 @@
   </fieldset>
 </div>
 <%= link_to 'Back', albums_path %>
+

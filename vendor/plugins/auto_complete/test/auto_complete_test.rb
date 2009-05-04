@@ -1,4 +1,4 @@
-require File.expand_path(File.join(File.dirname(__FILE__), '../../../../test/test_helper')) 
+require File.expand_path(File.dirname(__FILE__) + "/test_helper")
 
 class AutoCompleteTest < Test::Unit::TestCase
   include AutoComplete
@@ -19,8 +19,12 @@ class AutoCompleteTest < Test::Unit::TestCase
       end
     end
     @controller = @controller.new
+    @protect_against_forgery = false
   end
-
+  
+  def protect_against_forgery?
+    @protect_against_forgery
+  end
 
   def test_auto_complete_field
     assert_dom_equal %(<script type=\"text/javascript\">\n//<![CDATA[\nvar some_input_auto_completer = new Ajax.Autocompleter('some_input', 'some_input_auto_complete', 'http://www.example.com/autocomplete', {})\n//]]>\n</script>),
@@ -62,6 +66,16 @@ class AutoCompleteTest < Test::Unit::TestCase
 
     assert_dom_equal %(<input id=\"message_recipient\" name=\"message[recipient]\" size=\"30\" type=\"text\" /><div class=\"auto_complete\" id=\"message_recipient_auto_complete\"></div><script type=\"text/javascript\">\n//<![CDATA[\nvar message_recipient_auto_completer = new Ajax.Autocompleter('message_recipient', 'message_recipient_auto_complete', 'http://www.example.com/auto_complete_for_message_recipient', {})\n//]]>\n</script>),
       text_field_with_auto_complete(:message, :recipient, {}, :skip_style => true)
+  end
+  
+  def form_authenticity_token
+    "authenticity token"
+  end
+  
+  def test_auto_complete_field_with_forgery_protection
+    @protect_against_forgery = true
+    assert_dom_equal %(<script type=\"text/javascript\">\n//<![CDATA[\nvar some_input_auto_completer = new Ajax.Autocompleter('some_input', 'some_input_auto_complete', 'http://www.example.com/autocomplete', {callback:function(element, value) { return Form.serialize(form) + '&authenticity_token=' + encodeURIComponent('authenticity token') }})\n//]]>\n</script>),
+      auto_complete_field("some_input", :url => { :action => "autocomplete" });
   end
   
 end

@@ -19,7 +19,7 @@ describe Composer do
     Composer.create!(@valid_attributes)
   end
 
-	it "should be invalid without a last_name" do
+  it "should be invalid without a last_name" do
     @composer.attributes = @valid_attributes.except(:last_name)
     @composer.should_not be_valid
     @composer.errors.on(:last_name).should_not be nil
@@ -45,20 +45,29 @@ describe Composer do
     @composer.full_name.should eql ''
   end
 
-  it "shoul find a composer by your full_name" do
+  it "should find composers by name like" do
     composer = composers(:one)
-    Composer.find_by_full_name(composer.full_name).should have(1).things
+    Composer.find_by_name_like(composer.first_name).first.should_not be_nil
+    Composer.find_by_name_like(composer.last_name).first.should_not be_nil
+    Composer.find_by_name_like(composer.last_name + ',').first.should_not be_nil
+    Composer.find_by_name_like(composer.full_name).first.should_not be_nil
+  end
+
+  it "should find a composer by your full_name" do
+    composer = composers(:one)
+    Composer.find_by_full_name(composer.full_name).first.should_not be_nil
     composer.first_name = 'Lisa'
-    Composer.find_by_full_name(composer.full_name).should have(0).things
+    Composer.find_by_full_name(composer.full_name).first.should be_nil
     composer.first_name = 'Homer'
     composer.last_name = 'Flanders'
-    Composer.find_by_full_name(composer.full_name).should have(0).things
+    Composer.find_by_full_name(composer.full_name).first.should be_nil
     composer.first_name = ''
-    Composer.find_by_full_name(composer.full_name).should have(0).things
+    Composer.find_by_full_name(composer.full_name).first.should be_nil
     composer.first_name = nil
     composer.last_name = 'Flanders'
-    Composer.find_by_full_name(composer.full_name).should have(0).things
+    Composer.find_by_full_name(composer.full_name).first.should be_nil
     composer.last_name = nil
-    Composer.find_by_full_name(composer.full_name).should have(0).things
+    Composer.find_by_full_name(composer.full_name).first.should be_nil
   end
 end
+

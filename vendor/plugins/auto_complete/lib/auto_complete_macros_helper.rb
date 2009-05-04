@@ -62,6 +62,13 @@ module AutoCompleteMacrosHelper
     function << "'#{url_for(options[:url])}'"
     
     js_options = {}
+    
+    if protect_against_forgery?
+      options[:with] ||= ""
+      options[:with] += "#{options[:with].blank? ? "" : " + "}$('#{field_id}').form.serialize()"
+      options[:with] += " + '&authenticity_token=' + encodeURIComponent('#{form_authenticity_token}')"
+    end
+    
     js_options[:tokens] = array_or_string_for_javascript(options[:tokens]) if options[:tokens]
     js_options[:callback]   = "function(element, value) { return #{options[:with]} }" if options[:with]
     js_options[:indicator]  = "'#{options[:indicator]}'" if options[:indicator]
@@ -95,7 +102,7 @@ module AutoCompleteMacrosHelper
   # auto_complete action if you need to decorate it further.
   def auto_complete_result(entries, field, phrase = nil)
     return unless entries
-    items = entries.map { |entry| content_tag("li", phrase ? highlight(entry[field], phrase) : h(entry[field])) }
+    items = entries.map { |entry| content_tag("li", phrase ? highlight(entry.send(field), phrase) : h(entry.send(field))) }
     content_tag("ul", items.uniq)
   end
   
