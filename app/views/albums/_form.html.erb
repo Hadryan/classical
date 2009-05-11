@@ -35,12 +35,17 @@
       </p>
       <p>
         <%= f.label :instrument %>
-        <%= text_field_with_auto_complete :instruments, :instruments_name, { :size => 40 }, { :url => formatted_instruments_path(:js),
+        <%= text_field_with_auto_complete :album, :instrument_name, {:name => 'instrument_name', :size => 40 }, { :url => formatted_instruments_path(:js),
 											:method => :get,
 											:with => "'search=' + element.value" } %>
 
-      <%= link_to_remote 'add', :url => { :action => "add_instrument" },
-                            :update => :list_instruments %>
+        <%= link_to_remote 'add',
+
+                                    :with => "'value=' + $F('album_instrument_name')",
+                                    :url => { :action => "add_instrument" }
+                                   %>
+
+        <%=  hidden_field :album, :instrument_ids %>
 
 
         <div id='list_instruments'></div>

@@ -61,13 +61,17 @@ class AlbumsController < ApplicationController
     matches = Album.find(:all, :conditions => ["name like ?", "#{prefix}%"])
 
     if matches.empty?
-
       render :text => "The search returns any results."
-
     else
-
       render :partial => 'result', :collection => matches
+    end
+  end
 
+  def add_instrument
+    render(:update) do |page|
+      instrument = Instrument.find_by_name(params[:value])
+      page['album_instrument_ids'].value = instrument.id.to_s
+      page.replace_html 'list_instruments', instrument.name
     end
   end
 
@@ -77,3 +81,4 @@ class AlbumsController < ApplicationController
   end
 
 end
+

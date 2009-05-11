@@ -5,6 +5,7 @@ class Album < ActiveRecord::Base
   belongs_to :director
   belongs_to :orchestra
   has_and_belongs_to_many :instruments
+  @instrument
 
   def add_instrument
 
@@ -26,12 +27,12 @@ class Album < ActiveRecord::Base
     self.obra_type = ObraType.find_or_create_by_name(name) unless name.blank?
   end
 
-  def instruments_name
-    instruments[0].name if instruments
+  def instrument_name
+    instruments if instruments
   end
 
-  def instruments_name=(name)
-    self.instruments << Instrument.find_or_create_by_name(name) unless name.blank?
+  def instrument_name=(instrument_ids)
+    self.instrument_ids = instrument_ids
   end
 
   def director_name
