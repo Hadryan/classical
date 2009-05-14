@@ -35,18 +35,9 @@
       </p>
       <p>
         <%= f.label :instrument %>
-        <%= text_field_with_auto_complete :album, :instrument_name, {:name => 'instrument_name', :size => 40 }, { :url => formatted_instruments_path(:js),
-											:method => :get,
-											:with => "'search=' + element.value" } %>
 
-        <%= link_to_remote 'add',
 
-                                    :with => "'value=' + $F('album_instrument_name')",
-                                    :url => { :action => "add_instrument" }
-                                   %>
-
-        <%=  hidden_field :album, :instrument_ids %>
-
+        <%= select_tag("album[instrument_ids][]", options_for_select(Instrument.find(:all).collect { |cat| [cat.name, cat.id] }, album.instruments.collect { |cat| cat.id}), {:multiple=>true, :size=>6})%>
 
         <div id='list_instruments'></div>
       </p>

@@ -16,6 +16,7 @@ class AlbumsController < ApplicationController
   end
 
   def create
+
     @album = Album.new(params[:album])
 
     respond_to do |format|
@@ -33,6 +34,8 @@ class AlbumsController < ApplicationController
   end
 
   def update
+    params[:album][:instrument_ids] ||= []
+
     respond_to do |format|
       if @album.update_attributes(params[:album])
         flash[:notice] = 'Album was successfully updated.'
@@ -70,6 +73,7 @@ class AlbumsController < ApplicationController
   def add_instrument
     render(:update) do |page|
       instrument = Instrument.find_by_name(params[:value])
+
       page['album_instrument_ids'].value = instrument.id.to_s
       page.replace_html 'list_instruments', instrument.name
     end

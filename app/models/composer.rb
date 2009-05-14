@@ -12,7 +12,7 @@ class Composer < ActiveRecord::Base
   end
 
   def self.find_or_create_by_full_name(full_name)
-    find_by_name_like(full_name)
+    find_by_name_like(full_name).first
   end
 
   def self.find_by_full_name(full_name)

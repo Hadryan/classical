@@ -1,7 +1,7 @@
 <h1>Album</h1>
 <p>
   <b>Composer:</b>
-  <%=h @album.composer.name if @album.composer %>
+  <%=h @album.composer.full_name if @album.composer %>
 </p>
 <p>
   <b>Obra Type:</b>
@@ -25,7 +25,9 @@
 </p>
 <p>
   <b>Instrument:</b>
-  <%=h @album.instruments %>
+  <% @album.instruments.each do | instrument | %>
+    <%=h instrument.name %>
+  <% end %>
 </p>
 <p>
   <b>Solist:</b>
@@ -46,3 +48,4 @@
 
 <%= link_to 'Edit', edit_album_path(@album) %> |
 <%= link_to 'Back', albums_path %>
+
