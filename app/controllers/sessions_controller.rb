@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 			redirect_back_or_default('/')
       flash[:success] = "Logged in successfully"
     else
-			flash.now[:error] = "Authentication failed."
+			flash.now[:error] = "Authentication failed. If you don't have an account please <b><a href='#{signup_url}'>create one.</a></b>"
       render :action => 'new'
     end
   end
