@@ -4,6 +4,8 @@
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 
+    <%= stylesheet_link_tag "screen", "typography", "forms", "errors", "tables", :media => "screen, projection" %>
+    <%= stylesheet_link_tag "print", :media => "print" %>
     <%= stylesheet_link_tag "classical", "menu" , :media => "all" %>
 		<%= javascript_include_tag :defaults %>
 
@@ -12,7 +14,7 @@
   <body>
   	<div id="contenedor">
 	    <div id="head">
- 
+
         <div id="user">
           <% if logged_in? %>
             <%= h current_user.login %>
@@ -20,8 +22,8 @@
           <% end %>
         </div>
         <div id="title">
-          <h1><%= link_to 'Classical', home_path, :id => 'link_home' %></h1>  
-        </div>	     
+          <h1><%= link_to 'Classical', home_path, :id => 'link_home' %></h1>
+        </div>
 		    <div id="menu">
 		      <ul id="menu">
             <li id="album">
@@ -46,16 +48,15 @@
 	             <%= link_to "<b>#{t :instruments}</b>", instruments_path %>
 	          </li>
 	        </ul>
-		    </div>	      
+		    </div>
 	    </div>
 	    <div id="content">
 				<p>
-					<div id='error' style="color: red">
-						<%= flash[:error] %>
-					</div>
-					<div id='error' style="color: green">
-						<%= flash[:notice] %>
-					</div>
+          <% flash.each do |key, msg| %>
+            <div class="<%= key %>">
+              <%=  msg %>
+            </div>
+          <% end %>
 				</p>
 		    	<%= yield(:content) or yield %>
 	    </div>
@@ -65,3 +66,4 @@
 	</div>
   </body>
 </html>
+

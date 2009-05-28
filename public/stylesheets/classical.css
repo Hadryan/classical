@@ -61,3 +61,14 @@ a#link_home:hover {color:white; font-weight:bold}
 	padding:10px;
 }
 
+  form .form_element {
+    margin: 1em 0 0 0;
+    padding: 5px 0 0 0;
+    white-space: nowrap; }
+    form .form_element label {
+      display: block;
+      width: 10em;
+      float: left;
+      clear: both;
+      margin-right: 1em; }
+
