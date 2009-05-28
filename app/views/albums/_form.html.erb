@@ -5,62 +5,64 @@
     <% form_remote_for( album ) do |f| %>
       <%= f.error_messages %>
 
-      <p>
+      <div class='form_element'>
         <%= f.label :composer %>
-        <%= text_field_with_auto_complete :album, :composer_full_name, { :size => 40 }, { :url => formatted_composers_path(:js),
+        <%= text_field_with_auto_complete :album, :composer_full_name, { :class => :text, :size => 40 }, { :url => formatted_composers_path(:js),
 											:method => :get,
 											:with => "'search=' + element.value" } %>
-      </p>
-      <p>
+      </div>
+      <div class='form_element'>
         <%= f.label :Obra_Type %>
-        <%= text_field_with_auto_complete :album, :obra_type_name, { :size => 40 }, { :url => formatted_obra_types_path(:js),
+        <%= text_field_with_auto_complete :album, :obra_type_name, { :class => :text, :size => 40 }, { :url => formatted_obra_types_path(:js),
 											:method => :get,
 											:with => "'search=' + element.value" } %>
-      </p>
-      <p>
+      </div>
+      <div class='form_element'>
         <%= f.label :name %>
-        <%= f.text_field :name %>
-      </p>
-      <p>
+        <%= f.text_field :name, :class => :text %>
+      </div>
+      <div class='form_element'>
         <%= f.label :music_tone %>
-        <%= f.text_field :music_tone %>
-      </p>
-      <p>
+        <%= f.text_field :music_tone, :class => :text %>
+      </div>
+      <div class='form_element'>
         <%= f.label :obra_number %>
-        <%= f.text_field :number %>
-      </p>
-      <p>
+        <%= f.text_field :number, :class => :text %>
+      </div>
+      <div class='form_element'>
         <%= f.label :opus_number %>
-        <%= f.text_field :opus_number %>
-      </p>
-      <p>
+        <%= f.text_field :opus_number, :class => :text %>
+      </div>
+      <div class='form_element'>
         <%= f.label :instrument %>
 
 
         <%= select_tag("album[instrument_ids][]", options_for_select(Instrument.find(:all).collect { |cat| [cat.name, cat.id] }, album.instruments.collect { |cat| cat.id}), {:multiple=>true, :size=>6})%>
 
         <div id='list_instruments'></div>
-      </p>
-      <p>
+      </div>
+      <div class='form_element'>
         <%= f.label :solist %>
-        <%= text_field_with_auto_complete :album, :solist_name %>
-      </p>
-      <p>
+        <%= text_field_with_auto_complete :album, :solist_name, { :class => :text, :size => 40 }, { :url => formatted_solists_path(:js),
+											:method => :get,
+											:with => "'search=' + element.value" } %>
+      </div>
+      <div class='form_element'>
         <%= f.label :director %>
-        <%= text_field_with_auto_complete :album, :director_name, { :size => 40 }, { :url => formatted_directors_path(:js),
+        <%= text_field_with_auto_complete :album, :director_name, { :class => :text, :size => 40 }, { :url => formatted_directors_path(:js),
 											:method => :get,
 											:with => "'search=' + element.value" } %>
-      </p>
-      <p>
+      </div>
+      <div class='form_element'>
         <%= f.label :orchestra %>
-        <%= text_field_with_auto_complete :album, :orchestra_name, { :size => 40 }, { :url => formatted_orchestras_path(:js),
+        <%= text_field_with_auto_complete :album, :orchestra_name, { :class => :text, :size => 40 }, { :url => formatted_orchestras_path(:js),
 											:method => :get,
 											:with => "'search=' + element.value" } %>
-      </p>
-      <p>
+      </div>
+      <div class='form_element'>
         <%= f.label :cd_number %>
-        <%= f.text_field :cd_number %>
-      </p>
+        <%= f.text_field :cd_number,:class => :text %>
+      </div>
       <p>
         <%= f.submit button_label %>
       </p>

@@ -5,11 +5,12 @@
 </p>
 
 <%= link_to 'Edit', edit_composer_path(@composer) %> |
-<%= link_to 'Back', composers_path %> | 
+<%= link_to 'Back', composers_path %> |
 
 <%= link_to_remote 'Get More info from Wikipedia',
                     :url => { :action => "wiki_data", :id => @composer.id },
-                    :update => :wiki_content %>
+                    :update => :wiki_content , :onClick => "$('wiki_content').toggle();" %>
 
-<div id='wiki_content'>
+<div id='wiki_content' style="display:none;">
 </div>
+

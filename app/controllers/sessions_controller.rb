@@ -1,4 +1,4 @@
-# This controller handles the login/logout function of the site.  
+# This controller handles the login/logout function of the site.
 class SessionsController < ApplicationController
 	skip_before_filter :login_required
 
@@ -13,13 +13,12 @@ class SessionsController < ApplicationController
         current_user.remember_me unless current_user.remember_token?
         cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
       end
-			
-			redirect_back_or_default('/')
-#      flash[:notice] = "Logged in successfully"
 
+			redirect_back_or_default('/')
+      flash[:success] = "Logged in successfully"
     else
 			flash.now[:error] = "Authentication failed."
-      render :action => 'index'
+      render :action => 'new'
     end
   end
 
@@ -27,7 +26,8 @@ class SessionsController < ApplicationController
     self.current_user.forget_me if logged_in?
     cookies.delete :auth_token
     reset_session
-    flash[:notice] = "You have been logged out."
+    flash[:success] = "You have been logged out."
     redirect_back_or_default('/')
   end
 end
+
