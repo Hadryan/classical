@@ -1,14 +1,4 @@
-<h1>Solist</h1>    
-
-<p>
-	<b>Id:</b>
-	<%=h @solist.id %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%=h @solist.name %>
-</p>
+<h1><%=h @solist.name %></h1>
 
 <%= link_to 'Edit', edit_solist_path(@solist) %> |
 <%= link_to 'Back', solists_path %>

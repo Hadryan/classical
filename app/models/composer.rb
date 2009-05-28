@@ -8,7 +8,7 @@ class Composer < ActiveRecord::Base
 
     first_name = last_name if first_name.blank?
 
-    find(:all, :conditions => ["first_name LIKE ? OR last_name LIKE ?", "%#{first_name}%", "%#{last_name}%"], :order => :last_name)
+    find(:all, :conditions => ["first_name LIKE ? OR last_name LIKE ?", "#{first_name}%", "#{last_name}%"], :order => :last_name)
   end
 
   def self.find_or_create_by_full_name(full_name)

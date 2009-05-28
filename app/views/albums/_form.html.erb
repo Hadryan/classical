@@ -43,9 +43,7 @@
       </p>
       <p>
         <%= f.label :solist %>
-        <%= text_field_with_auto_complete :album, :solist_name, { :size => 40 }, { :url => formatted_solists_path(:js),
-											:method => :get,
-											:with => "'search=' + element.value" } %>
+        <%= text_field_with_auto_complete :album, :solist_name %>
       </p>
       <p>
         <%= f.label :director %>
