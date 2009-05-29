@@ -7,13 +7,13 @@
 
       <div class='form_element'>
         <%= f.label :composer %>
-        <%= text_field_with_auto_complete :album, :composer_full_name, { :class => :text, :size => 40 }, { :url => formatted_composers_path(:js),
+        <%= text_field_with_auto_complete :album, :composer_full_name, { :class => :text, :size => 40 }, { :url => composers_path(:format => :js),
 											:method => :get,
 											:with => "'search=' + element.value" } %>
       </div>
       <div class='form_element'>
         <%= f.label :Obra_Type %>
-        <%= text_field_with_auto_complete :album, :obra_type_name, { :class => :text, :size => 40 }, { :url => formatted_obra_types_path(:js),
+        <%= text_field_with_auto_complete :album, :obra_type_name, { :class => :text, :size => 40 }, { :url => obra_types_path(:format => :js),
 											:method => :get,
 											:with => "'search=' + element.value" } %>
       </div>
@@ -36,26 +36,25 @@
       <div class='form_element'>
         <%= f.label :instrument %>
 
-
         <%= select_tag("album[instrument_ids][]", options_for_select(Instrument.find(:all).collect { |cat| [cat.name, cat.id] }, album.instruments.collect { |cat| cat.id}), {:multiple=>true, :size=>6})%>
 
         <div id='list_instruments'></div>
       </div>
       <div class='form_element'>
         <%= f.label :solist %>
-        <%= text_field_with_auto_complete :album, :solist_name, { :class => :text, :size => 40 }, { :url => formatted_solists_path(:js),
+        <%= text_field_with_auto_complete :album, :solist_name, { :class => :text, :size => 40 }, { :url => solists_path(:format => :js),
 											:method => :get,
 											:with => "'search=' + element.value" } %>
       </div>
       <div class='form_element'>
         <%= f.label :director %>
-        <%= text_field_with_auto_complete :album, :director_name, { :class => :text, :size => 40 }, { :url => formatted_directors_path(:js),
+        <%= text_field_with_auto_complete :album, :director_name, { :class => :text, :size => 40 }, { :url => directors_path(:format => :js),
 											:method => :get,
 											:with => "'search=' + element.value" } %>
       </div>
       <div class='form_element'>
         <%= f.label :orchestra %>
-        <%= text_field_with_auto_complete :album, :orchestra_name, { :class => :text, :size => 40 }, { :url => formatted_orchestras_path(:js),
+        <%= text_field_with_auto_complete :album, :orchestra_name, { :class => :text, :size => 40 }, { :url => orchestras_path(:format => :js),
 											:method => :get,
 											:with => "'search=' + element.value" } %>
       </div>

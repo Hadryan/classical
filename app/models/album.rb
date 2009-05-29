@@ -6,6 +6,8 @@ class Album < ActiveRecord::Base
   belongs_to :orchestra
   has_and_belongs_to_many :instruments
 
+  validates_presence_of   :composer, :obra_type, :solist, :director, :orchestra
+
   def composer_full_name
     composer.full_name if composer
   end
@@ -20,14 +22,6 @@ class Album < ActiveRecord::Base
 
   def obra_type_name=(name)
     self.obra_type = ObraType.find_or_create_by_name(name) unless name.blank?
-  end
-
-  def instrument_name
-    instruments if instruments
-  end
-
-  def instrument_name=(instrument_ids)
-    self.instrument_ids = instrument_ids
   end
 
   def director_name

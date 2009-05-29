@@ -192,7 +192,7 @@ end
 
 def create_instrument(value)
   unless value.nil?
-    tokens = value.split(/,|-/)
+    tokens = value.split(/,|-| /)
     tokens.compact
 
     tokens.each do | name |
