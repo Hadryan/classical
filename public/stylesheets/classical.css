@@ -11,7 +11,6 @@
   font-family:arial,sans-serif;
   background:#676770;
   margin: 0 auto;
-
 }
 
 div#user {
@@ -60,7 +59,7 @@ a#link_home:hover {color:white; font-weight:bold}
     width: 500px;
 	background-color:#EAF2F5;
 	padding:10px;
-	margin:0 auto 0 auto;
+	margin:0 auto 20px auto;
 	border: 1px solid #BEDCE7;
 }
 
