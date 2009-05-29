@@ -1,19 +1,17 @@
 <div class="classical_form">
-  <fieldset class="field_form">
-    <legend>Orchestra Details</legend>
-    
-    <% form_for( orchestra ) do |f| %>
-      <%= f.error_messages %>
+  <h2>Orchestra</h2>
+  <% form_for( orchestra ) do |f| %>
+    <%= f.error_messages %>
 
-      <p>
-        <%= f.label :description %>
-        <%= f.text_field :name %>
-      </p>
-      <p>
-        <%= f.submit button_label %>
-      </p>
-    <% end %>
-  </fieldset>
+    <div class='form_element'>
+      <%= f.label :description %>
+      <%= f.text_field :name, :class => :text %>
+    </div>
+    <p>
+      <%= f.submit button_label %>
+    </p>
+  <% end %>
 </div>
 
 <%= link_to 'Back', orchestras_path %>
+

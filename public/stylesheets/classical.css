@@ -57,8 +57,11 @@ a#link_home:hover {color:white; font-weight:bold}
 }
 
 .classical_form{
-	background-color:white;
+    width: 500px;
+	background-color:#EAF2F5;
 	padding:10px;
+	margin:0 auto 0 auto;
+	border: 1px solid #BEDCE7;
 }
 
   form .form_element {
