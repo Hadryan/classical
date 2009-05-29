@@ -8,8 +8,7 @@
 <%= link_to 'Back', composers_path %> |
 
 <%= link_to_remote 'Get More info from Wikipedia',
-                    :url => { :action => "wiki_data", :id => @composer.id },
-                    :update => :wiki_content , :onClick => "$('wiki_content').toggle();" %>
+                    :url => { :action => "wiki_data", :id => @composer.id } %>
 
 <div id='wiki_content' style="display:none;">
 </div>

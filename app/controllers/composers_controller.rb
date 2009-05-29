@@ -35,17 +35,13 @@ class ComposersController < ApplicationController
   end
 
   def wiki_data
-    data = ''
-
     begin
-      data = Hpricot(open('http://en.wikipedia.org/w/index.php?action=render&title=' + @composer.wiki_name ))
-      data.search("//img[@src='/skins-1.5/common/images/magnify-clip.png']").remove
-      data.search("//span[@class='editsection']").remove
+      @data = Hpricot(open('http://en.wikipedia.org/w/index.php?action=render&title=' + @composer.wiki_name ))
+      @data.search("//img[@src='/skins-1.5/common/images/magnify-clip.png']").remove
+      @data.search("//span[@class='editsection']").remove
     rescue
-      data = "Data Composer Not Found."
+      @data = "Data Composer Not Found."
     end
-
-    render :text => data
   end
 
   def create

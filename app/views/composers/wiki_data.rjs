@@ -1,0 +1,3 @@
+page['wiki_content'].replace_html :partial => 'wiki_info', :locals => { :data => @data }
+page['wiki_content'].toggle
+
