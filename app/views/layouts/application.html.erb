@@ -6,64 +6,60 @@
 
     <%= stylesheet_link_tag "screen", :media => "screen, projection" %>
     <%= stylesheet_link_tag "print", :media => "print" %>
-    <%= stylesheet_link_tag "classical", "menu" , :media => "all" %>
+    <%= stylesheet_link_tag "classical", "menu_style", 'main' , :media => "all" %>
 		<%= javascript_include_tag :defaults %>
 
-    <title>Classical - <%= (yield :title) || 'Lalala'	%></title>
+    <title>Classical - <%= (yield :title) || 'Classical'	%></title>
   </head>
   <body>
-  	<div id="contenedor">
-	    <div id="head">
+     <!-- Begin Wrapper -->
+    <div id="wrapper">
 
-        <div id="user">
-          <% if logged_in? %>
-            <%= h current_user.login %>
-            <%= link_to	'Logout', logout_path, :id => 'link_logout' %>
-          <% end %>
+      <!-- Begin Header -->
+      <div id="header">
+        <h1><%= link_to 'Classical', home_path, :id => 'link_home' %></h1>
+      </div>
+		 <!-- End Header -->
+
+		 <!-- Begin Navigation -->
+      <div id="navigation">
+        <p>
+          <%= render :partial => 'layouts/menu' %>
+        </p>
+      </div>
+		 <!-- End Navigation -->
+
+      <!-- Begin Faux Columns -->
+      <div id="faux">
+        <!-- Begin Left Column -->
+        <div id="leftcolumn">
         </div>
-        <div id="title">
-          <h1><%= link_to 'Classical', home_path, :id => 'link_home' %></h1>
+        <!-- End Left Column -->
+        <!-- Begin Right Column -->
+        <div id="rightcolumn">
+          <p>
+            <% flash.each do |key, msg| %>
+              <div class="<%= key %>">
+                <%= msg %>
+              </div>
+            <% end %>
+          </p>
+          <%= yield(:content) or yield %>
+
+          <div class="clear"></div>
         </div>
-		    <div id="menu">
-		      <ul id="menu">
-            <li id="album">
-	            <%= link_to "<b>Albums</b>", albums_path %>
-	          </li>
-	          <li id="composer">
-	            <%= link_to "<b>#{t :composers}</b>", composers_path %>
-	          </li>
-	          <li id="obratype">
-	             <%= link_to "<b>#{t :obratypes}</b>", obra_types_path %>
-	          </li>
-	          <li id="solist">
-	             <%= link_to "<b>#{t :solists}</b>", solists_path %>
-	          </li>
-	          <li id="director">
-	             <%= link_to "<b>#{t :directors}</b>", directors_path %>
-	          </li>
-            <li id="orchestra">
-	             <%= link_to "<b>#{t :orchestras}</b>", orchestras_path %>
-	          </li>
-            <li id="instrument">
-	             <%= link_to "<b>#{t :instruments}</b>", instruments_path %>
-	          </li>
-	        </ul>
-		    </div>
-	    </div>
-	    <div id="content">
-				<p>
-          <% flash.each do |key, msg| %>
-            <div class="<%= key %>">
-              <%=  msg %>
-            </div>
-          <% end %>
-				</p>
-		    	<%= yield(:content) or yield %>
-	    </div>
-		<div id="footer">
-			<p>Copyright 2009</p>
-		</div>
-	</div>
+        <!-- End Right Column -->
+
+        <div class="clear"></div>
+        </div>
+        <!-- End Faux Columns -->
+
+        <!-- Begin Footer -->
+        <div id="footer">
+          <%= render :partial => 'layouts/footer' %>
+        </div>
+        <!-- End Footer -->
+   </div>
   </body>
 </html>
 

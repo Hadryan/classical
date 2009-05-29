@@ -6,14 +6,23 @@
         Purpose of the stylesheet follows.
 */
 
-#contenedor {
-  width: 800px;
-  font-family:arial,sans-serif;
-  background:#676770;
-  margin: 0 auto;
+div#container_classical {
+    font-family:arial,sans-serif;
+    height:auto !important;
+    margin:0 auto -8.6em;
+    min-height:100%;
 }
 
-div#user {
+div#head {
+    background:#676770;
+    margin: 0 auto;
+}
+
+div.menu {
+    margin: 0 auto;
+}
+
+div.user {
   float: right;
   width: 130px;
   height: 10px;
@@ -29,26 +38,15 @@ a#link_home:hover {color:white; font-weight:bold}
     color:red;
 }
 
-#head {
-	color:white;
-	padding-left:5px;
-}
-
-#content {
-	background-color:white;
-	float: left;
-  	width: 800px;
-	margin: 0 auto;
-}
-
 #footer {
+    background:#676770;
 	color:white;
 	clear: both;
 }
 
-#data {
-	float:left;
+#content {
 	width:50%;
+    margin: 0 auto;
 }
 
 #controls {

@@ -1,0 +1,5 @@
+<% if logged_in? %>
+  <%= h current_user.login %>
+  <%= link_to	'Logout', logout_path, :id => 'link_logout' %>
+<% end %>
+
