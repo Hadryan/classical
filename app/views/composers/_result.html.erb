@@ -1,12 +1,11 @@
-<p>
+<div id='row'>
 	<div id='data'>
-		<%= link_to result.full_name, result, :id => 'link_to_data'  %>	
+		<%= link_to result.full_name, result, :id => 'link_to_data'  %>
 	</div>
-  
+
 	<div id='controls'>
 		<%= link_to "Edit", edit_composer_path(result) %>
-		<%= link_to "Delete", result, :confirm => 'Are you sure?', :method => :delete %>	
-	</div>  
-</p>
+		<%= link_to "Delete", result, :confirm => 'Are you sure?', :method => :delete %>
+	</div>
+</div>
 
-<br>

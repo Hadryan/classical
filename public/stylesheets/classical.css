@@ -49,10 +49,6 @@ a#link_home:hover {color:white; font-weight:bold}
     margin: 0 auto;
 }
 
-#controls {
-	float:left;
-}
-
 .classical_form{
     width: 500px;
 	background-color:#EAF2F5;
@@ -61,10 +57,22 @@ a#link_home:hover {color:white; font-weight:bold}
 	border: 1px solid #BEDCE7;
 }
 
+.row {
+    margin: 1em 0 0 0;
+    white-space: nowrap;
+}
+#row #data {
+      display: block;
+      width: 20em;
+      float: left;
+      clear: both;
+      margin-right: 1em; }
+
   form .form_element {
     margin: 1em 0 0 0;
 
     white-space: nowrap; }
+
     form .form_element label {
       display: block;
       width: 10em;
