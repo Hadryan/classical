@@ -6,23 +6,7 @@
         Purpose of the stylesheet follows.
 */
 
-div#container_classical {
-    font-family:arial,sans-serif;
-    height:auto !important;
-    margin:0 auto -8.6em;
-    min-height:100%;
-}
-
-div#head {
-    background:#676770;
-    margin: 0 auto;
-}
-
-div.menu {
-    margin: 0 auto;
-}
-
-div.user {
+#user {
   float: right;
   width: 130px;
   height: 10px;
@@ -38,17 +22,6 @@ a#link_home:hover {color:white; font-weight:bold}
     color:red;
 }
 
-#footer {
-    background:#676770;
-	color:white;
-	clear: both;
-}
-
-#content {
-	width:50%;
-    margin: 0 auto;
-}
-
 .classical_form{
     width: 500px;
 	background-color:#EAF2F5;
@@ -61,6 +34,7 @@ a#link_home:hover {color:white; font-weight:bold}
     margin: 1em 0 0 0;
     white-space: nowrap;
 }
+
 #row #data {
       display: block;
       width: 20em;

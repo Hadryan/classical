@@ -14,20 +14,24 @@
   <body>
      <!-- Begin Wrapper -->
     <div id="wrapper">
-
       <!-- Begin Header -->
       <div id="header">
+        <div id="user">
+          <% if logged_in? %>
+            <%= h current_user.login %>
+            <%= link_to  'Logout', logout_path, :id => 'link_logout' %>
+          <% end %>
+        </div>
         <h1><%= link_to 'Classical', home_path, :id => 'link_home' %></h1>
       </div>
-		 <!-- End Header -->
 
-		 <!-- Begin Navigation -->
+      <!-- End Header -->
+
+      <!-- Begin Navigation -->
       <div id="navigation">
-        <p>
-          <%= render :partial => 'layouts/menu' %>
-        </p>
+        <%= render :partial => 'layouts/menu' %>
       </div>
-		 <!-- End Navigation -->
+      <!-- End Navigation -->
 
       <!-- Begin Faux Columns -->
       <div id="faux">
@@ -35,6 +39,7 @@
         <div id="leftcolumn">
         </div>
         <!-- End Left Column -->
+
         <!-- Begin Right Column -->
         <div id="rightcolumn">
           <p>
@@ -45,20 +50,19 @@
             <% end %>
           </p>
           <%= yield(:content) or yield %>
-
           <div class="clear"></div>
         </div>
         <!-- End Right Column -->
 
         <div class="clear"></div>
-        </div>
-        <!-- End Faux Columns -->
+      </div>
+      <!-- End Faux Columns -->
 
-        <!-- Begin Footer -->
-        <div id="footer">
-          <%= render :partial => 'layouts/footer' %>
-        </div>
-        <!-- End Footer -->
+      <!-- Begin Footer -->
+      <div id="footer">
+        <%= render :partial => 'layouts/footer' %>
+      </div>
+      <!-- End Footer -->
    </div>
   </body>
 </html>

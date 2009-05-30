@@ -29,13 +29,12 @@ body {
  color: #333;
  width: 902px;
  padding: 10px;
- height: 100px;
+ height: 80px;
  margin: 10px 0px 5px 0px;
  background: #D1DBDB;
 }
 #navigation {
  color: #333;
- padding: 10px;
  margin: 0px 0px 5px 0px;
  background: #ABBEBE;
 }
