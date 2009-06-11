@@ -16,12 +16,12 @@
     <div id="wrapper">
       <!-- Begin Header -->
       <div id="header">
-        <div id="user">
-          <% if logged_in? %>
-            <%= h current_user.login %>
-            <%= link_to  'Logout', logout_path, :id => 'link_logout' %>
-          <% end %>
-        </div>
+        <% if logged_in? %>
+          <div id="user">
+            <%= render :partial => 'layouts/user' %>
+          </div>
+        <% end %>
+
         <h1><%= link_to 'Classical', home_path, :id => 'link_home' %></h1>
       </div>
 
