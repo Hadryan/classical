@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   # render new.rhtml
   def new
+    @languages = AppLanguage.find(:all)
   end
 
   def create
@@ -21,6 +22,5 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
-
 end
 

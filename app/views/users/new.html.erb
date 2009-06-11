@@ -18,7 +18,7 @@
     <%= f.password_field :password_confirmation, :class => 'title' %></p>
 
     <p><label for="app_language_id">Select your language</label><br/>
-    <%= collection_select :user, :app_language_id, AppLanguage.find(:all), :id, :name, {:prompt => "-Select a language"}, :class =>"languague" %>
+    <%= collection_select :user, :app_language_id, @languages, :id, :name, {:prompt => "Select a language"}, :class =>"languague" %>
 
     <p><%= submit_tag 'Sign up' %></p>
   <% end -%>

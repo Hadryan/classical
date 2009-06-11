@@ -13,6 +13,7 @@
   margin-top: 10px;
   background-color: #EAF2F5;
   border: 1px solid gray;
+  padding: 10px 0 0 10px;
 }
 
 a#link_home:link {color:white; text-decoration: none}
