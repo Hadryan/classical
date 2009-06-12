@@ -18,7 +18,7 @@
     <p><label for="app_language_id">Select your language</label><br/>
     <%= collection_select :user, :app_language_id, languages, :id, :name, {:prompt => "Select a language"}, :class =>"languague" %>
 
-    <p><%= submit_tag :button_label %></p>
+    <p><%= f.submit button_label %></p>
   <% end -%>
 </div>
 

@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
 	skip_before_filter :login_required
+	before_filter :get_languages, :only => [:new, :edit, :show]
 
   # render new.rhtml
   def new
-    @languages = AppLanguage.find(:all)
+
   end
 
   def create
@@ -24,11 +25,35 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
 
+    respond_to do |format|
+      format.html { render :action => "edit" }
+    end
   end
 
   def update
+    @user = User.find(params[:id])
 
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        flash[:notice] = 'User profile was successfully updated.'
+        format.html { redirect_to current_user }
+        format.xml { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml { render :xml => @user.errors,  :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def show
+    @user = User.find(params[:id])
+  end
+
+  private
+  def get_languages
+    @languages = AppLanguage.find(:all)
   end
 end
 
