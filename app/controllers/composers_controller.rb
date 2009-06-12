@@ -36,11 +36,16 @@ class ComposersController < ApplicationController
 
   def wiki_data
     begin
-      @data = Hpricot(open('http://en.wikipedia.org/w/index.php?action=render&title=' + @composer.wiki_name ))
+      locale = 'en'
+      locale = current_user.app_language.locale_name[0,2] unless current_user.app_language.nil?
+
+      url = "http://#{locale}.wikipedia.org/w/index.php?action=render&title=" + @composer.wiki_name
+
+      @data = Hpricot(open(url))
       @data.search("//img[@src='/skins-1.5/common/images/magnify-clip.png']").remove
       @data.search("//span[@class='editsection']").remove
     rescue
-      @data = "Data Composer Not Found."
+      @data = "Data Composer Not Found." + url
     end
   end
 

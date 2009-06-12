@@ -2,10 +2,10 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en-US:
-  activerecord: 
-    errors: 
-      template: 
-        header: 
+  activerecord:
+    errors:
+      template:
+        header:
           one: "1 error prohibited this {{model}} from being saved"
           other: "{{count}} errors prohibited this {{model}} from being saved"
         body: "There were problems with the following"
@@ -41,16 +41,16 @@ en-US:
       #       attributes:
       #         login:
       #           blank: "This is a custom blank message for User login"
-      # Will define custom blank validation message for User model and 
+      # Will define custom blank validation message for User model and
       # custom blank validation message for login attribute of User model.
       #models:
-        
+
     # Translate model names. Used in Model.human_name().
     #models:
       # For example,
       #   user: "Dude"
       # will translate User model name to "Dude"
-    
+
     # Translate model attribute names. Used in Model.human_attribute_name(attribute).
     #attributes:
       # For example,
@@ -65,3 +65,15 @@ en-US:
   directors: "Directors"
   orchestras: "Orchestras"
   instruments: "Instruments"
+  search: "Search:"
+  new: "New"
+  delete: "Delete"
+
+  album: "Album"
+  composer: "Composer"
+  obratype: "Obra type"
+  solist: "Solist"
+  director: "Director"
+  orchestra: "Orchestra"
+  instrument: "Instrument"
+

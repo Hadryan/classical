@@ -1,7 +1,7 @@
 #Sample localization file for English. Add more files in this directory for other locales.
 #See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-es-AR:  
+es-AR:
   date:
     formats:
       default: "%e/%m/%Y"
@@ -104,7 +104,7 @@ es-AR:
       hour: "Hora"
       minute: "Minuto"
       second: "Segundos"
-        
+
   number:
     percentage:
       format:
@@ -177,3 +177,15 @@ es-AR:
   directors: "Directores"
   orchestras: "Orquestas"
   instruments: "Instrumentos"
+  search: "Buscar:"
+  new: "Nuevo"
+  delete: "Borrar"
+
+  album: "Album"
+  composer: "Compositor"
+  obratype: "Tipo de Obra"
+  solist: "Solista"
+  director: "Director"
+  orchestra: "Orquesta"
+  instrument: "Instrumento"
+

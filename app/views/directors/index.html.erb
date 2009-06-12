@@ -1,12 +1,12 @@
 <%= title t :directors %>
 
-<h1>Directors</h1>
+<h1><%=t :directors %></h1>
 
-<%= link_to "New", :new_director %>
+<%= link_to "#{t :new}", :new_director %>
 
 <% form_tag do -%>
   <p>
-    Search:
+    <%=t :search %>
 		<%= text_field_tag :search_field %>
 
 		<%= image_tag 'spinner.gif', :id => 'spinner', :style => 'display: none' %>
@@ -15,7 +15,7 @@
 
 <div id='results'>
   <%= render :partial => 'result', :collection => @directors %>
-</div>	
+</div>
 
 <br>
 <%= link_to "Home", :controller => :home %>

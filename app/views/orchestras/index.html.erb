@@ -1,12 +1,12 @@
 <%= title t :orchestras %>
 
-<h1>Orchestras</h1>
+<h1><%=t :orchestras %></h1>
 
-<%= link_to "New", :new_orchestra %>
+<%= link_to "#{t :new}", :new_orchestra %>
 
 <% form_tag do -%>
   <p>
-    Search:
+    <%=t :search %>
 		<%= text_field_tag :search_field %>
 
 		<%= image_tag 'spinner.gif', :id => 'spinner', :style => 'display: none' %>
@@ -15,7 +15,7 @@
 
 <div id='results'>
 	<%= render :partial => 'result', :collection => @orchestras %>
-</div>	
+</div>
 
 <br>
 <%= link_to "Home", :controller => :home %>

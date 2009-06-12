@@ -1,12 +1,12 @@
 <%= title t :obratypes %>
 
-<h1>Obra Types</h1>
+<h1><%=t :obratypes %></h1>
 
-<%= link_to "New", :new_obra_type %>
+<%= link_to "#{t :new}", :new_obra_type %>
 
 <% form_tag do -%>
   <p>
-    Search:
+    <%=t :search %>
 		<%= text_field_tag :search_field %>
 
 		<%= image_tag 'spinner.gif', :id => 'spinner', :style => 'display: none' %>
@@ -16,7 +16,7 @@
 <div id='results'>
   <%= render :partial => 'result', :collection => @obra_types %>
 </div>
-	
+
 <br>
 <%= link_to "Home", :controller => :home %>
 

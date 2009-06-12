@@ -1,12 +1,12 @@
 <%= title t :composers %>
 
-<h1>Composers</h1>
-<%= link_to "New", :new_composer %>
+<h1><%=t :composers %></h1>
+<%= link_to "#{t :new}", :new_composer %>
 <br>
 
 <% form_tag  do -%>
 	<p>
-		Search:
+		<%=t :search %>
 		<%= text_field_tag :search_field %>
 
 		<%= image_tag 'spinner.gif', :id => 'spinner', :style => 'display: none' %>
@@ -15,15 +15,15 @@
 
 <div id='results'>
 	<%= render :partial => 'result', :collection => @composers %>
-</div>	
+</div>
 <br>
 <%= link_to "Home", :controller => :home %>
 
-<%= observe_field 'search_field',		
-          :url            => {:action => 'composers_completion'},		
-          :frequency      => 1,		
-          :before         => "Element.show('spinner')",		
-          :complete       => [ visual_effect(:highlight, :results), "Element.hide('spinner')"],		
-          :update         => :results,		
+<%= observe_field 'search_field',
+          :url            => {:action => 'composers_completion'},
+          :frequency      => 1,
+          :before         => "Element.show('spinner')",
+          :complete       => [ visual_effect(:highlight, :results), "Element.hide('spinner')"],
+          :update         => :results,
           :with           => 'prefix' %>
 

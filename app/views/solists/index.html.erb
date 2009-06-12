@@ -1,19 +1,19 @@
 <%= title t :solists %>
 
-<h1>Solists</h1>
+<h1><%=t :solists %></h1>
 
-<%= link_to "New", :new_solist %>
+<%= link_to "#{t :new}", :new_solist %>
 
 <% form_tag  do -%>
 	<p>
-		Search:
+		<%=t :search %>
     <%= text_field_tag :search_field %>
 
     <%= image_tag 'spinner.gif', :id => 'spinner', :style => 'display: none' %>
 	</p>
 <% end -%>
-  
-<div id='results'> 
+
+<div id='results'>
 	<%=	render :partial => 'result'	, :collection => @solists %>
 </div>
 

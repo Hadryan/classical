@@ -4,5 +4,6 @@
 
   <%= link_to "Show", result %>
   <%= link_to "Edit", edit_album_path(result) %>
-  <%= link_to "Delete", result, :confirm => 'Are you sure?', :method => :delete %>
+  <%= link_to "#{t :delete}", result, :confirm => 'Are you sure?', :method => :delete %>
 </p>
+
