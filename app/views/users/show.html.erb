@@ -1,0 +1,6 @@
+<h1><%= current_user.login %></h1>
+<p><%= current_user.email %></p>
+<p><%= current_user.app_language.locale_name if current_user.app_language %></p>
+
+<%= link_to 'Edit', edit_user_path(current_user) %>
+
