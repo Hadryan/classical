@@ -1,9 +1,11 @@
-<p>
-  <%=h result.id %>
-  <%=h result.name %>
+<div id='row'>
+	<div id='data'>
+		<%= link_to result.name, result, :id => 'link_to_data'  %>
+	</div>
 
-  <%= link_to "Show", result %>
-  <%= link_to "Edit", edit_album_path(result) %>
-  <%= link_to "#{t :delete}", result, :confirm => 'Are you sure?', :method => :delete %>
-</p>
+	<div id='controls'>
+		<%= link_to "Edit", edit_album_path(result) %>
+		<%= link_to "#{t :delete}", result, :confirm => 'Are you sure?', :method => :delete %>
+	</div>
+</div>
 

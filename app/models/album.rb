@@ -13,7 +13,7 @@ class Album < ActiveRecord::Base
   end
 
   def composer_full_name=(name)
-    self.composer = Composer.find_or_create_by_full_name(name) unless name.blank?
+    self.composer = Composer.find_by_full_name(name) unless name.blank?
   end
 
   def obra_type_name
@@ -21,7 +21,7 @@ class Album < ActiveRecord::Base
   end
 
   def obra_type_name=(name)
-    self.obra_type = ObraType.find_or_create_by_name(name) unless name.blank?
+    self.obra_type = ObraType.find_by_name(name) unless name.blank?
   end
 
   def director_name
@@ -29,7 +29,7 @@ class Album < ActiveRecord::Base
   end
 
   def director_name=(name)
-    self.director = Director.find_or_create_by_name(name) unless name.blank?
+    self.director = Director.find_by_name(name) unless name.blank?
   end
 
   def orchestra_name
@@ -37,7 +37,7 @@ class Album < ActiveRecord::Base
   end
 
   def orchestra_name=(name)
-    self.orchestra = Orchestra.find_or_create_by_name(name) unless name.blank?
+    self.orchestra = Orchestra.find_by_name(name) unless name.blank?
   end
 
   def solist_name
@@ -45,7 +45,7 @@ class Album < ActiveRecord::Base
 	end
 
   def solist_name=(name)
-    self.solist = Solist.find_or_create_by_name(name) unless name.blank?
+    self.solist = Solist.find_by_name(name) unless name.blank?
   end
 end
 

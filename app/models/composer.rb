@@ -18,7 +18,7 @@ class Composer < ActiveRecord::Base
   def self.find_by_full_name(full_name)
     first_name, last_name = extract_names(full_name)
 
-    find(:all, :conditions => { :first_name => first_name, :last_name => last_name })
+    find(:all, :conditions => { :first_name => first_name, :last_name => last_name }).first
   end
 
   def self.extract_names(full_name)
