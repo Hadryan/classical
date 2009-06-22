@@ -5,25 +5,54 @@
     Description:
         Purpose of the stylesheet follows.
 */
+.errorExplanation {
+    background-color: #F2E1E1;
+    border: 1px solid #AA0000;
+    color: #AA0000;
+}
+
+.field_error input {
+    background-color: #F2E1E1;
+    border: 1px solid #AA0000;
+}
 
 #user {
-  float: right;
-  width: 200px;
-  height: 50px;
-  margin-top: 10px;
-  background-color: #EAF2F5;
-  border: 1px solid gray;
-  padding: 10px 0 0 10px;
+    float: right;
+    width: 250px;
+    height: 50px;
+    margin-top: 10px;
+    background-color: #EAF2F5;
+    border: 1px solid #4183C4;
+    padding: 10px 0 0 10px;
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+}
+
+#user .user_options {
+
+    font-size:85%;
+    margin-top:0.2em;
+
+}
+
+#user .user_options a {
+    color: #4183C4;
+    text-decoration: none;
+}
+
+#user .name {
+    float:left;
+    font-weight:bold;
+    overflow:hidden;
+    width:10em;
 }
 
 a#link_home:link {color:white; text-decoration: none}
 a#link_home:visited {color:white; text-decoration: none}
 a#link_home:active {color:white; text-decoration: none}
 a#link_home:hover {color:white; font-weight:bold}
-
-.errorExplanation {
-    color:red;
-}
 
 .classical_form{
     width: 500px;

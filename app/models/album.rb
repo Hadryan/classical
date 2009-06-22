@@ -6,7 +6,7 @@ class Album < ActiveRecord::Base
   belongs_to :orchestra
   has_and_belongs_to_many :instruments
 
-  validates_presence_of   :composer, :obra_type, :solist, :director, :orchestra
+  validates_presence_of   :composer, :obra_type, :name, :solist, :director, :orchestra, :instruments
 
   def composer_full_name
     composer.full_name if composer
