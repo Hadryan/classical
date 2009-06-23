@@ -1,5 +1,7 @@
 log/
-db/development.sqlite3
-tmp/
-nbproject/
+db/*.sqlite3*
+tmp/**/*
+tmp/.*
+tmp/profile*
+nbproject*
 
