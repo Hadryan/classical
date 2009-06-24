@@ -1,0 +1,20 @@
+.classical_form
+  %h2
+    = "#{t :composer}"
+
+  - form_for( composer ) do |f|
+    = f.error_messages
+    .form_element
+      = f.label :first_name
+      = f.text_field :first_name, :class => :text
+    .form_element
+      = f.label :last_name
+      = f.text_field :last_name, :class => :text
+    .form_element
+      = f.label :nationality
+      = f.text_field :nationality, :class => :text
+    %p
+      = f.submit button_label
+
+= link_to 'Back', composers_path
+
