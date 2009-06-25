@@ -1,0 +1,51 @@
+%p
+  %b
+    Composer:
+  = h @album.composer.full_name if @album.composer
+%p
+  %b
+    Obra Type:
+  = h @album.obra_type.name if @album.obra_type
+%p
+  %b
+    Name:
+  = h @album.name
+%p
+  %b
+    Music Tone:
+  = h @album.music_tone
+%p
+  %b
+    Obra Number:
+  = h @album.number
+%p
+  %b
+    Opus Number:
+  = h @album.opus_number
+%p
+  %b
+    Instrument:
+  - @album.instruments.each do |instrument|
+    = h instrument.name
+
+%p
+  %b
+    Solist:
+  = h @album.solist.name if @album.solist
+%p
+  %b
+    Director:
+  = h @album.director.name if @album.director
+%p
+  %b
+    Orchestra:
+  = h @album.orchestra.name if @album.orchestra
+%p
+  %b
+    Cd Number:
+  = h @album.cd_number
+
+= link_to 'Edit', edit_album_path(@album)
+|
+= link_to 'Back', albums_path
+
