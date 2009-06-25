@@ -1,0 +1,18 @@
+= title t :orchestras
+%h1
+  = t :orchestras
+= link_to "#{t :new}", :new_orchestra
+- form_tag do
+  %p
+    = t :search
+    = text_field_tag :search_field
+    = image_tag 'spinner.gif', :id => 'spinner', :style => 'display: none'
+
+#results
+  = render :partial => 'result', :collection => @orchestras
+
+%br
+
+= link_to "Home", :controller => :home
+= observe_field 'search_field', :url            => {:action => 'orchestra_completion'}, :frequency      => 1, :before         => "Element.show('spinner')", :complete       => [ visual_effect(:highlight, :results), "Element.hide('spinner')"], :update         => :results, :with           => 'prefix'
+
