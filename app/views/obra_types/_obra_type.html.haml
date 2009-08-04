@@ -1,0 +1,6 @@
+#row
+  #data
+    = link_to obra_type.name, obra_type, :id => 'link_to_data'
+  #controls
+    = link_to "Edit", edit_obra_type_path(obra_type)
+    = link_to "#{t :delete}", obra_type, :confirm => 'Are you sure?', :method => :delete

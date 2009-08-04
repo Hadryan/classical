@@ -1,0 +1,6 @@
+#row
+  #data
+    = link_to solist.name, solist, :id => 'link_to_data'
+  #controls
+    = link_to "Edit", edit_solist_path(solist)
+    = link_to "#{t :delete}", solist, :confirm => 'Are you sure?', :method => :delete

@@ -1,0 +1,6 @@
+#row
+  #data
+    = link_to orchestra.name, orchestra, :id => 'link_to_data'
+  #controls
+    = link_to "Edit", edit_orchestra_path(orchestra)
+    = link_to "#{t :delete}", orchestra, :confirm => 'Are you sure?', :method => :delete

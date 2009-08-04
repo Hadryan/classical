@@ -1,0 +1,7 @@
+#row
+  #data
+    = link_to album.name, album, :id => 'link_to_data'
+  #controls
+    = link_to "Edit", edit_album_path(album)
+    = link_to "#{t :delete}", album, :confirm => 'Are you sure?', :method => :delete
+

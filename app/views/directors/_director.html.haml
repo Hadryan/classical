@@ -1,0 +1,7 @@
+#row
+  #data
+    = link_to director.name, director, :id => 'link_to_data'
+  #controls
+    = link_to "Edit", edit_director_path(director)
+    = link_to "#{t :delete}", director, :confirm => 'Are you sure?', :method => :delete
+
