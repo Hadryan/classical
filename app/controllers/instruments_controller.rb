@@ -1,10 +1,13 @@
 class InstrumentsController < ApplicationController
   before_filter :find_instrument,  :only => [:show, :edit, :update, :destroy ]
-  
+
   # GET /instruments
   # GET /instruments.xml
   def index
-    @instruments = Instrument.find_by_name_like params[:search]
+#    @instruments = Instrument.find_by_name_like params[:search]
+    @instruments = Instrument.paginate :per_page => 10, :page => params[:page],
+                                      :conditions => ['name LIKE ?', "%#{params[:search]}%"],
+                                      :order => 'name'
   end
 
   def show
@@ -62,19 +65,22 @@ class InstrumentsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
-  def instruments_completion
-    matches = Instrument.find_by_name_like params[:prefix]
 
-    if matches.empty?
+  def instruments_completion
+    @instruments = Instrument.paginate :per_page => 10, :page => params[:page],
+                                      :conditions => ['name LIKE ?', "%#{params[:prefix]}%"],
+                                      :order => 'name'
+
+    if @instruments.empty?
       render :text => "The search returns any results."
     else
-      render :partial => 'result', :collection => matches
+      render :partial => @instruments
     end
   end
-  
+
   private
     def find_instrument
       @instrument = Instrument.find(params[:id])
     end
 end
+

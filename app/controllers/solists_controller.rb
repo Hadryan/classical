@@ -16,12 +16,12 @@ class SolistsController < ApplicationController
   end
 
   def solist_completion
-    matches = Solist.find_by_name_like params[:prefix]
+    @solists = Solist.find_by_name_like params[:prefix]
 
-    if matches.empty?
+    if @solists.empty?
       render :text => "No solists found."
     else
-      render :partial => 'result', :collection => matches
+      render :partial => @solists
     end
   end
 

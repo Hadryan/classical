@@ -81,7 +81,7 @@ class ComposersController < ApplicationController
     if matches.empty?
       render :text => "The search returns any results."
     else
-      render :partial => 'result', :collection => matches
+      render :partial => 'composer', :collection => matches
     end
   end
 

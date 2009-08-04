@@ -55,12 +55,12 @@ class OrchestrasController < ApplicationController
   end
 
   def orchestra_completion
-    matches = Orchestra.find_by_name_like params[:prefix]
+    @orchestras = Orchestra.find_by_name_like params[:prefix]
 
-    if matches.empty?
+    if @orchestras.empty?
       render :text => "The serch returns any result"
     else
-      render :partial => 'result', :collection => matches
+      render :partial => @orchestras
     end
 
   end

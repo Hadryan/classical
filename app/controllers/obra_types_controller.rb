@@ -61,7 +61,7 @@ class ObraTypesController < ApplicationController
      if matches.empty?
        render :text => "The search returns any results."
      else
-       render :partial => 'result', :collection => matches
+       render :partial => 'obra_type', :collection => matches
      end
   end
 

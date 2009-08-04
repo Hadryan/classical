@@ -1,6 +1,6 @@
 class DirectorsController < ApplicationController
   before_filter :find_director,  :only => [:show, :edit, :update, :destroy]
-  
+
   def index
     @directors = Director.find_by_name_like params[:search]
   end
@@ -60,7 +60,7 @@ class DirectorsController < ApplicationController
     if matches.empty?
       render :text => "The serch returns any results"
     else
-      render :partial => 'result', :collection => matches
+      render :partial => 'director', :collection => matches
     end
 
   end
@@ -70,3 +70,4 @@ class DirectorsController < ApplicationController
       @director = Director.find(params[:id])
     end
 end
+
