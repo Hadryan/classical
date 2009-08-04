@@ -42,5 +42,7 @@ Rails::Initializer.run do |config|
   ActionView::Base.field_error_proc = Proc.new do |html_tag, instance_tag|
     "<span class='field_error'>#{html_tag}</span>"
   end
+
+  config.action_controller.relative_url_root = '/classical_project'
 end
 
