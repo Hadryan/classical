@@ -20,6 +20,7 @@ class UsersController < ApplicationController
       redirect_back_or_default home_path
       flash[:success] = "Thanks for signing up!"
     else
+      get_languages
       render :action => 'new'
     end
   end
