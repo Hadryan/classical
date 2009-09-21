@@ -4,10 +4,7 @@ class InstrumentsController < ApplicationController
   # GET /instruments
   # GET /instruments.xml
   def index
-#    @instruments = Instrument.find_by_name_like params[:search]
-    @instruments = Instrument.paginate :per_page => 10, :page => params[:page],
-                                      :conditions => ['name LIKE ?', "%#{params[:search]}%"],
-                                      :order => 'name'
+    @instruments = Instrument.find(:all, :order => 'name')
   end
 
   def show
@@ -67,9 +64,8 @@ class InstrumentsController < ApplicationController
   end
 
   def instruments_completion
-    @instruments = Instrument.paginate :per_page => 10, :page => params[:page],
-                                      :conditions => ['name LIKE ?', "%#{params[:prefix]}%"],
-                                      :order => 'name'
+    @instruments = Instrument.find(:all, :conditions => ['name LIKE ?', "#{params[:prefix]}%"],
+                                   :order => 'name')
 
     if @instruments.empty?
       render :text => "The search returns any results."

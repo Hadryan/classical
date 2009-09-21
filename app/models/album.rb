@@ -6,6 +6,9 @@ class Album < ActiveRecord::Base
   belongs_to :orchestra
   has_and_belongs_to_many :instruments
 
+  has_attached_file :photo, :styles => { :thumb => "150x150>",
+                                         :small => "100x100" }
+
   validates_presence_of   :composer, :obra_type, :name, :solist, :director, :orchestra, :instruments
 
   def composer_full_name

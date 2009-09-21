@@ -1,11 +1,14 @@
+.cover_art
+  = image_tag @album.photo.url(:thumb), :class => "cover_arts"
+
 %p
   %b
     Composer:
-  = h @album.composer.full_name if @album.composer
+  = link_to @album.composer.full_name, @album.composer if @album.composer
 %p
   %b
     Obra Type:
-  = h @album.obra_type.name if @album.obra_type
+  = link_to @album.obra_type.name, @album.obra_type if @album.obra_type
 %p
   %b
     Name:
@@ -26,20 +29,20 @@
   %b
     Instrument:
   - @album.instruments.each do |instrument|
-    = h instrument.name
+    = link_to instrument.name, instrument
 
 %p
   %b
     Solist:
-  = h @album.solist.name if @album.solist
+  = link_to @album.solist.name, @album.solist if @album.solist
 %p
   %b
     Director:
-  = h @album.director.name if @album.director
+  = link_to @album.director.name, @album.director if @album.director
 %p
   %b
     Orchestra:
-  = h @album.orchestra.name if @album.orchestra
+  = link_to @album.orchestra.name, @album.orchestra if @album.orchestra
 %p
   %b
     Cd Number:

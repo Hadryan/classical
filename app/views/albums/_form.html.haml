@@ -1,7 +1,7 @@
 .classical_form
   %h2
     Album
-  - form_for( album ) do |f|
+  - form_for album, :html => { :multipart => true } do |f|
     = f.error_messages
     .form_element
       = f.label :composer
@@ -37,6 +37,12 @@
     .form_element
       = f.label :cd_number
       = f.text_field :cd_number,:class => :text
+    .form_element
+      = f.label :cover_art
+      = f.file_field :photo
+      = image_tag album.photo.url(:small) if album.photo
+
+    %br
     %p
       = f.submit button_label
 
