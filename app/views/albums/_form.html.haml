@@ -5,10 +5,10 @@
     = f.error_messages
     .form_element
       = f.label :composer
-      = text_field_with_auto_complete :album, :composer_full_name, { :class => :text, :size => 40 }, { :url => composers_path(:format => :js), :method => :get, :with => "'search=' + element.value" }
+      = select :album, :composer_id, Composer.find(:all, :order => :first_name).collect{|composer| [composer.first_name, composer.id]}
     .form_element
       = f.label :Obra_Type
-      = text_field_with_auto_complete :album, :obra_type_name, { :class => :text, :size => 40 }, { :url => obra_types_path(:format => :js), :method => :get, :with => "'search=' + element.value" }
+      = select :album, :obra_type_id, ObraType.find(:all, :order => :name).collect{|obra_type| [obra_type.name, obra_type.id] }
     .form_element
       = f.label :name
       = f.text_field :name, :class => :text
@@ -27,13 +27,13 @@
       #list_instruments
     .form_element
       = f.label :solist
-      = text_field_with_auto_complete :album, :solist_name, { :class => :text, :size => 40 }, { :url => solists_path(:format => :js), :method => :get, :with => "'search=' + element.value" }
+      = select :album, :solist_id, Solist.find(:all, :order => :name).collect{|solist| [solist.name, solist.id] }
     .form_element
       = f.label :director
-      = text_field_with_auto_complete :album, :director_name, { :class => :text, :size => 40 }, { :url => directors_path(:format => :js), :method => :get, :with => "'search=' + element.value" }
+      = select :album, :director_id, Director.find(:all, :order => :name).collect{|director| [director.name, director.id] }
     .form_element
       = f.label :orchestra
-      = text_field_with_auto_complete :album, :orchestra_name, { :class => :text, :size => 40 }, { :url => orchestras_path(:format => :js), :method => :get, :with => "'search=' + element.value" }
+      = select :album, :orchestra_id, Orchestra.find(:all, :order => :name).collect{|orchestra| [orchestra.name, orchestra.id] }
     .form_element
       = f.label :cd_number
       = f.text_field :cd_number,:class => :text
@@ -47,4 +47,77 @@
       = f.submit button_label
 
 = link_to 'Back', albums_path
+
+:javascript
+    (function($) {
+    $.widget("ui.combobox", {
+    _create: function() {
+    var self = this;
+    var select = this.element.hide();
+    var input = $("<input>")
+    .insertAfter(select)
+    .autocomplete({
+    delay: 0,
+    source: function(request, response) {
+    var matcher = new RegExp(request.term, "i");
+    response(select.children("option").map(function() {
+    var text = $(this).text();
+    if (this.value && (!request.term || matcher.test(text)))
+    return {
+    id: this.value,
+    label: text.replace(new RegExp("(?![^&;]+;)(?!<[^<>]*)(" + $.ui.autocomplete.escapeRegex(request.term) + ")(?![^<>]*>)(?![^&;]+;)", "gi"), "<strong>$1</strong>"),
+    value: text
+    };
+    }));
+    },
+    delay: 0,
+    change: function(event, ui) {
+    if (!ui.item) {
+    // remove invalid value, as it didn't match anything
+    $(this).val("");
+    return false;
+    }
+    select.val(ui.item.id);
+    self._trigger("selected", event, {
+    item: select.find("[value='" + ui.item.id + "']")
+    });
+
+    },
+    minLength: 0
+    })
+    .addClass("ui-widget ui-widget-content");
+    $("<button>&nbsp;</button>")
+    .attr("tabIndex", -1)
+    .attr("title", "Show All Items")
+    .insertAfter(input)
+    .button({
+    icons: {
+    primary: "ui-icon-triangle-1-s"
+    },
+    text: false
+    }).removeClass("ui-corner-all")
+    .addClass("ui-corner-right ui-button-icon")
+    .click(function() {
+    // close if already visible
+    if (input.autocomplete("widget").is(":visible")) {
+    input.autocomplete("close");
+    return;
+    }
+    // pass empty string as value to search for, displaying all results
+    input.autocomplete("search", "");
+    input.focus();
+    return false;
+    });
+    }
+    });
+
+    })(jQuery);
+
+    $(function() {
+    $("#album_obra_type_id").combobox();
+    $("#album_composer_id").combobox();
+    $("#album_solist_id").combobox();
+    $("#album_director_id").combobox();
+    $("#album_orchestra_id").combobox();
+    });
 

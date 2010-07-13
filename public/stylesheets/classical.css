@@ -89,6 +89,20 @@ a#link_home:hover {color:white; font-weight:bold}
       display: block;
     }
 
+form .form_element input.ui-autocomplete-input {
+  display: inline;
+  height:15px;
+  width: 266px;
+  padding:5px;
+
+}
+
+form .form_element button.ui-button {
+  height:27px;
+  vertical-align:bottom;
+  width:2.4em;
+}
+
 .cover_art{
     left: -195px;
     position: absolute;
