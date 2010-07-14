@@ -36,25 +36,15 @@
 
       <!-- Begin Faux Columns -->
       <div id="faux">
-        <!-- Begin Left Column -->
-        <div id="leftcolumn">
-        </div>
-        <!-- End Left Column -->
+        <p>
+          <% flash.each do |key, msg| %>
+            <div class="<%= key %>">
+              <%= msg %>
+            </div>
+          <% end %>
+        </p>
 
-        <!-- Begin Right Column -->
-        <div id="rightcolumn">
-          <p>
-            <% flash.each do |key, msg| %>
-              <div class="<%= key %>">
-                <%= msg %>
-              </div>
-            <% end %>
-          </p>
-
-          <%= yield %>
-          <div class="clear"></div>
-        </div>
-        <!-- End Right Column -->
+        <%= yield %>
 
         <div class="clear"></div>
       </div>

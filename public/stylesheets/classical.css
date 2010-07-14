@@ -63,16 +63,24 @@ a#link_home:hover {color:white; font-weight:bold}
 }
 
 .row {
-    margin: 1em 0 0 0;
-    white-space: nowrap;
+
 }
 
-#row #data {
-      display: block;
-      width: 20em;
-      float: left;
-      clear: both;
-      margin-right: 1em; }
+.row .data {
+  border-bottom:1px inset;
+  display: table-cell;
+  padding:2px 1px;
+  width: 108px;
+}
+
+.row.composer .data, .row.obra_type .data, .row.solist .data,
+.row.director .data, .row.orchestra .data, .row.instrument .data {
+  width: 280px;
+}
+
+.row .controls{
+  width: 10em;
+}
 
   form .form_element {
     margin: 1em 0 0 0;
@@ -160,5 +168,9 @@ table.listing  td.image
 table.listing  img.photo
    {
    margin-left: 5px;
+}
+
+#faux #results {
+  margin:10px 0;
 }
 

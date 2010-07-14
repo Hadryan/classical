@@ -14,6 +14,8 @@
 #results
   = render :partial => @solists
 
+= will_paginate @solists
+
 = link_to "Home", :controller => :home
 = observe_field 'search_field', :url    => { :action => 'solist_completion' }, :frequency => 1, :before => "Element.show('spinner')", :complete => [ visual_effect(:highlight, :results), "Element.hide('spinner')" ], :update => :results, :with   => 'prefix'
 

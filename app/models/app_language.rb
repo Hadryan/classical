@@ -4,3 +4,15 @@ class AppLanguage < ActiveRecord::Base
 	validates_presence_of :locale_name
 	validates_presence_of :name
 end
+
+# == Schema Information
+#
+# Table name: app_languages
+#
+#  id          :integer         not null, primary key
+#  locale_name :string(255)
+#  name        :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+

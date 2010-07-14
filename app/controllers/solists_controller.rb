@@ -1,8 +1,8 @@
 class SolistsController < ApplicationController
   before_filter :find_solist,  :only => [:show, :edit, :update, :destroy]
-  
+
   def index
-    @solists = Solist.find_by_name_like params[:search]
+    @solists = Solist.paginate :page => params[:page], :order => :name
   end
 
   def new
@@ -69,3 +69,4 @@ class SolistsController < ApplicationController
       @solist = Solist.find(params[:id])
     end
 end
+

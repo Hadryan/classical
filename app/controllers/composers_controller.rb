@@ -6,7 +6,7 @@ class ComposersController < ApplicationController
   before_filter :find_composer,  :only => [:show, :edit, :update, :destroy, :wiki_data ]
 
   def index
-    @composers = Composer.find_by_name_like params[:search]
+    @composers = Composer.paginate :page => params[:page], :order => :last_name
   end
 
   def new

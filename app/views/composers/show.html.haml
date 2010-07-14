@@ -1,15 +1,13 @@
 %h1
   = h @composer.full_name
-%p
-  %b
-    Nationality:
-  = h @composer.nationality
 
 = link_to 'Edit', edit_composer_path(@composer)
 |
 = link_to 'Back', composers_path
-|
-= link_to_remote 'Get More info from Wikipedia', :url => { :action => "wiki_data", :id => @composer.id }
 
-#wiki_content{ :style => "display:none;" }
+.albums
+  .title Albums:
+
+  = render :partial => 'albums/album_headers'
+  .list= render :partial => @composer.albums
 

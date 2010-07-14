@@ -3,3 +3,10 @@
 = link_to 'Edit', edit_director_path(@director)
 |
 = link_to 'Back', directors_path
+
+.albums
+  .title Albums:
+
+  = render :partial => 'albums/album_headers'
+  .list= render :partial => @director.albums
+

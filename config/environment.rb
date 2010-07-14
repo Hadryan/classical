@@ -8,6 +8,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   config.gem 'haml'
+  config.gem 'will_paginate'
 
   config.time_zone = 'UTC'
 

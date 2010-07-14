@@ -5,8 +5,6 @@
 
 = link_to "#{t :new}", :new_album
 
-%br
-
 - form_tag  do
   %p
     = t :search
@@ -14,9 +12,8 @@
     = image_tag 'spinner.gif', :id => 'spinner', :style => 'display: none'
 
 #results
-  = render :partial => 'albums'
-
-%br
+  = render :partial => "album_headers"
+  = render :partial => @albums
 
 = link_to "Home", :controller => :home
 = observe_field 'search_field', :url => { :action => 'albums_completion' }, :frequency => 1, :before => "Element.show('spinner')", :complete => [ visual_effect(:highlight, :results), "Element.hide('spinner')" ], :update => :results, :with => 'prefix'
