@@ -15,6 +15,6 @@
   = render :partial => "album_headers"
   = render :partial => @albums
 
-= link_to "Home", :controller => :home
+= link_to t('.home'), :controller => :home
 = observe_field 'search_field', :url => { :action => 'albums_completion' }, :frequency => 1, :before => "Element.show('spinner')", :complete => [ visual_effect(:highlight, :results), "Element.hide('spinner')" ], :update => :results, :with => 'prefix'
 

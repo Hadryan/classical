@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: instruments
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Instrument < ActiveRecord::Base
   has_and_belongs_to_many :albums
 
@@ -8,15 +18,4 @@ class Instrument < ActiveRecord::Base
     find(:all, :conditions => ["name like ?", "#{name}%"], :order => :name)
   end
 end
-
-
-# == Schema Information
-#
-# Table name: instruments
-#
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#
 

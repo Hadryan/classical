@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: orchestras
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Orchestra < ActiveRecord::Base
   has_many :albums
 
@@ -12,15 +22,4 @@ class Orchestra < ActiveRecord::Base
     self.name
   end
 end
-
-
-# == Schema Information
-#
-# Table name: orchestras
-#
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#
 
