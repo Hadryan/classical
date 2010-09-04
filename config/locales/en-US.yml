@@ -68,7 +68,9 @@ en-US:
   search: "Search:"
   new: "New"
   delete: "Delete"
-
+  albums:
+    index:
+      home: home
   album: "Album"
   composer: "Composer"
   obratype: "Obra type"

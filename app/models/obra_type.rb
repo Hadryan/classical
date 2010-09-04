@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: obra_types
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class ObraType < ActiveRecord::Base
   has_many :albums
 
@@ -6,6 +16,10 @@ class ObraType < ActiveRecord::Base
 
   def self.find_by_name_like(name)
     find(:all, :conditions => ["name like ?", "#{name}%"], :order => :name)
+  end
+
+  def to_s
+    self.name
   end
 end
 

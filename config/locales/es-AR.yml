@@ -189,3 +189,7 @@ es-AR:
   orchestra: "Orquesta"
   instrument: "Instrumento"
 
+  albums:
+    index:
+      home: inicio
+

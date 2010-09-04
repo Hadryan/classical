@@ -3,3 +3,10 @@
 = link_to 'Edit', edit_obra_type_path(@obra_type)
 |
 = link_to 'Back', obra_types_path
+
+.albums
+  .title Albums:
+
+  = render :partial => 'albums/album_headers'
+  .list= render :partial => @obra_type.albums
+

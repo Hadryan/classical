@@ -1,8 +1,8 @@
 class ObraTypesController < ApplicationController
   before_filter :find_obra_type,  :only => [:show, :edit, :update, :destroy]
-  
+
   def index
-    @obra_types = ObraType.find_by_name_like params[:search]
+    @obra_types = ObraType.paginate :page => params[:page], :order => :name
   end
 
   def new
@@ -56,8 +56,8 @@ class ObraTypesController < ApplicationController
 
 
   def obra_completion
-     matches = ObraType.find_by_name_like params[:prefix] 
-    
+     matches = ObraType.find_by_name_like params[:prefix]
+
      if matches.empty?
        render :text => "The search returns any results."
      else
@@ -70,3 +70,4 @@ class ObraTypesController < ApplicationController
       @obra_type = ObraType.find(params[:id])
     end
 end
+

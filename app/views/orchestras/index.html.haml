@@ -11,8 +11,8 @@
 #results
   = render :partial => @orchestras
 
-%br
+= will_paginate @orchestras
 
 = link_to "Home", :controller => :home
-= observe_field 'search_field', :url            => {:action => 'orchestra_completion'}, :frequency      => 1, :before         => "Element.show('spinner')", :complete       => [ visual_effect(:highlight, :results), "Element.hide('spinner')"], :update         => :results, :with           => 'prefix'
+= observe_field 'search_field', :url => {:action => 'orchestra_completion'}, :frequency => 1, :before => "Element.show('spinner')", :complete => [ visual_effect(:highlight, :results), "Element.hide('spinner')"], :update => :results, :with => 'prefix'
 

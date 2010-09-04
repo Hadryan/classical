@@ -12,12 +12,12 @@
   = text_field_tag :search_field
   = image_tag 'spinner.gif', :id => 'spinner', :style => 'display: none'
 
-%br
+= will_paginate @composers
 
 #results
   = render :partial => @composers
 
-%br
+= will_paginate @composers
 
 = link_to "Home", :controller => :home
 = observe_field 'search_field', :url => {:action => 'composers_completion'}, :frequency => 1, :before => "Element.show('spinner')", :complete => [ visual_effect(:highlight, :results), "Element.hide('spinner')"], :update => :results, :with => 'prefix'
