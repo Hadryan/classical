@@ -1,8 +1,6 @@
 class AlbumsController < ApplicationController
   before_filter :find_album,  :only => [:show, :edit, :update, :destroy]
 
-  auto_complete_for :solist, :name
-
   def index
     @albums = Album.find(:all)
   end
