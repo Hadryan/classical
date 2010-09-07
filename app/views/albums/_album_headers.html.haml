@@ -1,9 +1,14 @@
 .row
   .data Name
-  .data Composer
-  .data Obra Type
+  - unless @section == 'composers'
+    .data Composer
+  - unless @section == 'obra_types'
+    .data Obra Type
+  - unless @section == 'orchestras'
+    .data Orchestra
+  - unless @section == 'directors'
+    .data Director
+  - unless @section == 'solists'
+    .data Solist
   .data Opus N°
-  .data Orchestra
-  .data Director
-  .data Solist
 

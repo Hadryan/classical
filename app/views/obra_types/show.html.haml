@@ -1,12 +1,29 @@
-%h1
-  = h @obra_type.name
+.composer-profile
+  .image
+    = image_tag(@obra_type.image.attachment.url(:small)) if @obra_type.image
+  .description
+    %h1= @obra_type.name
+
 = link_to 'Edit', edit_obra_type_path(@obra_type)
 |
 = link_to 'Back', obra_types_path
 
-.albums
-  .title Albums:
+#tabs
+  %ul
+    %li
+      %a{:href => "#albums"}= "Albums (#{@obra_type.albums.size})"
+    %li
+      %a{:href => "#description"}Descripcion
 
-  = render :partial => 'albums/album_headers'
-  .list= render :partial => @obra_type.albums
+  #albums
+    = render :partial => 'albums/album_headers'
+    .list= render :partial => @obra_type.albums
+
+  #description
+
+
+:javascript
+  $(function() {
+  $("#tabs").tabs();
+  });
 

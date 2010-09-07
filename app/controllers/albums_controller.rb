@@ -3,7 +3,7 @@ class AlbumsController < ApplicationController
 
 
   def index
-    @albums = Album.all(:include => [:composer, :solist, :orchestra, :obra_type, :director])
+    @albums = Album.paginate :include => [:composer, :solist, :orchestra, :obra_type, :director], :page => params[:page], :order => 'name'
   end
 
   def new

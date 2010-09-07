@@ -2,6 +2,7 @@ class CreateSolists < ActiveRecord::Migration
   def self.up
     create_table :solists do |t|
       t.string :name
+      t.text :description
 
       t.timestamps
     end
@@ -11,3 +12,4 @@ class CreateSolists < ActiveRecord::Migration
     drop_table :solists
   end
 end
+

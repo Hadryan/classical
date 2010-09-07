@@ -25,8 +25,9 @@ class Album < ActiveRecord::Base
   belongs_to :orchestra
   has_and_belongs_to_many :instruments
 
-  has_attached_file :photo, :styles => { :thumb => "150x150>",
-                                         :small => "100x100" }
+  has_one :image, :as => :imageable
+
+  accepts_nested_attributes_for :image, :allow_destroy => true
 
  # validates_presence_of   :composer, :obra_type, :name, :solist, :director, :orchestra, :instruments
 

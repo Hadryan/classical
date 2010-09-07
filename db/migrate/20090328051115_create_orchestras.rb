@@ -2,6 +2,7 @@ class CreateOrchestras < ActiveRecord::Migration
   def self.up
     create_table :orchestras do |t|
       t.string :name
+      t.text :description
 
       t.timestamps
     end
@@ -11,3 +12,4 @@ class CreateOrchestras < ActiveRecord::Migration
     drop_table :orchestras
   end
 end
+

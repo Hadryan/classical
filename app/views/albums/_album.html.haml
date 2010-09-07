@@ -1,9 +1,20 @@
 .row
   .data= link_to album.name, album, :id => 'link_to_data'
-  .data= link_to album.composer.name, album.composer, :id => 'link_to_data'
-  .data= link_to album.obra_type.to_s, album.obra_type, :id => 'link_to_data'
-  .data= link_to album.orchestra.to_s, album.orchestra, :id => 'link_to_data'
-  .data= link_to album.director.to_s, album.director, :id => 'link_to_data'
-  .data= link_to album.solist.to_s, album.solist, :id => 'link_to_data'
+
+  - unless @section == 'composers'
+    .data= link_to(album.composer.name, album.composer, :id => 'link_to_data')
+
+  - unless @section == 'obra_types'
+    .data= link_to album.obra_type.to_s, album.obra_type, :id => 'link_to_data'
+
+  - unless @section == 'orchestras'
+    .data= link_to album.orchestra.to_s, album.orchestra, :id => 'link_to_data'
+
+  - unless @section == 'directors'
+    .data= link_to album.director.to_s, album.director, :id => 'link_to_data'
+
+  - unless @section == 'solists'
+    .data= link_to album.solist.to_s, album.solist, :id => 'link_to_data'
+
   .data= album.opus_number
 

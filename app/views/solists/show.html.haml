@@ -1,12 +1,29 @@
-%h1
-  = h @solist.name
+.composer-profile
+  .image
+    = image_tag(@solist.image.attachment.url(:small)) if @solist.image
+  .description
+    %h1= @solist.name
+
 = link_to 'Edit', edit_solist_path(@solist)
 |
 = link_to 'Back', solists_path
 
-.albums
-  .title Albums:
+#tabs
+  %ul
+    %li
+      %a{:href => "#albums"}= "Albums (#{@solist.albums.size})"
+    %li
+      %a{:href => "#description"}Descripcion
 
-  = render :partial => 'albums/album_headers'
-  .list= render :partial => @solist.albums
+  #albums
+    = render :partial => 'albums/album_headers'
+    .list= render :partial => @solist.albums
+
+  #description
+
+
+:javascript
+  $(function() {
+  $("#tabs").tabs();
+  });
 
