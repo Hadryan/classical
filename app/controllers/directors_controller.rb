@@ -20,14 +20,9 @@ class DirectorsController < ApplicationController
 
     respond_to do |format|
       if @director.save
-        flash[:notice] = 'Director was successfully created.'
-        format.html { redirect_to(@director) }
-        format.xml  { render :xml => @director, :status => :created,
-                    :location => @director }
+        format.html { redirect_to(@director, :notice => 'Director was successfully created.') }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @director.errors,
-                    :status => :unprocessable_entity }
       end
     end
   end
@@ -35,12 +30,9 @@ class DirectorsController < ApplicationController
   def update
     respond_to do |format|
       if @director.update_attributes(params[:director])
-        flash[:notice] = 'Director was successfully updated.'
-        format.html { redirect_to(@director) }
-        format.xml { head :ok }
+        format.html { redirect_to(@director, :notice => 'Director was successfully updated.') }
       else
         format.html { render :action => "edit" }
-        format.xml { render :xml => @director.errors,  :status => :unprocessable_entity }
       end
     end
   end
@@ -50,7 +42,6 @@ class DirectorsController < ApplicationController
 
      respond_to do |format|
        format.html { redirect_to(directors_url) }
-       format.xml { head :ok }
      end
   end
 
@@ -62,7 +53,6 @@ class DirectorsController < ApplicationController
     else
       render :partial => 'director', :collection => matches
     end
-
   end
 
   private

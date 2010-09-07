@@ -30,14 +30,9 @@ class SolistsController < ApplicationController
 
     respond_to do |format|
       if @solist.save
-        flash[:notice] = 'Solist was successfully created.'
-        format.html { redirect_to(@solist) }
-        format.xml  { render :xml => @solist, :status => :created,
-                    :location => @solist }
+        format.html { redirect_to(@solist, :notice => 'Solist was successfully created.') }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @solist.errors,
-                    :status => :unprocessable_entity }
       end
     end
   end
@@ -45,12 +40,9 @@ class SolistsController < ApplicationController
   def update
     respond_to do |format|
       if @solist.update_attributes(params[:solist])
-        flash[:notice] = 'Solist was successfully updated.'
-        format.html { redirect_to(@solist) }
-        format.xml { head :ok }
-      else
+        format.html { redirect_to(@solist, :notice => 'Solist was successfully updated.') }
+    else
         format.html { render :action => "edit" }
-        format.xml { render :xml => @solist.errors,  :status => :unprocessable_entity }
       end
     end
   end
@@ -60,7 +52,6 @@ class SolistsController < ApplicationController
 
      respond_to do |format|
        format.html { redirect_to(solists_url) }
-       format.xml { head :ok }
      end
   end
 

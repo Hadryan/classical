@@ -20,14 +20,9 @@ class OrchestrasController < ApplicationController
 
     respond_to do |format|
       if @orchestra.save
-        flash[:notice] = 'Orchestra was successfully created.'
-        format.html { redirect_to(@orchestra) }
-        format.xml  { render :xml => @orchestra, :status => :created,
-                    :location => @orchestra }
+        format.html { redirect_to(@orchestra, :notice => 'Orchestra was successfully created.') }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @orchestra.errors,
-                    :status => :unprocessable_entity }
       end
     end
   end
@@ -35,12 +30,9 @@ class OrchestrasController < ApplicationController
   def update
     respond_to do |format|
       if @orchestra.update_attributes(params[:orchestra])
-        flash[:notice] = 'Orchestra was successfully updated.'
-        format.html { redirect_to(@orchestra) }
-        format.xml { head :ok }
+        format.html { redirect_to(@orchestra, :notice => 'Orchestra was successfully updated.') }
       else
         format.html { render :action => "edit" }
-        format.xml { render :xml => @orchestra.errors,  :status => :unprocessable_entity }
       end
     end
   end
@@ -50,7 +42,6 @@ class OrchestrasController < ApplicationController
 
      respond_to do |format|
        format.html { redirect_to(orchestras_url) }
-       format.xml { head :ok }
      end
   end
 

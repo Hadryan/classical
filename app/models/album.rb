@@ -2,23 +2,19 @@
 #
 # Table name: albums
 #
-#  id                 :integer         not null, primary key
-#  name               :string(255)
-#  composer_id        :integer
-#  obra_type_id       :integer
-#  music_tone         :string(255)
-#  number             :integer
-#  opus_number        :string(255)
-#  solist_id          :integer
-#  director_id        :integer
-#  orchestra_id       :integer
-#  cd_number          :integer
-#  created_at         :datetime
-#  updated_at         :datetime
-#  photo_file_name    :string(255)
-#  photo_content_type :string(255)
-#  photo_file_size    :integer
-#  photo_updated_at   :datetime
+#  id           :integer         not null, primary key
+#  name         :string(255)
+#  composer_id  :integer
+#  obra_type_id :integer
+#  music_tone   :string(255)
+#  number       :integer
+#  opus_number  :string(255)
+#  solist_id    :integer
+#  director_id  :integer
+#  orchestra_id :integer
+#  cd_number    :integer
+#  created_at   :datetime
+#  updated_at   :datetime
 #
 
 class Album < ActiveRecord::Base
@@ -32,7 +28,7 @@ class Album < ActiveRecord::Base
   has_attached_file :photo, :styles => { :thumb => "150x150>",
                                          :small => "100x100" }
 
-  validates_presence_of   :composer, :obra_type, :name, :solist, :director, :orchestra, :instruments
+ # validates_presence_of   :composer, :obra_type, :name, :solist, :director, :orchestra, :instruments
 
   def composer_full_name
     composer.full_name if composer

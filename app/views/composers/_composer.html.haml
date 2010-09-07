@@ -1,5 +1,5 @@
 .row.composer
-  .data= link_to composer.full_name, composer, :id => 'link_to_data'
+  .data= link_to composer.name, composer, :id => 'link_to_data'
   .data.controls
     = link_to "Edit", edit_composer_path(composer)
     = link_to "#{t :delete}", composer, :confirm => 'Are you sure?', :method => :delete
