@@ -19,8 +19,11 @@ test:
   timeout: 500
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: mysql
+  database: classical_prod
+  host: localhost
+  username: root
+  password: pedoman
+  encoding: utf8
   pool: 5
-  timeout: 5000
 
