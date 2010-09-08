@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-		locale = 'en-US'
+		locale = 'es-AR'
 
 		if current_user
       locale = current_user.app_language.locale_name unless current_user.app_language.nil?

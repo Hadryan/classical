@@ -49,17 +49,11 @@ class AlbumsController < ApplicationController
      end
   end
 
-  def albums_completion
-    prefix = params[:prefix]
-
-    matches = Album.find(:all, :conditions => ["name like ?", "#{prefix}%"])
-
-    if matches.empty?
-      render :text => "The search returns any results."
-    else
-      render :partial => 'album', :collection => matches
-    end
+  def search
+    @albums = Album.all(:include => [:composer, :solist, :orchestra, :obra_type, :director], :joins => params[:type].to_sym, :conditions => {params[:type].pluralize => { :name => params[:query] }})
+    render 'index'
   end
+
 
   def add_instrument
     render(:update) do |page|

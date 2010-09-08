@@ -180,13 +180,18 @@ es-AR:
   new: "Nuevo"
   delete: "Borrar"
 
+  name: "Nombre"
   album: "Album"
   composer: "Compositor"
-  obratype: "Tipo de Obra"
+  obra_type: "Tipo de Obra"
   solist: "Solista"
   director: "Director"
   orchestra: "Orquesta"
   instrument: "Instrumento"
+  opus_number: "Opus N°"
+
+  previous: Anterior
+  next: Siguiente
 
   albums:
     index:
