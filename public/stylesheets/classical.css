@@ -174,3 +174,30 @@ table.listing  img.photo
   margin:10px 0;
 }
 
+.composer-profile .image {
+    float: left;
+}
+
+.description {
+    margin-left:165px;
+}
+
+.description ul li span.title {
+    font-weight: bold;
+}
+
+.description h1 {
+    margin-bottom:10px;
+}
+
+.composer-profile ul {
+    list-style-type:none;
+    margin: 0;
+}
+
+.image img {
+    padding:7px;
+    border:1px solid #E8E0D1;
+    background:none repeat scroll 0 0 #FFFFFF;
+}
+

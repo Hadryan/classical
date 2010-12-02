@@ -71,11 +71,17 @@ en-US:
   albums:
     index:
       home: home
+
+  name: "Name"
   album: "Album"
   composer: "Composer"
-  obratype: "Obra type"
+  obra_type: "Obra type"
   solist: "Solist"
   director: "Director"
   orchestra: "Orchestra"
   instrument: "Instrument"
+  opus_number: "Opus N°"
+
+  previous: previous
+  next: next
 

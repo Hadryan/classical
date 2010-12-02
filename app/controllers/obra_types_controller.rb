@@ -20,14 +20,9 @@ class ObraTypesController < ApplicationController
 
     respond_to do |format|
       if @obra_type.save
-        flash[:notice] = 'ObraType was successfully created.'
-        format.html { redirect_to(@obra_type) }
-        format.xml  { render :xml => @obra_type, :status => :created,
-                    :location => @obra_type }
+        format.html { redirect_to(@obra_type, :notice => 'ObraType was successfully created.') }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @obra_type.errors,
-                    :status => :unprocessable_entity }
       end
     end
   end
@@ -35,12 +30,9 @@ class ObraTypesController < ApplicationController
   def update
     respond_to do |format|
       if @obra_type.update_attributes(params[:obra_type])
-        flash[:notice] = 'ObraType was successfully updated.'
-        format.html { redirect_to(@obra_type) }
-        format.xml { head :ok }
+        format.html { redirect_to(@obra_type, :notice => 'ObraType was successfully updated.') }
       else
         format.html { render :action => "edit" }
-        format.xml { render :xml => @obra_type.errors,  :status => :unprocessable_entity }
       end
     end
   end
@@ -50,7 +42,6 @@ class ObraTypesController < ApplicationController
 
      respond_to do |format|
        format.html { redirect_to(obra_types_url) }
-       format.xml { head :ok }
      end
   end
 

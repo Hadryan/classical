@@ -2,6 +2,7 @@ class CreateInstruments < ActiveRecord::Migration
   def self.up
     create_table :instruments do |t|
       t.string :name
+      t.text :description
 
       t.timestamps
     end
@@ -11,3 +12,4 @@ class CreateInstruments < ActiveRecord::Migration
     drop_table :instruments
   end
 end
+

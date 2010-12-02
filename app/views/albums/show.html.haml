@@ -1,10 +1,10 @@
 .cover_art
-  = image_tag @album.photo.url(:thumb), :class => "cover_arts"
+  = image_tag @album.image.attachment.url(:thumb) if @album.image
 
 %p
   %b
     Composer:
-  = link_to @album.composer.full_name, @album.composer if @album.composer
+  = link_to @album.composer.name, @album.composer if @album.composer
 %p
   %b
     Obra Type:

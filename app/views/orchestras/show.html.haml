@@ -1,12 +1,28 @@
-%h1
-  = h @orchestra.name
+.composer-profile
+  .image
+    = image_tag(@orchestra.image.attachment.url(:small)) if @orchestra.image
+  .description
+    %h1= @orchestra.name
+
 = link_to 'Edit', edit_orchestra_path(@orchestra)
 |
 = link_to 'Back', orchestras_path
 
-.albums
-  .title Albums:
+#tabs
+  %ul
+    %li
+      %a{:href => "#albums"}= "Albums (#{@orchestra.albums.size})"
+    %li
+      %a{:href => "#description"}Descripcion
 
-  = render :partial => 'albums/album_headers'
-  .list= render :partial => @orchestra.albums
+  #albums
+    = render :partial => 'albums/album_headers'
+    .list= render :partial => @orchestra.albums
+
+  #description
+
+:javascript
+  $(function() {
+  $("#tabs").tabs();
+  });
 

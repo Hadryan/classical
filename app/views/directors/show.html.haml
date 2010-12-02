@@ -1,12 +1,28 @@
-%h1
-  = h @director.name
+.composer-profile
+  .image
+    = image_tag(@director.image.attachment.url(:small)) if @director.image
+  .description
+    %h1= @director.name
+
 = link_to 'Edit', edit_director_path(@director)
 |
 = link_to 'Back', directors_path
 
-.albums
-  .title Albums:
+#tabs
+  %ul
+    %li
+      %a{:href => "#albums"}= "Albums (#{@director.albums.size})"
+    %li
+      %a{:href => "#description"}Descripcion
 
-  = render :partial => 'albums/album_headers'
-  .list= render :partial => @director.albums
+  #albums
+    = render :partial => 'albums/album_headers'
+    .list= render :partial => @director.albums
+
+  #description
+
+:javascript
+  $(function() {
+  $("#tabs").tabs();
+  });
 

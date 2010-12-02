@@ -1,16 +1,13 @@
-require 'rubygems'
-require 'hpricot'
-require 'open-uri'
-
 class ComposersController < ApplicationController
   before_filter :find_composer,  :only => [:show, :edit, :update, :destroy, :wiki_data ]
 
   def index
-    @composers = Composer.paginate :page => params[:page], :order => :last_name
+    @composers = Composer.paginate :page => params[:page], :order => :name
   end
 
   def new
     @composer = Composer.new
+    @composer.build_image
   end
 
   def edit
@@ -20,12 +17,9 @@ class ComposersController < ApplicationController
   def update
     respond_to do |format|
       if @composer.update_attributes(params[:composer])
-        flash[:notice] = 'Composer was successfully updated.'
-        format.html { redirect_to(@composer) }
-        format.xml { head :ok }
+        format.html { redirect_to(@composer, :notice => 'Composer was successfully updated.') }
       else
         format.html { render :action => "edit" }
-        format.xml { render :xml => @composer.errors,  :status => :unprocessable_entity }
       end
     end
   end
@@ -54,14 +48,9 @@ class ComposersController < ApplicationController
 
     respond_to do |format|
       if @composer.save
-        flash[:notice] = 'Composer was successfully created.'
-        format.html { redirect_to(@composer) }
-        format.xml  { render :xml => @composer, :status => :created,
-                    :location => @composer }
+        format.html { redirect_to(@composer, :notice => 'Composer was successfully created.') }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @composer.errors,
-                    :status => :unprocessable_entity }
       end
     end
   end
@@ -71,7 +60,6 @@ class ComposersController < ApplicationController
 
      respond_to do |format|
        format.html { redirect_to(composers_url) }
-       format.xml { head :ok }
      end
   end
 

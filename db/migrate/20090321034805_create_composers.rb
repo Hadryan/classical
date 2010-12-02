@@ -3,8 +3,9 @@ class CreateComposers < ActiveRecord::Migration
     create_table :composers do |t|
       t.string :name
       t.string :nationality
-      t.date :birthDate
-      t.date :deathDate
+      t.date :birth_date
+      t.date :death_date
+      t.text :description
 
       t.timestamps
     end
@@ -14,3 +15,4 @@ class CreateComposers < ActiveRecord::Migration
     drop_table :composers
   end
 end
+

@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: composers
+#
+#  id          :integer         not null, primary key
+#  name        :string(255)
+#  nationality :string(255)
+#  birth_date  :date
+#  death_date  :date
+#  description :text
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Composer do
@@ -71,18 +85,4 @@ describe Composer do
   end
 end
 
-
-# == Schema Information
-#
-# Table name: composers
-#
-#  id          :integer         not null, primary key
-#  first_name  :string(255)
-#  nationality :string(255)
-#  birth_date  :date
-#  death_date  :date
-#  created_at  :datetime
-#  updated_at  :datetime
-#  last_name   :string(255)
-#
 

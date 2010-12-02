@@ -27,12 +27,9 @@ class InstrumentsController < ApplicationController
 
     respond_to do |format|
       if @instrument.save
-        flash[:notice] = 'Instrument was successfully created.'
-        format.html { redirect_to(@instrument) }
-        format.xml  { render :xml => @instrument, :status => :created, :location => @instrument }
+        format.html { redirect_to(@instrument, :notice => 'Instrument was successfully created.') }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @instrument.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -42,12 +39,9 @@ class InstrumentsController < ApplicationController
   def update
     respond_to do |format|
       if @instrument.update_attributes(params[:instrument])
-        flash[:notice] = 'Instrument was successfully updated.'
-        format.html { redirect_to(@instrument) }
-        format.xml  { head :ok }
+        format.html { redirect_to(@instrument, :notice => 'Instrument was successfully updated.') }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @instrument.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -59,7 +53,6 @@ class InstrumentsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(instruments_url) }
-      format.xml  { head :ok }
     end
   end
 

@@ -1,13 +1,37 @@
-%h1
-  = h @composer.full_name
+.composer-profile
+  .image
+    = image_tag(@composer.image.attachment.url(:small)) if @composer.image
+  .description
+    %h1= @composer.name
+    %ul
+      %li
+        %span.title Nacionalidad:
+        = @composer.nationality
+      %li
+        %span.title Nacimiento:
+        = @composer.birth_date
 
 = link_to 'Edit', edit_composer_path(@composer)
 |
 = link_to 'Back', composers_path
 
-.albums
-  .title Albums:
+#tabs
+  %ul
+    %li
+      %a{:href => "#albums"}= "Albums (#{@composer.albums.size})"
+    %li
+      %a{:href => "#description"}Descripcion
 
-  = render :partial => 'albums/album_headers'
-  .list= render :partial => @composer.albums
+  #albums
+    = render :partial => 'albums/album_headers'
+    .list= render :partial => @composer.albums
+
+  #description
+    = @composer.description
+
+
+:javascript
+  $(function() {
+  $("#tabs").tabs();
+  });
 

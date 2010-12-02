@@ -7,7 +7,6 @@ class CreateAlbums < ActiveRecord::Migration
       t.string :music_tone
       t.integer :number
       t.string :opus_number
-      t.string :instrument
       t.references :solist
       t.references :director
       t.references :orchestra
@@ -21,3 +20,4 @@ class CreateAlbums < ActiveRecord::Migration
     drop_table :albums
   end
 end
+

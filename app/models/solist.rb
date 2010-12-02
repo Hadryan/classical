@@ -10,13 +10,12 @@
 
 class Solist < ActiveRecord::Base
   has_many :albums
+  has_one :image, :as => :imageable
+
+  accepts_nested_attributes_for :image, :allow_destroy => true
 
   validates_presence_of :name
   validates_uniqueness_of :name
-
-  def self.find_by_name_like(name)
-    find(:all, :conditions => ["name like ?", "#{name}%"], :order => :name)
-  end
 
   def to_s
     self.name

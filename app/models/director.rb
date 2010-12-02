@@ -10,6 +10,9 @@
 
 class Director < ActiveRecord::Base
   has_many :albums
+  has_one :image, :as => :imageable
+
+  accepts_nested_attributes_for :image, :allow_destroy => true
 
   validates_presence_of :name
   validates_uniqueness_of :name

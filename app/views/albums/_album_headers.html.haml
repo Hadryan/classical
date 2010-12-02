@@ -1,10 +1,14 @@
 .row
-  .data Name
-  .data Composer
-  .data Obra Type
-  .data Opus N°
-  .data Orchestra
-  .data Director
-  .data Solist
-  .data Options
+  .data= t('name')
+  - unless @section == 'composers'
+    .data= t('composer')
+  - unless @section == 'obra_types'
+    .data= t('obra_type')
+  - unless @section == 'orchestras'
+    .data= t('orchestra')
+  - unless @section == 'directors'
+    .data= t('director')
+  - unless @section == 'solists'
+    .data= t('solist')
+  .data= t('opus_number')
 

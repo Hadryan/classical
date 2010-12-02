@@ -1,6 +1,5 @@
 #Sample localization file for English. Add more files in this directory for other locales.
 #See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 es-AR:
   date:
     formats:
@@ -181,13 +180,18 @@ es-AR:
   new: "Nuevo"
   delete: "Borrar"
 
+  name: "Nombre"
   album: "Album"
   composer: "Compositor"
-  obratype: "Tipo de Obra"
+  obra_type: "Tipo de Obra"
   solist: "Solista"
   director: "Director"
   orchestra: "Orquesta"
   instrument: "Instrumento"
+  opus_number: "Opus N°"
+
+  previous: Anterior
+  next: Siguiente
 
   albums:
     index:

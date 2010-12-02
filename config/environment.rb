@@ -12,7 +12,9 @@ Rails::Initializer.run do |config|
   config.gem 'paperclip'
 
   config.time_zone = 'UTC'
-
+  # Configure the default encoding used in templates for Ruby 1.9.
+  Encoding.default_internal = 'utf-8'
+Encoding.default_external = 'utf-8'
   #ActionView::Base.field_error_proc = Proc.new do |html_tag, instance_tag|
   #  "<span class='field_error'>#{html_tag}</span>"
   #end
