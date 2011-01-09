@@ -2,8 +2,8 @@
   %h2
     = "#{t :instrument}"
 
-  - form_for( instrument ) do |f|
-    = f.error_messages
+  = form_for( instrument ) do |f|
+    = errors_for instrument
     .form_element
       = f.label :description
       = f.text_field :name, :class => :text

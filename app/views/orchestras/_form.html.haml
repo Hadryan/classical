@@ -1,8 +1,8 @@
 .classical_form
   %h2
     = "#{t :orchestra}"
-  - form_for( orchestra ) do |f|
-    = f.error_messages
+  = form_for( orchestra ) do |f|
+    = errors_for orchestra
     .form_element
       = f.label :description
       = f.text_field :name, :class => :text

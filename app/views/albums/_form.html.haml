@@ -1,8 +1,8 @@
 .classical_form
   %h2
     Album
-  - form_for album, :html => { :multipart => true } do |f|
-    = f.error_messages
+  = form_for album, :html => { :multipart => true } do |f|
+    = errors_for album
     .form_element
       = f.label :composer
       = select :album, :composer_id, Composer.find(:all, :order => :first_name).collect{|composer| [composer.first_name, composer.id]}

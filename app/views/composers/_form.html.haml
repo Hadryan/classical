@@ -2,8 +2,8 @@
   %h2
     = "Crea un compositor"
 
-  - form_for composer, :html => {:multipart => true} do |f|
-    = f.error_messages
+  = form_for composer, :html => {:multipart => true} do |f|
+    = errors_for(composer)
     .form_element
       = f.label :name
       = f.text_field :name, :class => "text"

@@ -1,8 +1,8 @@
 .classical_form
   %h2
     = "#{t :solist}"
-  - form_for( solist ) do |f|
-    = f.error_messages
+  = form_for( solist ) do |f|
+    = errors_for solist
     .form_element
       = f.label :description
       = f.text_field :name, :class => :text

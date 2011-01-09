@@ -2,8 +2,8 @@
   %h2
     = "#{t :director}"
 
-  - form_for( director ) do |f|
-    = f.error_messages
+  = form_for director do |f|
+    = errors_for director
     .form_element
       = f.label :description
       = f.text_field :name, :class => :text
