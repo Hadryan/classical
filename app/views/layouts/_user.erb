@@ -1,9 +1,9 @@
 <div class='name'>
-  <%= h current_user.login %>
+  <%= current_user.email %>
 </div>
 <div class='user_options'>
-  <%= link_to 'profile', current_user %>
+  <%= link_to 'profile', edit_user_registration_path %>
   |
-  <%= link_to	'log out', logout_path, :id => 'link_logout' %>
+  <%= link_to	'log out', destroy_user_session_path, :id => 'link_logout' %>
 </div>
 

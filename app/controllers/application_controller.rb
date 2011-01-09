@@ -1,12 +1,7 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
 class ApplicationController < ActionController::Base
-  helper :all # include all helpers, all the time
+  protect_from_forgery
 
-  include AuthenticatedSystem
-
-	#before_filter :login_required
+  before_filter :authenticate_user!
 	before_filter :set_locale
   before_filter :set_section
 
@@ -26,7 +21,5 @@ class ApplicationController < ActionController::Base
     I18n.locale = locale
     I18n.load_path += Dir[ File.join(RAILS_ROOT, 'lib', 'locale', '*.{rb,yml}') ]
   end
-
-  filter_parameter_logging :password
 end
 

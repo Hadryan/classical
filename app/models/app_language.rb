@@ -14,5 +14,6 @@ class AppLanguage < ActiveRecord::Base
 
 	validates_presence_of :locale_name
 	validates_presence_of :name
+
 end
 

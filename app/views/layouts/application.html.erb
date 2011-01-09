@@ -17,13 +17,13 @@
     <div id="wrapper">
       <!-- Begin Header -->
       <div id="header">
-        <% if logged_in? %>
+        <% if current_user %>
           <div id="user">
             <%= render :partial => 'layouts/user' %>
           </div>
         <% end %>
 
-        <h1><%= link_to 'Classical', home_path, :id => 'link_home' %></h1>
+        <h1><%= link_to 'Classical', root_path, :id => 'link_home' %></h1>
       </div>
 
       <!-- End Header -->

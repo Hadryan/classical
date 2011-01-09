@@ -7,7 +7,7 @@ class CreateImages < ActiveRecord::Migration
       t.string :attachment_file_name, :attachment_content_type
       t.integer :attachment_file_size
 
-      t.ingeger :created_by
+      t.integer :created_by
 
       t.timestamps
     end

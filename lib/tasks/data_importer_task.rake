@@ -1,6 +1,6 @@
 require 'csv'
 
-FILE_NAME = "#{RAILS_ROOT}/db/data/data.csv"
+FILE_NAME = "#{Rails.root}/db/data/data.csv"
 
 namespace :importer do
   desc "Import initial data"
