@@ -14,8 +14,7 @@ class Director < ActiveRecord::Base
 
   accepts_nested_attributes_for :image, :allow_destroy => true
 
-  validates_presence_of :name
-  validates_uniqueness_of :name
+  validates :name, :presence => true, :uniqueness => true
 
   def self.find_by_name_like(name)
     find(:all, :conditions => ["name like ?", "#{name}%"], :order => :name)

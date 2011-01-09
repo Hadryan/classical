@@ -29,7 +29,8 @@ class Album < ActiveRecord::Base
 
   accepts_nested_attributes_for :image, :allow_destroy => true
 
- # validates_presence_of   :composer, :obra_type, :name, :solist, :director, :orchestra, :instruments
+  validates :name, :presence => true
+  #validates_presence_of   :composer, :obra_type, :name, :solist, :director, :orchestra, :instruments
 
   def composer_full_name
     composer.full_name if composer

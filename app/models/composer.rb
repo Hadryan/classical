@@ -16,7 +16,7 @@ class Composer < ActiveRecord::Base
   has_many :albums
   has_one :image, :as => :imageable
 
-  validates :name, :description, :presence => true
+  validates :name, :presence => true, :uniqueness => true
 
   accepts_nested_attributes_for :image, :allow_destroy => true
 
