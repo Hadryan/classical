@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
 		end
 
     I18n.locale = locale
-    I18n.load_path += Dir[ File.join(RAILS_ROOT, 'lib', 'locale', '*.{rb,yml}') ]
+    I18n.load_path += Dir[ File.join(Rails.root, 'lib', 'locale', '*.{rb,yml}') ]
   end
 end
 
