@@ -45,7 +45,7 @@ class DirectorsController < ApplicationController
      end
   end
 
-  def directors_completion
+  def director_completion
     matches = Director.find_by_name_like params[:prefix]
 
     if matches.empty?

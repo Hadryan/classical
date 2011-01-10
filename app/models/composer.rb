@@ -25,7 +25,7 @@ class Composer < ActiveRecord::Base
   end
 
   def self.find_by_name_like(prefix)
-    Composer.where('name like ?', "#{prefix}%")
+    where('name like ?', "#{prefix}%")
   end
 
   private

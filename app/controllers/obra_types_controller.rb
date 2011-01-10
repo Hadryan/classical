@@ -46,7 +46,7 @@ class ObraTypesController < ApplicationController
   end
 
 
-  def obra_completion
+  def obra_type_completion
      matches = ObraType.find_by_name_like params[:prefix]
 
      if matches.empty?

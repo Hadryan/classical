@@ -56,9 +56,8 @@ class InstrumentsController < ApplicationController
     end
   end
 
-  def instruments_completion
-    @instruments = Instrument.find(:all, :conditions => ['name LIKE ?', "#{params[:prefix]}%"],
-                                   :order => 'name')
+  def instrument_completion
+    @instruments = Instrument.find_by_name_like(params[:prefix])
 
     if @instruments.empty?
       render :text => "The search returns any results."
