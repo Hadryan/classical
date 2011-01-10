@@ -24,6 +24,10 @@ class Composer < ActiveRecord::Base
     [first_name, last_name].compact.join('_').sub(' ', '_')
   end
 
+  def self.find_by_name_like(prefix)
+    Composer.where('name like ?', "#{prefix}%")
+  end
+
   private
     def full_name_without_dates
       [last_name_with_comma, first_name].compact.join(' ')

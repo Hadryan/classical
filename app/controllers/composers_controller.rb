@@ -64,12 +64,12 @@ class ComposersController < ApplicationController
   end
 
   def composers_completion
-    matches = Composer.find_by_name_like params[:prefix]
+    matches = Composer.find_by_name_like(params[:prefix])
 
     if matches.empty?
       render :text => "The search returns any results."
     else
-      render :partial => 'composer', :collection => matches
+      render :partial => matches
     end
   end
 

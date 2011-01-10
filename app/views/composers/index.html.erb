@@ -1,0 +1,38 @@
+<%= title t :composers %>
+
+<h1><%= t :composers %></h1>
+
+<%= link_to "#{t :new}", new_composer_path %>
+
+<br>
+
+<%= form_tag  do %>
+  <%= t :search %>
+  <%= text_field_tag :search_field %>
+  <%= image_tag 'spinner.gif', :id => 'spinner', :style => "display:none" %>
+<% end %>
+
+<%= will_paginate @composers %>
+
+<div id="results">
+  <%= render :partial => @composers %>
+</div>
+
+<%= will_paginate @composers %>
+
+<%= link_to 'Home', root_path %>
+
+<script type="text/javascript" language="javascript" charset="utf-8">
+// <![CDATA[
+  $(document).ready(function(){
+    // when the #search field changes
+    $("#search_field").live('keyup', function() {
+      // make a POST call and replace the content
+      $.post('<%= url_for(:action => 'composers_completion') %>/' + $("#search_field").val() , function(data) {
+        $("#results").html(data);
+      });
+    });
+  })
+// ]]>
+</script>
+

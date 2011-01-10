@@ -10,6 +10,9 @@ Classical::Application.routes.draw do
   resources :albums
   resources :app_languages
 
+  match 'composers/composers_completion/', :to =>  "composers#composers_completion"
+  match 'composers/composers_completion/:prefix', :to =>  "composers#composers_completion"
+
   root :to => 'home#index'
 end
 
