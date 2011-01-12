@@ -1155,7 +1155,7 @@ class CSV
   #
   def self.filter(*args)
     # parse options for input, output, or both
-    in_options, out_options = Hash.new, {row_sep: $INPUT_RECORD_SEPARATOR}
+    in_options, out_options = Hash.new, {:row_sep => $INPUT_RECORD_SEPARATOR}
     if args.last.is_a? Hash
       args.pop.each do |key, value|
         case key.to_s
