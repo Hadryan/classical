@@ -14,7 +14,7 @@ namespace :importer do
 
     line = 2
 
-    CSV.foreach(FILE_NAME, headers: true) do |row|
+    CSV.foreach(FILE_NAME, :headers => true) do |row|
       name = row['album_name'].blank? ? 'Sin Nombre' : row['album_name'].capitalize
 
 
