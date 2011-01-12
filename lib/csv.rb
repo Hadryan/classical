@@ -828,7 +828,7 @@ class CSV
     #
     # This method assumes you want the Table.headers(), unless you explicitly
     # pass <tt>:write_headers => false</tt>.
-    # 
+    #
     def to_csv(options = Hash.new)
       wh = options.fetch(:write_headers, true)
       @table.inject(wh ? [headers.to_csv(options)] : [ ]) do |rows, row|
@@ -897,14 +897,14 @@ class CSV
   # To add a combo field, the value should be an Array of names.  Combo fields
   # can be nested with other combo fields.
   #
-  Converters  = { integer:   lambda { |f|
+  Converters  = { :integer =>   lambda { |f|
                     Integer(f.encode(ConverterEncoding)) rescue f
                   },
-                  float:     lambda { |f|
+                  :float =>     lambda { |f|
                     Float(f.encode(ConverterEncoding)) rescue f
                   },
-                  numeric:   [:integer, :float],
-                  date:      lambda { |f|
+                  :numeric =>   [:integer, :float],
+                  :date =>      lambda { |f|
                     begin
                       e = f.encode(ConverterEncoding)
                       e =~ DateMatcher ? Date.parse(e) : f
@@ -912,7 +912,7 @@ class CSV
                       f
                     end
                   },
-                  date_time: lambda { |f|
+                  :date_time => lambda { |f|
                     begin
                       e = f.encode(ConverterEncoding)
                       e =~ DateTimeMatcher ? DateTime.parse(e) : f
@@ -920,7 +920,7 @@ class CSV
                       f
                     end
                   },
-                  all:       [:date_time, :numeric] }
+                  :all =>       [:date_time, :numeric] }
 
   #
   # This Hash holds the built-in header converters of CSV that can be accessed
@@ -943,8 +943,8 @@ class CSV
   # can be nested with other combo fields.
   #
   HeaderConverters = {
-    downcase: lambda { |h| h.encode(ConverterEncoding).downcase },
-    symbol:   lambda { |h|
+    :downcase => lambda { |h| h.encode(ConverterEncoding).downcase },
+    :symbol =>   lambda { |h|
       h.encode(ConverterEncoding).downcase.gsub(/\s+/, "_").
                                            gsub(/\W+/, "").to_sym
     }
@@ -965,17 +965,17 @@ class CSV
   # <b><tt>:skip_blanks</tt></b>::        +false+
   # <b><tt>:force_quotes</tt></b>::       +false+
   #
-  DEFAULT_OPTIONS = { col_sep:            ",",
-                      row_sep:            :auto,
-                      quote_char:         '"',
-                      field_size_limit:   nil,
-                      converters:         nil,
-                      unconverted_fields: nil,
-                      headers:            false,
-                      return_headers:     false,
-                      header_converters:  nil,
-                      skip_blanks:        false,
-                      force_quotes:       false }.freeze
+  DEFAULT_OPTIONS = { :col_sep =>            ",",
+                      :row_sep =>            :auto,
+                      :quote_char =>         '"',
+                      :field_size_limit =>   nil,
+                      :converters =>         nil,
+                      :unconverted_fields => nil,
+                      :headers =>            false,
+                      :return_headers =>     false,
+                      :header_converters =>  nil,
+                      :skip_blanks =>        false,
+                      :force_quotes =>       false }.freeze
 
   #
   # This method will return a CSV instance, just like CSV::new(), but the
@@ -1252,7 +1252,7 @@ class CSV
   # (<tt>$/</tt>) when calling this method.
   #
   def self.generate_line(row, options = Hash.new)
-    options  = {row_sep: $INPUT_RECORD_SEPARATOR}.merge(options)
+    options  = {:row_sep => $INPUT_RECORD_SEPARATOR}.merge(options)
     encoding = options.delete(:encoding)
     str      = ""
     if encoding
@@ -1413,9 +1413,9 @@ class CSV
   #                     header_converters: :symbol }.merge(options) )
   #
   def self.table(path, options = Hash.new)
-    read( path, { headers:           true,
-                  converters:        :numeric,
-                  header_converters: :symbol }.merge(options) )
+    read( path, { :headers =>           true,
+                  :converters =>        :numeric,
+                  :header_converters => :symbol }.merge(options) )
   end
 
   #
@@ -2086,14 +2086,14 @@ class CSV
     esc_quote   = escape_re(@quote_char)
     @parsers = {
       # for detecting parse errors
-      quote_or_nl:    encode_re("[", esc_quote, "\r\n]"),
-      nl_or_lf:       encode_re("[\r\n]"),
-      stray_quote:    encode_re( "[^", esc_quote, "]", esc_quote,
+      :quote_or_nl =>    encode_re("[", esc_quote, "\r\n]"),
+      :nl_or_lf =>       encode_re("[\r\n]"),
+      :stray_quote =>    encode_re( "[^", esc_quote, "]", esc_quote,
                                  "[^", esc_quote, "]" ),
       # safer than chomp!()
-      line_end:       encode_re(esc_row_sep, "\\z"),
+      :line_end =>       encode_re(esc_row_sep, "\\z"),
       # illegal unquoted characters
-      return_newline: encode_str("\r\n")
+      :return_newline => encode_str("\r\n")
     }
   end
 
@@ -2215,9 +2215,9 @@ class CSV
                  # CSV header String
                  when String
                    self.class.parse_line( @use_headers,
-                                          col_sep:    @col_sep,
-                                          row_sep:    @row_sep,
-                                          quote_char: @quote_char )
+                                          :col_sep =>    @col_sep,
+                                          :row_sep =>    @row_sep,
+                                          :quote_char => @quote_char )
                  # first row is headers
                  else            row
                  end
@@ -2337,3 +2337,4 @@ class String
     CSV.parse_line(self, options)
   end
 end
+
