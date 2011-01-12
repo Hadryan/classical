@@ -23,7 +23,7 @@ class Album < ActiveRecord::Base
   belongs_to :solist
   belongs_to :director
   belongs_to :orchestra
-  has_and_belongs_to_many :instruments
+  belongs_to :instrument
 
   has_one :image, :as => :imageable
 

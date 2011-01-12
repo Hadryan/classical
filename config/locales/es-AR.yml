@@ -189,6 +189,7 @@ es-AR:
   orchestra: "Orquesta"
   instrument: "Instrumento"
   opus_number: "Opus N°"
+  cd_number: CD N°
 
   previous: Anterior
   next: Siguiente

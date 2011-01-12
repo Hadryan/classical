@@ -36,6 +36,10 @@ namespace :importer do
       solist_name = row['solist'].blank? ? 'Anonimo' : row['solist'].capitalize
       director_name = row['director'].blank? ? 'Anonimo' : row['director'].capitalize
       orchestra_name = row['orchestra'].blank? ? 'Sin nombre' : row['orchestra'].capitalize
+      instrument_name = row['instrument'].blank? ? 'NN' : row['instrument'].capitalize
+      obra_number = row['obra_number']
+      opus_number = row['opus_number']
+      cd_number = row['cd_number']
 
       album = Album.create({
         :name => name,
@@ -44,7 +48,11 @@ namespace :importer do
         :music_tone => music_tone,
         :solist => Solist.find_or_create_by_name(solist_name),
         :director => Director.find_or_create_by_name(director_name),
-        :orchestra => Orchestra.find_or_create_by_name(orchestra_name)
+        :orchestra => Orchestra.find_or_create_by_name(orchestra_name),
+        :instrument => Instrument.find_or_create_by_name(instrument_name),
+        :opus_number => opus_number,
+        :cd_number => cd_number,
+        :number => obra_number
       }
       )
 

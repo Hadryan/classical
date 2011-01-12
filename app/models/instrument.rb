@@ -9,7 +9,7 @@
 #
 
 class Instrument < ActiveRecord::Base
-  has_and_belongs_to_many :albums
+  has_many :albums
 
   validates :name, :presence => true, :uniqueness => true
 
