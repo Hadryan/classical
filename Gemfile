@@ -7,5 +7,4 @@ gem 'devise'
 gem 'paperclip'
 gem 'haml'
 gem 'will_paginate', '3.0.pre'
-gem 'ruby-debug19', :require => "ruby-debug"
 
