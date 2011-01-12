@@ -5,13 +5,6 @@ FILE_NAME = "#{Rails.root}/db/data/data.csv"
 namespace :importer do
   desc "Import initial data"
   task(:posta => :environment) do
-    tasks = [ 'director',
-              'obra_type',
-              'composer',
-              'orchestra',
-              'solist',
-              'instrument']
-
     line = 2
 
     CSV.foreach(FILE_NAME, :headers => true) do |row|
