@@ -5,7 +5,7 @@
     = errors_for album
     .form_element
       = f.label :composer
-      = select :album, :composer_id, Composer.find(:all, :order => :first_name).collect{|composer| [composer.first_name, composer.id]}
+      = select :album, :composer_id, Composer.find(:all, :order => :name).collect{|composer| [composer.name, composer.id]}
     .form_element
       = f.label :Obra_Type
       = select :album, :obra_type_id, ObraType.find(:all, :order => :name).collect{|obra_type| [obra_type.name, obra_type.id] }
@@ -23,8 +23,7 @@
       = f.text_field :opus_number, :class => :text
     .form_element
       = f.label :instrument
-      = select_tag("album[instrument_ids][]", options_for_select(Instrument.find(:all).collect { |cat| [cat.name, cat.id] }, album.instruments.collect { |cat| cat.id}), {:multiple=>true, :size=>6})
-      #list_instruments
+      = select :album, :instrument_id, Instrument.find(:all, :order => :name).collect{|instrument| [instrument.name, instrument.id] }
     .form_element
       = f.label :solist
       = select :album, :solist_id, Solist.find(:all, :order => :name).collect{|solist| [solist.name, solist.id] }
@@ -39,8 +38,8 @@
       = f.text_field :cd_number,:class => :text
     .form_element
       = f.label :cover_art
-      = f.file_field :photo
-      = image_tag album.photo.url(:small) if album.photo
+      = f.file_field :image
+      = image_tag album.image.url(:small) if album.image
 
     %br
     %p
@@ -65,7 +64,7 @@
     if (this.value && (!request.term || matcher.test(text)))
     return {
     id: this.value,
-    label: text.replace(new RegExp("(?![^&;]+;)(?!<[^<>]*)(" + $.ui.autocomplete.escapeRegex(request.term) + ")(?![^<>]*>)(?![^&;]+;)", "gi"), "<strong>$1</strong>"),
+    label: text.replace(new RegExp("(?![^&;]+;)(?!<[^<>]*)(" + $.ui.autocomplete.escapeRegex(request.term) + ")(?![^<>]*>)(?![^&;]+;)", "gi"), "$1"),
     value: text
     };
     }));
@@ -119,5 +118,6 @@
     $("#album_solist_id").combobox();
     $("#album_director_id").combobox();
     $("#album_orchestra_id").combobox();
+    $("#album_instrument_id").combobox();
     });
 
