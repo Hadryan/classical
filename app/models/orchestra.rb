@@ -17,7 +17,7 @@ class Orchestra < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
 
   def self.find_by_name_like(prefix)
-    where('name ilike ?', "#{prefix}%")
+    where('name ilike ?', "#{prefix}%").order(:name)
   end
 
   def to_s

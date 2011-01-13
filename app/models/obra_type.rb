@@ -17,7 +17,7 @@ class ObraType < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
 
   def self.find_by_name_like(name)
-    where("name ilike ?", "#{name}%")
+    where("name ilike ?", "#{name}%").order(:name)
   end
 
   def to_s

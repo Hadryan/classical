@@ -25,7 +25,7 @@ class Composer < ActiveRecord::Base
   end
 
   def self.find_by_name_like(prefix)
-    where('name ilike ?', "#{prefix}%")
+    where('name ilike ?', "#{prefix}%").order(:name)
   end
 
   private
