@@ -51,16 +51,6 @@ class AlbumsController < ApplicationController
     render 'index'
   end
 
-
-  def add_instrument
-    render(:update) do |page|
-      instrument = Instrument.find_by_name(params[:value])
-
-      page['album_instrument_ids'].value = instrument.id.to_s
-      page.replace_html 'list_instruments', instrument.name
-    end
-  end
-
   private
   def find_album
     @album = Album.find(params[:id])
