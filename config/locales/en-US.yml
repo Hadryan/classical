@@ -68,9 +68,6 @@ en-US:
   search: "Search:"
   new: "New"
   delete: "Delete"
-  albums:
-    index:
-      home: home
 
   name: "Name"
   album: "Album"
