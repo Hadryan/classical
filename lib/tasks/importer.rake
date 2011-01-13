@@ -35,8 +35,8 @@ namespace :importer do
       orchestra_name = row['orchestra'].blank? ? 'Sin nombre' : row['orchestra'].capitalize
       instrument_name = row['instrument'].blank? ? 'NN' : row['instrument'].capitalize
       obra_number = row['obra_number']
-      opus_number = row['opus_number']
-      cd_number = row['cd_number']
+      opus_number = row['opus_number'].to_s == '0' ? nil : row['opus_number']
+      cd_number = row['cd_number'].to_i == 0 ? nil : row['cd_number']
 
       album = Album.create({
         :name => name,
