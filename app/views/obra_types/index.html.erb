@@ -12,11 +12,13 @@
   </p>
 <% end -%>
 
+<%= will_paginate @obra_types, :previous_label => t('previous'), :next_label => t('next') %>
+
 <div id="results">
   <%= render :partial => @obra_types %>
 </div>
 
-<%= will_paginate @obra_types %>
+<%= will_paginate @obra_types, :previous_label => t('previous'), :next_label => t('next') %>
 
 <%= link_to 'Home', root_path %>
 

@@ -11,11 +11,13 @@
   </p>
 <% end -%>
 
+<%= will_paginate @instruments, :previous_label => t('previous'), :next_label => t('next') %>
+
 <div id="results">
   <%= render :partial => @instruments %>
 </div>
 
-<%= will_paginate @instruments %>
+<%= will_paginate @instruments, :previous_label => t('previous'), :next_label => t('next') %>
 
 <%= link_to 'Home', root_path %>
 

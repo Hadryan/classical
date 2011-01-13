@@ -10,6 +10,8 @@ Classical::Application.routes.draw do
   resources :albums
   resources :app_languages
 
+  match '/albums/search', :to => "albums#search"
+
   #TODO Refactor this routes!!!
 
   match 'composers/composers_completion/', :to =>  "composers#composers_completion"
