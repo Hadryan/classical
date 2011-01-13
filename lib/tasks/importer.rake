@@ -21,7 +21,11 @@ namespace :importer do
       composer_name = composer_name.blank? ? 'Anonimo' : composer_name.capitalize
 
       unless (composer = Composer.find_by_name(composer_name))
-        composer = Composer.create({:name => composer_name, :birth_date => Date.civil(birth_date.to_i), :death_date => Date.civil(death_date.to_i)})
+        #TODO fix for postgres
+        birth_date = birth_date.to_i == 0 ? nil : birth_date.to_i
+        death_date = death_date.to_i == 0 ? nil : death_date.to_i
+
+        composer = Composer.create({:name => composer_name, :birth_date => (birth_date.nil? ? birth_date : Date.civil(birth_date)), :death_date => (death_date.nil? ? death_date : Date.civil(death_date.to_i))})
       end
 
       obra_type = row['obra_type'].blank? ? 'NN' : row['obra_type'].capitalize
