@@ -1,5 +1,5 @@
 %tr
   %td= link_to solist.name, solist, :id => 'link_to_data'
-  %td= link_to "Edit", edit_solist_path(solist)
-  %td= link_to "#{t :delete}", solist, :confirm => 'Are you sure?', :method => :delete
+  %td= link_to t(:edit), edit_solist_path(solist)
+  %td= link_to t(:delete), solist, :confirm => 'Are you sure?', :method => :delete
 
