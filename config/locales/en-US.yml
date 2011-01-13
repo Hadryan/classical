@@ -82,6 +82,8 @@ en-US:
   instrument: "Instrument"
   opus_number: "Opus N°"
 
+  no_results: No results...
+
   previous: previous
   next: next
 

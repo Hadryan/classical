@@ -49,7 +49,7 @@ class OrchestrasController < ApplicationController
     @orchestras = Orchestra.find_by_name_like params[:prefix]
 
     if @orchestras.empty?
-      render :text => "The serch returns any result"
+      render :text => I18n.t(:no_results)
     else
       render :partial => @orchestras
     end

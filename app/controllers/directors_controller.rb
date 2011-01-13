@@ -49,7 +49,7 @@ class DirectorsController < ApplicationController
     matches = Director.find_by_name_like params[:prefix]
 
     if matches.empty?
-      render :text => "The serch returns any results"
+      render :text => I18n.t(:no_results)
     else
       render :partial => 'director', :collection => matches
     end

@@ -60,7 +60,7 @@ class InstrumentsController < ApplicationController
     @instruments = Instrument.find_by_name_like(params[:prefix])
 
     if @instruments.empty?
-      render :text => "The search returns any results."
+      render :text => I18n.t(:no_results)
     else
       render :partial => @instruments
     end

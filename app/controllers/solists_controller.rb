@@ -19,7 +19,7 @@ class SolistsController < ApplicationController
     @solists = Solist.find_by_name_like params[:prefix]
 
     if @solists.empty?
-      render :text => "No solists found."
+      render :text => I18n.t(:no_results)
     else
       render :partial => @solists
     end

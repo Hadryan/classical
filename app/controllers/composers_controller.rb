@@ -67,7 +67,7 @@ class ComposersController < ApplicationController
     matches = Composer.find_by_name_like(params[:prefix])
 
     if matches.empty?
-      render :text => "The search returns any results."
+      render :text => I18n.t(:no_results)
     else
       render :partial => matches
     end
