@@ -1,15 +1,15 @@
 %tr
-  %th= t('name')
+  %th= sortable 'name', t('name')
   - unless @section == 'composers'
-    %th= t('composer')
+    %th= sortable 'composers.name', t('composer')
   - unless @section == 'obra_types'
-    %th= t('obra_type')
+    %th= sortable 'obra_types.name', t('obra_type')
   - unless @section == 'orchestras'
-    %th= t('orchestra')
+    %th= sortable 'orchestras.name', t('orchestra')
   - unless @section == 'directors'
-    %th= t('director')
+    %th= sortable 'directors.name', t('director')
   - unless @section == 'solists'
-    %th= t('solist')
-  %th= t('opus_number')
-  %th= t('cd_number')
+    %th= sortable 'solists.name', t('solist')
+  %th= sortable 'opus_number', t('opus_number')
+  %th= sortable 'cd_number', t('cd_number')
 
