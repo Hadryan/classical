@@ -17,7 +17,7 @@ class Director < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
 
   def self.find_by_name_like(prefix)
-    where('name like ?', "#{prefix}%")
+    where('name ilike ?', "#{prefix}%")
   end
 
   def to_s
