@@ -34,6 +34,6 @@ Classical::Application.routes.draw do
 
   #END :)
 
-  root :to => 'home#index'
+  root :to => 'albums#index'
 end
 
