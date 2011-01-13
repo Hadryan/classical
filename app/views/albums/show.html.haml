@@ -12,24 +12,23 @@
 %p
   %b
     Name:
-  = h @album.name
+  = @album.name
 %p
   %b
     Music Tone:
-  = h @album.music_tone
+  = @album.music_tone
 %p
   %b
     Obra Number:
-  = h @album.number
+  = @album.number
 %p
   %b
     Opus Number:
-  = h @album.opus_number
+  = @album.opus_number
 %p
   %b
     Instrument:
-  - @album.instruments.each do |instrument|
-    = link_to instrument.name, instrument
+  = link_to @album.instrument.name, @album.instrument if @album.instrument
 
 %p
   %b

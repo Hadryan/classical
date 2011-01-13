@@ -5,7 +5,7 @@
     = errors_for album
     .form_element
       = f.label :composer
-      = select :album, :composer_id, Composer.find(:all, :order => :name).collect{|composer| [composer.name, composer.id]}
+      = select :album, :composer_id, Composer.find(:all, :order => :name).collect{|composer| [composer.name, composer.id]}, :selected => album.composer
     .form_element
       = f.label :Obra_Type
       = select :album, :obra_type_id, ObraType.find(:all, :order => :name).collect{|obra_type| [obra_type.name, obra_type.id] }
@@ -55,6 +55,7 @@
     var select = this.element.hide();
     var input = $("<input>")
     .insertAfter(select)
+    .val(select[0].options[select[0].selectedIndex].text)
     .autocomplete({
     delay: 0,
     source: function(request, response) {
