@@ -9,5 +9,5 @@ gem 'haml'
 gem 'will_paginate', '3.0.pre'
 gem 'pg'
 
-gem 'ruby-debug19', :require => 'ruby-debug'
+#gem 'ruby-debug19', :require => 'ruby-debug'
 
