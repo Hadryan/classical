@@ -1,38 +1,24 @@
 <ul id="menu">
-  <li>
-    <b>
-     <%= link_to "Albums", albums_path, :class => "#{'active' if @section == 'albums'}" %>
-     </b>
+  <li class='<%= "#{'current_page_item' if @section == 'albums'}" %>'>
+     <%= link_to "Albums", albums_path %>
   </li>
-  <li>
-    <b>
-    <%= link_to "#{t :composers}", composers_path, :class => "#{'active' if @section == 'composers'}" %>
-    </b>
+  <li class='<%= "#{'current_page_item' if @section == 'composers'}" %>'>
+    <%= link_to "#{t :composers}", composers_path %>
   </li>
-  <li>
-    <b>
-     <%= link_to "#{t :obratypes}", obra_types_path, :class => "#{'active' if @section == 'obra_types'}" %>
-    </b>
+  <li class='<%= "#{'current_page_item' if @section == 'obra_types'}" %>'>
+     <%= link_to "#{t :obratypes}", obra_types_path %>
   </li>
-  <li>
-    <b>
-     <%= link_to "#{t :solists}", solists_path, :class => "#{'active' if @section == 'solists'}" %>
-    </b>
+  <li class='<%= "#{'current_page_item' if @section == 'solists'}" %>'>
+     <%= link_to "#{t :solists}", solists_path %>
   </li>
-  <li>
-    <b>
-     <%= link_to "#{t :directors}", directors_path, :class => "#{'active' if @section == 'directors'}" %>
-    </b>
+  <li class='<%= "#{'current_page_item' if @section == 'directors'}" %>'>
+     <%= link_to "#{t :directors}", directors_path %>
   </li>
-  <li>
-    <b>
-     <%= link_to "#{t :orchestras}", orchestras_path, :class => "#{'active' if @section == 'orchestras'}" %>
-    </b>
+  <li class='<%= "#{'current_page_item' if @section == 'orchestras'}" %>'>
+     <%= link_to "#{t :orchestras}", orchestras_path %>
   </li>
-  <li>
-    <b>
-     <%= link_to "#{t :instruments}", instruments_path, :class => "#{'active' if @section == 'instruments'}" %>
-    </b>
+  <li class='<%= "#{'current_page_item' if @section == 'instruments'}" %>'>
+     <%= link_to "#{t :instruments}", instruments_path %>
   </li>
 </ul>
 

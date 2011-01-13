@@ -23,8 +23,9 @@
       %a{:href => "#description"}Descripcion
 
   #albums
-    = render :partial => 'albums/album_headers'
-    .list= render :partial => @composer.albums
+    %table.data_table
+      = render :partial => 'albums/album_headers'
+      = render :partial => @composer.albums
 
   #description
     = @composer.description

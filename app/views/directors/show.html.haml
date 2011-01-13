@@ -16,8 +16,9 @@
       %a{:href => "#description"}Descripcion
 
   #albums
-    = render :partial => 'albums/album_headers'
-    .list= render :partial => @director.albums
+    %table.data_table
+      = render :partial => 'albums/album_headers'
+      = render :partial => @director.albums
 
   #description
 

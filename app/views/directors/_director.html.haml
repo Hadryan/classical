@@ -1,6 +1,5 @@
-.row.director
-  .data= link_to director.name, director, :id => 'link_to_data'
-  .data.controls
-    = link_to "Edit", edit_director_path(director)
-    = link_to "#{t :delete}", director, :confirm => 'Are you sure?', :method => :delete
+%tr
+  %td= link_to director.name, director, :id => 'link_to_data'
+  %td= link_to "Edit", edit_director_path(director)
+  %td= link_to "#{t :delete}", director, :confirm => 'Are you sure?', :method => :delete
 

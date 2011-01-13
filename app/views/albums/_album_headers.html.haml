@@ -1,15 +1,15 @@
-.row
-  .data= t('name')
+%tr
+  %th= t('name')
   - unless @section == 'composers'
-    .data= t('composer')
+    %th= t('composer')
   - unless @section == 'obra_types'
-    .data= t('obra_type')
+    %th= t('obra_type')
   - unless @section == 'orchestras'
-    .data= t('orchestra')
+    %th= t('orchestra')
   - unless @section == 'directors'
-    .data= t('director')
+    %th= t('director')
   - unless @section == 'solists'
-    .data= t('solist')
-  .data= t('opus_number')
-  .data= t('cd_number')
+    %th= t('solist')
+  %th= t('opus_number')
+  %th= t('cd_number')
 

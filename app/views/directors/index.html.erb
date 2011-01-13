@@ -13,9 +13,15 @@
 
 <%= will_paginate @directors, :previous_label => t('previous'), :next_label => t('next') %>
 
-<div id="results">
-  <%= render :partial => @directors %>
-</div>
+<table class="data_table">
+  <tr>
+    <th><%= t :name %> </th>
+    <th colspan=2><%= t :options %> </th>
+  </tr>
+  <tbody id="results">
+    <%= render :partial => @directors %>
+  </tbody>
+</table>
 
 <%= will_paginate @directors, :previous_label => t('previous'), :next_label => t('next') %>
 

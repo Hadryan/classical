@@ -13,9 +13,16 @@
 
 <%= will_paginate @solists, :previous_label => t('previous'), :next_label => t('next') %>
 
-<div id="results">
-  <%= render :partial => @solists %>
-</div>
+
+<table class="data_table">
+  <tr>
+    <th><%= t :name %> </th>
+    <th colspan=2><%= t :options %> </th>
+  </tr>
+  <tbody id="results">
+    <%= render :partial => @solists %>
+  </tbody>
+</table>
 
 <%= will_paginate @solists, :previous_label => t('previous'), :next_label => t('next') %>
 
