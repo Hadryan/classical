@@ -1,13 +1,12 @@
 .classical_form
-  %h2
-    = "#{t :obratype}"
-  = form_for( obraType ) do |f|
-    = errors_for obraType
+  %h2= t :obra_type
+  = form_for( obra_type ) do |f|
+    = errors_for obra_type
     .form_element
       = f.label :description
       = f.text_field :name, :class => :text
     %p
       = f.submit button_label
 
-= link_to 'Back', obra_types_path
+= link_to t(:back), obra_types_path
 

@@ -1,7 +1,6 @@
 .classical_form
-  %h2
-    = "#{t :orchestra}"
-  = form_for( orchestra ) do |f|
+  %h2= t :orchestra
+  = form_for orchestra do |f|
     = errors_for orchestra
     .form_element
       = f.label :description
@@ -9,5 +8,5 @@
     %p
       = f.submit button_label
 
-= link_to 'Back', orchestras_path
+= link_to t(:back), orchestras_path
 

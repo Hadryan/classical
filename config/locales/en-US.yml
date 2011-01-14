@@ -3,6 +3,7 @@
 
 en-US:
   activerecord:
+
     errors:
       template:
         header:

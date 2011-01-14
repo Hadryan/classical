@@ -1,6 +1,4 @@
 class AlbumsController < ApplicationController
-  helper_method :sort_column, :sort_direction
-
   before_filter :find_album,  :only => [:show, :edit, :update, :destroy]
 
   def index
@@ -57,14 +55,6 @@ class AlbumsController < ApplicationController
   private
   def find_album
     @album = Album.find(params[:id])
-  end
-
-  def sort_column
-    (params[:sort]) ? params[:sort] : "name"
-  end
-
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
   end
 end
 

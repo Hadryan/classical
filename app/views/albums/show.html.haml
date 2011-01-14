@@ -2,50 +2,39 @@
   = image_tag @album.image.attachment.url(:thumb) if @album.image
 
 %p
-  %b
-    Composer:
+  %b= Album.human_attribute_name :composer
   = link_to @album.composer.name, @album.composer if @album.composer
 %p
-  %b
-    Obra Type:
+  %b= Album.human_attribute_name :obra_type
   = link_to @album.obra_type.name, @album.obra_type if @album.obra_type
 %p
-  %b
-    Name:
+  %b= Album.human_attribute_name(:name)
   = @album.name
 %p
-  %b
-    Music Tone:
+  %b= Album.human_attribute_name :music_tone
   = @album.music_tone
 %p
-  %b
-    Obra Number:
+  %b= Album.human_attribute_name :obra_number
   = @album.number
 %p
-  %b
-    Opus Number:
+  %b= Album.human_attribute_name :opus_number
   = @album.opus_number
 %p
-  %b
-    Instrument:
+  %b= Album.human_attribute_name :instrument
   = link_to @album.instrument.name, @album.instrument if @album.instrument
 
 %p
-  %b
-    Solist:
+  %b= Album.human_attribute_name :solist
   = link_to @album.solist.name, @album.solist if @album.solist
 %p
-  %b
-    Director:
+  %b= Album.human_attribute_name :director
   = link_to @album.director.name, @album.director if @album.director
 %p
-  %b
-    Orchestra:
+  %b= Album.human_attribute_name :orchestra
   = link_to @album.orchestra.name, @album.orchestra if @album.orchestra
 %p
-  %b
-    Cd Number:
-  = h @album.cd_number
+  %b= Album.human_attribute_name :cd_number
+  = @album.cd_number
 
 = link_to t(:edit), edit_album_path(@album)
 |

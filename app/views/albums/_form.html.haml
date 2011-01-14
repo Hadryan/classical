@@ -7,7 +7,7 @@
       = f.label :composer
       = select :album, :composer_id, Composer.find(:all, :order => :name).collect{|composer| [composer.name, composer.id]}
     .form_element
-      = f.label :Obra_Type
+      = f.label :obra_type
       = select :album, :obra_type_id, ObraType.find(:all, :order => :name).collect{|obra_type| [obra_type.name, obra_type.id] }
     .form_element
       = f.label :name
@@ -45,7 +45,7 @@
     %p
       = f.submit button_label
 
-= link_to 'Back', albums_path
+= link_to t(:back), albums_path
 
 :javascript
     (function($) {

@@ -5,7 +5,7 @@ FILE_NAME = "#{Rails.root}/db/data/data.csv"
 namespace :importer do
   desc "Import initial data"
   task(:posta => :environment) do
-    line = 2
+    line = 1
 
     CSV.foreach(FILE_NAME, :headers => true) do |row|
       name = row['album_name'].blank? ? 'Sin Nombre' : row['album_name'].capitalize

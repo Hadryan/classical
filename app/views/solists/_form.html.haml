@@ -1,7 +1,6 @@
 .classical_form
-  %h2
-    = "#{t :solist}"
-  = form_for( solist ) do |f|
+  %h2= t :solist
+  = form_for solist do |f|
     = errors_for solist
     .form_element
       = f.label :description
@@ -9,5 +8,5 @@
     %p
       = f.submit button_label
 
-= link_to 'Back', solists_path
+= link_to t(:back), solists_path
 

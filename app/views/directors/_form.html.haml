@@ -1,6 +1,5 @@
 .classical_form
-  %h2
-    = "#{t :director}"
+  %h2= t :director
 
   = form_for director do |f|
     = errors_for director
@@ -10,5 +9,5 @@
     %p
       = f.submit button_label
 
-= link_to 'Back', directors_path
+= link_to t(:back), directors_path
 

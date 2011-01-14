@@ -1,8 +1,7 @@
 .classical_form
-  %h2
-    = "#{t :instrument}"
+  %h2= t :instrument
 
-  = form_for( instrument ) do |f|
+  = form_for instrument do |f|
     = errors_for instrument
     .form_element
       = f.label :description
@@ -10,5 +9,5 @@
     %p
       = f.submit button_label
 
-= link_to 'Back', instruments_path
+= link_to t(:back), instruments_path
 
