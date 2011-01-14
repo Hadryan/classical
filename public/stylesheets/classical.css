@@ -16,3 +16,41 @@ th .desc {
   background-image: url(/images/down_arrow.gif);
 }
 
+.form {
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #DAD2C3;
+    border: 2px solid #433E36;
+    color: #433E36;
+    margin: 0 auto;
+    padding: 20px;
+    width: 540px;
+}
+
+.field{
+  margin: 10px;
+}
+
+.field label {
+    float:left;
+    text-align: right;
+    width: 137px;
+    margin-top: 6px;
+}
+
+.field select, .field input, .field textarea {
+    margin-left: 20px;
+}
+
+.field input {
+    height: 20px !important;
+}
+
+.field select {
+    height: 27px !important;
+}
+
+.ui-autocomplete-input {
+    width: 224px;
+}
+

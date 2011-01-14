@@ -1,31 +1,31 @@
-.classical_form
-  %h2
-    = "Crea un compositor"
+.form
+  %h2= "Crea un compositor"
 
   = form_for composer, :html => {:multipart => true} do |f|
     = errors_for(composer)
-    .form_element
+    .field
       = f.label :name
       = f.text_field :name, :class => "text"
-    .form_element
+    .field
       = f.label :nationality
       = f.text_field :nationality, :class => "text"
-    .form_element
+    .field
       = f.label :birth_date
       = date_select "composer", "birth_date", :prompt => {:day => 'Choose day', :month => 'Choose month', :year => 'Choose year'}, :order => [:day, :month, :year]
-    .form_element
+    .field
       = f.label :death_date
       = date_select "composer", "death_date", :prompt => {:day => 'Choose day', :month => 'Choose month', :year => 'Choose year'}, :order => [:day, :month, :year]
 
-    .form_element
+    .field
       - f.fields_for :image do |child_form|
         = child_form.label :image
         = child_form.file_field :attachment
 
-    .form_element
+    .field
       = f.label :description
       = f.text_area :description
-    %p
+
+    .field
       = f.submit button_label
 
 = link_to t(:back), composers_path

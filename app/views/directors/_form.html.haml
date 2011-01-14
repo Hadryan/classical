@@ -1,12 +1,13 @@
-.classical_form
+.form
   %h2= t :director
 
   = form_for director do |f|
     = errors_for director
-    .form_element
+    .field
       = f.label :description
       = f.text_field :name, :class => :text
-    %p
+
+    .field
       = f.submit button_label
 
 = link_to t(:back), directors_path

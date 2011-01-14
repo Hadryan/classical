@@ -1,48 +1,55 @@
-.classical_form
-  %h2
-    Album
+.form
+
+  %h2 Album
+
   = form_for album, :html => { :multipart => true } do |f|
     = errors_for album
-    .form_element
+
+    .field
       = f.label :composer
       = select :album, :composer_id, Composer.find(:all, :order => :name).collect{|composer| [composer.name, composer.id]}
-    .form_element
+
+    .field
       = f.label :obra_type
       = select :album, :obra_type_id, ObraType.find(:all, :order => :name).collect{|obra_type| [obra_type.name, obra_type.id] }
-    .form_element
+
+    .field
       = f.label :name
       = f.text_field :name, :class => :text
-    .form_element
+
+    .field
       = f.label :music_tone
       = f.text_field :music_tone, :class => :text
-    .form_element
+
+    .field
       = f.label :obra_number
       = f.text_field :number, :class => :text
-    .form_element
+
+    .field
       = f.label :opus_number
       = f.text_field :opus_number, :class => :text
-    .form_element
+
+    .field
       = f.label :instrument
       = select :album, :instrument_id, Instrument.find(:all, :order => :name).collect{|instrument| [instrument.name, instrument.id] }
-    .form_element
+
+    .field
       = f.label :solist
       = select :album, :solist_id, Solist.find(:all, :order => :name).collect{|solist| [solist.name, solist.id] }
-    .form_element
+
+    .field
       = f.label :director
       = select :album, :director_id, Director.find(:all, :order => :name).collect{|director| [director.name, director.id] }
-    .form_element
+
+    .field
       = f.label :orchestra
       = select :album, :orchestra_id, Orchestra.find(:all, :order => :name).collect{|orchestra| [orchestra.name, orchestra.id] }
-    .form_element
+
+    .field
       = f.label :cd_number
       = f.text_field :cd_number,:class => :text
-    .form_element
-      = f.label :cover_art
-      = f.file_field :image
-      = image_tag album.image.url(:small) if album.image
 
-    %br
-    %p
+    .field
       = f.submit button_label
 
 = link_to t(:back), albums_path

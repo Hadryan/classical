@@ -140,9 +140,7 @@ fieldset {
 
 input, textarea, select {
 	background-color: #FFF;
-	border-color: #777 #CCC #CCC #777;
-	border-style: solid;
-	border-width: 1px;
+	border: 1px solid Sienna !important;
 	font: normal 1em Verdana,sans-serif;
 	padding: 4px;
 }
@@ -334,6 +332,7 @@ img.right {margin: 0 0 15px 12px;}
 }
 #main {
 	font: normal 0.9em Verdana,sans-serif;
+	width: 100%;
 }
 
 #main ol, #main ul {margin: 0 0 1.2em 1.6em;}
