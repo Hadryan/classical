@@ -1,5 +1,5 @@
 .form
-  %h2= "Crea un compositor"
+  %h2= t :composer
 
   = form_for composer, :html => {:multipart => true} do |f|
     = errors_for(composer)

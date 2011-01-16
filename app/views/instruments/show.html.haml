@@ -1,5 +1,7 @@
-%h1
-  = @instrument.name
+= title @instrument.name
+
+%h1= @instrument.name
+
 = link_to t(:edit), edit_instrument_path(@instrument)
 |
 = link_to t(:back), instruments_path
