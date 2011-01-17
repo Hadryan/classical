@@ -13,10 +13,13 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  adapter: sqlite3
-  database: db/test.sqlite3
-  pool: 5
-  timeout: 5000
+  encoding: unicode
+  adapter: postgresql
+  username: postgres
+  password: pedoman
+  port: 5432
+  host: localhost
+  database: classical_test
 
 production:
   encoding: unicode
