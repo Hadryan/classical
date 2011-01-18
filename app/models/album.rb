@@ -30,6 +30,6 @@ class Album < ActiveRecord::Base
   accepts_nested_attributes_for :image, :allow_destroy => true
 
   validates :composer, :director, :name, :presence => true
-  validates :cd_number, :number, :numericality => true
+  validates :cd_number, :number, :numericality => true, :allow_blank => true
 end
 

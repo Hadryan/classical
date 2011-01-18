@@ -30,8 +30,7 @@ class ComposersController < ApplicationController
 
   def wiki_data
     begin
-      locale = 'en'
-      locale = current_user.app_language.locale_name[0,2] unless current_user.app_language.nil?
+      locale = 'es'
 
       url = "http://#{locale}.wikipedia.org/w/index.php?action=render&title=" + @composer.wiki_name
 

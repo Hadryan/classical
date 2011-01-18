@@ -32,7 +32,8 @@ namespace :importer do
       orchestra_name = row['orchestra'].blank? ? 'Sin nombre' : row['orchestra'].strip.capitalize
       instrument_name = row['instrument'].blank? ? 'NN' : row['instrument'].strip.capitalize
       obra_number = row['obra_number']
-      opus_number = row['opus_number'].to_s == '0' ? nil : row['opus_number']
+      opus_number = row['opus_number'].to_s.strip == '0' ? nil : row['opus_number']
+
       cd_number = row['cd_number'].to_i
       cd_number = cd_number == 0 ? nil : cd_number.abs
 
@@ -48,8 +49,7 @@ namespace :importer do
         :opus_number => opus_number,
         :cd_number => cd_number,
         :number => obra_number
-      }
-      )
+      })
 
       puts "#{line} - #{album.name}"
       line += 1
