@@ -48,7 +48,10 @@ class AlbumsController < ApplicationController
   end
 
   def search
-    @albums = Album.paginate(:include => [:composer, :solist, :orchestra, :obra_type, :director], :joins => params[:type].to_sym, :page => params[:page], :conditions => {params[:type].pluralize => { :name => params[:query] }})
+    @albums = Album.includes([:composer, :solist, :orchestra, :obra_type, :director]).where("#{params[:type].pluralize}.name ilike ?", "#{params[:query]}%")
+    @query = params[:query]
+    @type = params[:type]
+
     render 'index'
   end
 

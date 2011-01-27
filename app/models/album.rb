@@ -31,5 +31,6 @@ class Album < ActiveRecord::Base
 
   validates :composer, :director, :name, :presence => true
   validates :cd_number, :number, :numericality => true, :allow_blank => true
+
 end
 
