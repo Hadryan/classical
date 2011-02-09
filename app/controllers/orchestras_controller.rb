@@ -13,6 +13,9 @@ class OrchestrasController < ApplicationController
   end
 
   def show
+    conditions = {"orchestra_id_equals" => @orchestra.id}
+    conditions.merge!(params[:search]) if params[:search]
+    @search = Album.search(conditions)
   end
 
   def create

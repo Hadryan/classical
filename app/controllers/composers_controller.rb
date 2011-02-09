@@ -25,7 +25,9 @@ class ComposersController < ApplicationController
   end
 
   def show
-
+    conditions = {"composer_id_equals" => @composer.id}
+    conditions.merge!(params[:search]) if params[:search]
+    @search = Album.search(conditions)
   end
 
   def wiki_data

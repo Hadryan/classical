@@ -1,15 +1,15 @@
 %tr
-  %th= sortable 'name', t('name')
+  %th= sort_link @search, :name
   - unless @section == 'composers'
-    %th= sortable 'composers.name', t('composer')
+    %th= sort_link @search, :composer_name
   - unless @section == 'obra_types'
-    %th= sortable 'obra_types.name', t('obra_type')
+    %th= sort_link @search, :obra_type_name
   - unless @section == 'orchestras'
-    %th= sortable 'orchestras.name', t('orchestra')
+    %th= sort_link @search, :orchestra_name
   - unless @section == 'directors'
-    %th= sortable 'directors.name', t('director')
+    %th= sort_link @search, :director_name
   - unless @section == 'solists'
-    %th= sortable 'solists.name', t('solist')
-  %th= sortable 'opus_number', t('opus_number')
-  %th= sortable 'cd_number', t('cd_number')
+    %th= sort_link @search, :solist_name
+  %th= sort_link @search, :opus_number
+  %th= sort_link @search, :cd_number
 

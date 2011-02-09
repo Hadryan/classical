@@ -13,6 +13,9 @@ class DirectorsController < ApplicationController
   end
 
   def show
+    conditions = {"director_id_equals" => @director.id}
+    conditions.merge!(params[:search]) if params[:search]
+    @search = Album.search(conditions)
   end
 
   def create

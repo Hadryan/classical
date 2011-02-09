@@ -29,14 +29,6 @@ th .current {
   background-position: right center;
 }
 
-th .asc {
-  background-image: url(/images/up_arrow.gif);
-}
-
-th .desc {
-  background-image: url(/images/down_arrow.gif);
-}
-
 .form {
     -moz-border-radius: 5px;
     border-radius: 5px;

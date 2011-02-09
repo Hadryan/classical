@@ -13,6 +13,9 @@ class ObraTypesController < ApplicationController
   end
 
   def show
+    conditions = {"obra_type_id_equals" => @obra_type.id}
+    conditions.merge!(params[:search]) if params[:search]
+    @search = Album.search(conditions)
   end
 
   def create

@@ -8,7 +8,9 @@ class InstrumentsController < ApplicationController
   end
 
   def show
-
+    conditions = {"instrument_id_equals" => @instrument.id}
+    conditions.merge!(params[:search]) if params[:search]
+    @search = Album.search(conditions)
   end
 
   def new

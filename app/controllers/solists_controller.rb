@@ -13,6 +13,9 @@ class SolistsController < ApplicationController
   end
 
   def show
+    conditions = {"solist_id_equals" => @solist.id}
+    conditions.merge!(params[:search]) if params[:search]
+    @search = Album.search(conditions)
   end
 
   def solist_completion

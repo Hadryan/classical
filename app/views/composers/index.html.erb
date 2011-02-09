@@ -6,7 +6,7 @@
 
 <br>
 
-<%= form_tag  do %>
+<%= form_tag albums_path do %>
   <%= t :search %>
   <%= text_field_tag :search_field %>
   <%= image_tag 'spinner.gif', :id => 'spinner', :style => "display:none" %>

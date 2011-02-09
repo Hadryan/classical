@@ -2,8 +2,15 @@ class AlbumsController < ApplicationController
   before_filter :find_album,  :only => [:show, :edit, :update, :destroy]
 
   def index
-    order = (params[:sort] || 'name') + ' ' + (params[:direction] || '')
-    @albums = Album.paginate :include => [:composer, :solist, :orchestra, :obra_type, :director], :page => params[:page], :order => order
+    if params[:search] || params[:type]
+      params[:search] ||= {"#{params[:type]}_name_contains" => params['query']}
+      type_key = params[:search].keys.grep(/contains/).first
+      @query = params[:search][type_key]
+      @type = type_key[0..-15] if type_key
+    end
+
+    @search = Album.search(params[:search])
+    @albums = @search.paginate(:page => params[:page])
   end
 
   def new
@@ -41,18 +48,10 @@ class AlbumsController < ApplicationController
   def destroy
     @album.destroy
 
-     respond_to do |format|
-       format.html { redirect_to(albums_url) }
-       format.xml { head :ok }
-     end
-  end
-
-  def search
-    @albums = Album.includes([:composer, :solist, :orchestra, :obra_type, :director]).where("#{params[:type].pluralize}.name ilike ?", "#{params[:query]}%")
-    @query = params[:query]
-    @type = params[:type]
-
-    render 'index'
+    respond_to do |format|
+      format.html { redirect_to(albums_url) }
+      format.xml { head :ok }
+    end
   end
 
   private
