@@ -28,6 +28,7 @@ class ComposersController < ApplicationController
     conditions = {"composer_id_equals" => @composer.id}
     conditions.merge!(params[:search]) if params[:search]
     @search = Album.search(conditions)
+    @albums = @search.paginate(:page => params[:page])
   end
 
   def wiki_data

@@ -16,6 +16,7 @@ class SolistsController < ApplicationController
     conditions = {"solist_id_equals" => @solist.id}
     conditions.merge!(params[:search]) if params[:search]
     @search = Album.search(conditions)
+    @albums = @search.paginate(:page => params[:page])
   end
 
   def solist_completion
