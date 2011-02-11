@@ -4,8 +4,12 @@
   = form_for director do |f|
     = errors_for director
     .field
-      = f.label :description
+      = f.label :name
       = f.text_field :name, :class => :text
+
+    .field
+      = f.label :description
+      = f.text_area :description, :class => :text
 
     .field
       = f.submit button_label

@@ -79,6 +79,7 @@ en-US:
   orchestra: "Orchestra"
   instrument: "Instrument"
   opus_number: "Opus N°"
+  description: Notes
 
   options: Options
   edit: Edit

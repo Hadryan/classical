@@ -4,8 +4,13 @@
   = form_for instrument do |f|
     = errors_for instrument
     .field
-      = f.label :description
+      = f.label :name
       = f.text_field :name, :class => :text
+
+    .field
+      = f.label :description
+      = f.text_area :description, :class => :text
+
     .field
       = f.submit button_label
 

@@ -2,9 +2,14 @@
   %h2= t :orchestra
   = form_for orchestra do |f|
     = errors_for orchestra
+
+    .field
+      = f.label :name
+      = f.text_field :name, :class => :text
+
     .field
       = f.label :description
-      = f.text_field :name, :class => :text
+      = f.text_area :description, :class => :text
 
     .field
       = f.submit button_label

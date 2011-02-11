@@ -15,7 +15,7 @@
     %li
       %a{:href => "#albums"}= "Albums (#{@solist.albums.size})"
     %li
-      %a{:href => "#description"}Descripcion
+      %a{:href => "#description"}= t('description')
 
   #albums
     %table.data_table
@@ -23,7 +23,7 @@
       = render :partial => @solist.albums
 
   #description
-
+    = @solist.description
 
 :javascript
   $(function() {
