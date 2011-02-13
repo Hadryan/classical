@@ -24,7 +24,7 @@ class OrchestrasController < ApplicationController
 
     respond_to do |format|
       if @orchestra.save
-        format.html { redirect_to(@orchestra, :notice => 'Orchestra was successfully created.') }
+        format.html { redirect_to(@orchestra, :notice => I18n.t('.create_msg')) }
       else
         format.html { render :action => "new" }
       end
@@ -34,7 +34,7 @@ class OrchestrasController < ApplicationController
   def update
     respond_to do |format|
       if @orchestra.update_attributes(params[:orchestra])
-        format.html { redirect_to(@orchestra, :notice => 'Orchestra was successfully updated.') }
+        format.html { redirect_to(@orchestra, :notice => I18n.t('.update_msg')) }
       else
         format.html { render :action => "edit" }
       end

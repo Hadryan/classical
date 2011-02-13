@@ -30,7 +30,7 @@ class InstrumentsController < ApplicationController
 
     respond_to do |format|
       if @instrument.save
-        format.html { redirect_to(@instrument, :notice => 'Instrument was successfully created.') }
+        format.html { redirect_to(@instrument, :notice => I18n.t('.create_msg')) }
       else
         format.html { render :action => "new" }
       end
@@ -42,7 +42,7 @@ class InstrumentsController < ApplicationController
   def update
     respond_to do |format|
       if @instrument.update_attributes(params[:instrument])
-        format.html { redirect_to(@instrument, :notice => 'Instrument was successfully updated.') }
+        format.html { redirect_to(@instrument, :notice => I18n.t('.update_msg')) }
       else
         format.html { render :action => "edit" }
       end

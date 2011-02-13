@@ -239,3 +239,6 @@ es-AR:
 
   update: Actualizar
   save: Grabar
+
+  update_msg: Se ha actulizado con exito.
+  create_msg: Se ha creado con exito.

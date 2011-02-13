@@ -24,7 +24,7 @@ class DirectorsController < ApplicationController
 
     respond_to do |format|
       if @director.save
-        format.html { redirect_to(@director, :notice => 'Director was successfully created.') }
+        format.html { redirect_to(@director, :notice => I18n.t('.create_msg')) }
       else
         format.html { render :action => "new" }
       end
@@ -34,7 +34,7 @@ class DirectorsController < ApplicationController
   def update
     respond_to do |format|
       if @director.update_attributes(params[:director])
-        format.html { redirect_to(@director, :notice => 'Director was successfully updated.') }
+        format.html { redirect_to(@director, :notice => I18n.t('.update_msg')) }
       else
         format.html { render :action => "edit" }
       end

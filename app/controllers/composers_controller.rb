@@ -17,7 +17,7 @@ class ComposersController < ApplicationController
   def update
     respond_to do |format|
       if @composer.update_attributes(params[:composer])
-        format.html { redirect_to(@composer, :notice => 'Composer was successfully updated.') }
+        format.html { redirect_to(@composer, :notice => I18n.t('.update_msg')) }
       else
         format.html { render :action => "edit" }
       end
@@ -50,7 +50,7 @@ class ComposersController < ApplicationController
 
     respond_to do |format|
       if @composer.save
-        format.html { redirect_to(@composer, :notice => 'Composer was successfully created.') }
+        format.html { redirect_to(@composer, :notice => I18n.t('.create_msg')) }
       else
         format.html { render :action => "new" }
       end

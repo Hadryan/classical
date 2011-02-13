@@ -24,7 +24,7 @@ class ObraTypesController < ApplicationController
 
     respond_to do |format|
       if @obra_type.save
-        format.html { redirect_to(@obra_type, :notice => 'ObraType was successfully created.') }
+        format.html { redirect_to(@obra_type, :notice => I18n.t('.create_msg')) }
       else
         format.html { render :action => "new" }
       end
@@ -34,7 +34,7 @@ class ObraTypesController < ApplicationController
   def update
     respond_to do |format|
       if @obra_type.update_attributes(params[:obra_type])
-        format.html { redirect_to(@obra_type, :notice => 'ObraType was successfully updated.') }
+        format.html { redirect_to(@obra_type, :notice => I18n.t('.update_msg')) }
       else
         format.html { render :action => "edit" }
       end
