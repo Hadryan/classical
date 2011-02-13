@@ -36,35 +36,44 @@ th .current {
     border: 2px solid #433E36;
     color: #433E36;
     margin: 0 auto;
-    padding: 20px;
     width: 540px;
+    background: url("img/grain_light.gif") repeat scroll 0 0 transparent;
+}
+
+.form h2{
+  padding: 15px;
 }
 
 .field{
   margin: 10px;
 }
 
-.field label {
+.form_row label {
     float:left;
     text-align: right;
     width: 137px;
     margin-top: 6px;
 }
 
-.field select, .field input, .field textarea {
+.form_row select, .form_row input, .form_row textarea{
     margin-left: 20px;
 }
 
-.field input {
+.form_row input.text, .form_row input.ui-autocomplete-input  {
     height: 20px !important;
 }
 
-.field select {
+.form_row select {
     height: 27px !important;
 }
 
 .ui-autocomplete-input {
     width: 224px;
+}
+
+.form_row_submit {
+  text-align: right;
+  padding-right: 63px;
 }
 
 input#search_field {

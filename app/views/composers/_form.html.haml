@@ -3,30 +3,25 @@
 
   = form_for composer, :html => {:multipart => true} do |f|
     = errors_for(composer)
-    .field
+    .form_row
       = f.label :name
       = f.text_field :name, :class => "text"
-    .field
+    .form_row
       = f.label :nationality
       = f.text_field :nationality, :class => "text"
-    .field
+    .form_row
       = f.label :birth_date
       = date_select "composer", "birth_date", :prompt => {:day => 'Choose day', :month => 'Choose month', :year => 'Choose year'}, :order => [:day, :month, :year]
-    .field
+    .form_row
       = f.label :death_date
       = date_select "composer", "death_date", :prompt => {:day => 'Choose day', :month => 'Choose month', :year => 'Choose year'}, :order => [:day, :month, :year]
 
-    .field
-      - f.fields_for :image do |child_form|
-        = child_form.label :image
-        = child_form.file_field :attachment
-
-    .field
+    .form_row
       = f.label :description
       = f.text_area :description
 
-    .field
-      = f.submit button_label
+    .form_row_submit
+      = f.submit button_label, :class => 'button'
 
 = link_to t(:back), composers_path
 

@@ -2,16 +2,16 @@
   %h2= t :solist
   = form_for solist do |f|
     = errors_for solist
-    .field
+    .form_row
       = f.label :name
       = f.text_field :name, :class => :text
 
-    .field
+    .form_row
       = f.label :description
       = f.text_area :description, :class => :text
 
-    .field
-      = f.submit button_label
+    .form_row_submit
+      = f.submit button_label, :class => 'button'
 
 = link_to t(:back), solists_path
 
