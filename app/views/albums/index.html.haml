@@ -2,9 +2,9 @@
 
 %h1= t :albums
 
-= link_to "#{t :new}", :new_album
+%p= link_to "#{t :new}", :new_album
 
-= form_tag albums_path, :method => :get do
+= form_tag albums_path, :method => :get, :class => 'search-form'  do
   %p
     = t :search
     = text_field_tag :query, @query

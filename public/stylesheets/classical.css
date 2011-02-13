@@ -67,3 +67,24 @@ th .current {
     width: 224px;
 }
 
+input#search_field {
+  background-image: url('/images/search_small.png');
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+
+
+.pagination {
+  float: right;
+  margin: 10px;
+  text-align: right;
+}
+
+#main table.data_table {
+  margin: 0px;
+}
+
+form.search-form {
+  float: left;
+}

@@ -1,14 +1,13 @@
 <%= title t :solists %>
 <h1><%= t :solists %></h1>
 
-<%= link_to t(:new), new_solist_path %>
+<p>
+  <%= link_to t(:new), new_solist_path %>
+</p>
 
-<%= form_tag do %>
-  <p>
-    <%= t :search %>
-    <%= text_field_tag :search_field %>
-    <%= image_tag 'spinner.gif', :id => 'spinner', :style => "display:none" %>
-  </p>
+<%= form_tag nil, :class => 'search-form' do %>
+  <%= t :search %>
+  <%= text_field_tag :search_field %>
 <% end -%>
 
 <%= will_paginate @solists, :previous_label => t('previous'), :next_label => t('next') %>
