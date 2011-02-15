@@ -97,3 +97,12 @@ input#search_field {
 form.search-form {
   float: left;
 }
+
+#tabs ul {
+  margin: 0;
+}
+
+#tabs li {
+  padding: 0;
+  margin: 0 0.2em 0 0;
+}
