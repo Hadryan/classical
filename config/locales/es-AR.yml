@@ -204,6 +204,11 @@ es-AR:
       two_words_connector: " y "
       last_word_connector: " y "
 
+  helpers:
+    submit:
+      create: Grabar
+      update: Actulizar
+
   albums: "Albums"
   composers: "Compositores"
   obratypes: "Tipos de Obra"
@@ -237,8 +242,7 @@ es-AR:
   previous: Anterior
   next: Siguiente
 
-  update: Actualizar
-  save: Grabar
-
   update_msg: Se ha actulizado con exito.
   create_msg: Se ha creado con exito.
+
+  delete_msg: "Esta seguro que desea eliminar %{name}?"

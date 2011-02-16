@@ -5,6 +5,6 @@
       = image_tag 'edit.gif'
       = t(:edit)
   %td
-    = link_to instrument, :confirm => 'Are you sure?', :method => :delete do
+    = link_to instrument, :confirm => t('delete_msg', :name => instrument.name), :method => :delete do
       = image_tag 'delete.gif'
       = t(:delete)

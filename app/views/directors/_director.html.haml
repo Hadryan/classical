@@ -5,7 +5,7 @@
       = image_tag 'edit.gif'
       = t(:edit)
   %td
-    = link_to director, :confirm => 'Are you sure?', :method => :delete do
+    = link_to director, :confirm => t('delete_msg', :name => director.name), :method => :delete do
       = image_tag 'delete.gif'
       = t(:delete)
 
