@@ -1,5 +1,11 @@
 %tr
   %td= link_to obra_type.name, obra_type, :id => 'link_to_data'
-  %td= link_to t(:edit), edit_obra_type_path(obra_type)
-  %td= link_to t(:delete), obra_type, :confirm => 'Are you sure?', :method => :delete
+  %td
+    = link_to edit_obra_type_path(obra_type) do
+      = image_tag 'edit.gif'
+      = t(:edit)
+  %td
+    = link_to obra_type, :confirm => 'Are you sure?', :method => :delete do
+      = image_tag 'delete.gif'
+      = t(:delete)
 

@@ -1,5 +1,11 @@
 %tr
   %td= link_to orchestra.name, orchestra, :id => 'link_to_data'
-  %td= link_to t(:edit), edit_orchestra_path(orchestra)
-  %td= link_to t(:delete), orchestra, :confirm => 'Are you sure?', :method => :delete
+  %td
+    = link_to edit_orchestra_path(orchestra) do
+      = image_tag 'edit.gif'
+      = t(:edit)
+  %td
+    = link_to orchestra, :confirm => 'Are you sure?', :method => :delete do
+      = image_tag 'delete.gif'
+      = t(:delete)
 

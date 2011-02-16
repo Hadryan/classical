@@ -29,6 +29,10 @@ th .current {
   background-position: right center;
 }
 
+.form.album {
+  padding: 20px;
+}
+
 .form {
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -82,8 +86,6 @@ input#search_field {
   background-position: right;
 }
 
-
-
 .pagination {
   float: right;
   margin: 10px;
@@ -106,3 +108,33 @@ form.search-form {
   padding: 0;
   margin: 0 0.2em 0 0;
 }
+
+#ErrorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin: 0px auto 25px auto;
+  background-color: #f0f0f0;
+}
+
+#ErrorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: white;
+}
+
+#ErrorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#ErrorExplanation ul {
+  margin: 1.2em 0 0.2em 1.6em;
+}
+

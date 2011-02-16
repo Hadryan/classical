@@ -1,6 +1,6 @@
 = title @album.name
 
-.form
+.form.album
   .cover_art
     = image_tag @album.image.attachment.url(:thumb) if @album.image
 

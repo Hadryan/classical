@@ -1,5 +1,11 @@
 %tr
   %td= link_to composer.name, composer, :id => 'link_to_data'
-  %td= link_to t(:edit), edit_composer_path(composer)
-  %td= link_to t(:delete), composer, :confirm => 'Are you sure?', :method => :delete
+  %td
+    = link_to edit_composer_path(composer) do
+      = image_tag 'edit.gif'
+      = t(:edit)
+  %td
+    = link_to composer, :confirm => 'Are you sure?', :method => :delete do
+      = image_tag 'delete.gif'
+      = t(:delete)
 

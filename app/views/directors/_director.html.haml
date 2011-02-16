@@ -1,5 +1,11 @@
 %tr
   %td= link_to director.name, director, :id => 'link_to_data'
-  %td= link_to t(:edit), edit_director_path(director)
-  %td= link_to t(:delete), director, :confirm => 'Are you sure?', :method => :delete
+  %td
+    = link_to edit_director_path(director) do
+      = image_tag 'edit.gif'
+      = t(:edit)
+  %td
+    = link_to director, :confirm => 'Are you sure?', :method => :delete do
+      = image_tag 'delete.gif'
+      = t(:delete)
 

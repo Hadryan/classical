@@ -1,5 +1,10 @@
 %tr
   %td= link_to instrument.name, instrument, :id => 'link_to_data'
-  %td= link_to t(:edit), edit_instrument_path(instrument)
-  %td= link_to t(:delete), instrument, :confirm => 'Are you sure?', :method => :delete
-
+  %td
+    = link_to edit_instrument_path(instrument) do
+      = image_tag 'edit.gif'
+      = t(:edit)
+  %td
+    = link_to instrument, :confirm => 'Are you sure?', :method => :delete do
+      = image_tag 'delete.gif'
+      = t(:delete)

@@ -1,5 +1,11 @@
 %tr
   %td= link_to solist.name, solist, :id => 'link_to_data'
-  %td= link_to t(:edit), edit_solist_path(solist)
-  %td= link_to t(:delete), solist, :confirm => 'Are you sure?', :method => :delete
+  %td
+    = link_to edit_solist_path(solist) do
+      = image_tag 'edit.gif'
+      = t(:edit)
+  %td
+    = link_to solist, :confirm => 'Are you sure?', :method => :delete do
+      = image_tag 'delete.gif'
+      = t(:delete)
 
