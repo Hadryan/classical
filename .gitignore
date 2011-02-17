@@ -4,3 +4,4 @@ tmp/**/*
 tmp/.*
 tmp/profile*
 nbproject*
+.directory
