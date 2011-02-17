@@ -26,7 +26,7 @@ class Composer < ActiveRecord::Base
   end
 
   def wiki_url
-    self.update_attribute(:wiki_url, Google::Search::Web.new(:language => 'es', :query => "#{self.name} wiki").first.uri) unless self.read_attribute(:wiki_url)
+    self.update_attribute(:wiki_url, (Google::Search::Web.new(:language => 'es', :query => "#{self.name} wiki").first.uri rescue nil)) unless self.read_attribute(:wiki_url)
     self.read_attribute(:wiki_url)
   end
 

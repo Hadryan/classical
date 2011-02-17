@@ -28,6 +28,8 @@ GEM
       activemodel (= 3.0.4)
       activesupport (= 3.0.4)
     activesupport (3.0.4)
+    admin_data (1.1.10)
+      will_paginate (>= 3.0.pre2)
     annotate (2.4.0)
     archive-tar-minitar (0.5.2)
     arel (2.0.8)
@@ -103,6 +105,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  admin_data
   annotate
   devise
   google-search
