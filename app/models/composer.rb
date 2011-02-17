@@ -10,6 +10,7 @@
 #  description :text
 #  created_at  :datetime
 #  updated_at  :datetime
+#  wiki_url    :string(255)
 #
 
 class Composer < ActiveRecord::Base
@@ -20,23 +21,16 @@ class Composer < ActiveRecord::Base
 
   accepts_nested_attributes_for :image, :allow_destroy => true
 
-  def wiki_name
-    [first_name, last_name].compact.join('_').sub(' ', '_')
-  end
-
   def self.find_by_name_like(prefix)
     where('name ilike ?', "#{prefix}%").order(:name)
   end
 
-  private
-    def full_name_without_dates
-      [last_name_with_comma, first_name].compact.join(' ')
-    end
+  def wiki_url
+    self.update_attribute(:wiki_url, Google::Search::Web.new(:language => 'es', :query => "#{self.name} wiki").first.uri) unless self.read_attribute(:wiki_url)
+    self.read_attribute(:wiki_url)
+  end
 
-    def last_name_with_comma
-      name = last_name
-      name = [name, ','].compact.join if !first_name.blank? && !name.blank?
-      name
-    end
+  private
+
 end
 

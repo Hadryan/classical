@@ -12,6 +12,9 @@
       %li
         %span.title Nacimiento:
         = @composer.birth_date
+      %li
+        %span.title Wiki:
+        = link_to @composer.wiki_url, @composer.wiki_url, :target => '_blank'
 
 = link_to t(:edit), edit_composer_path(@composer)
 |

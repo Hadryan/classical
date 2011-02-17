@@ -4,5 +4,3 @@ tmp/**/*
 tmp/.*
 tmp/profile*
 nbproject*
-Gemfile.lock
-
