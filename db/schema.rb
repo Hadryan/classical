@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110223023604) do
+ActiveRecord::Schema.define(:version => 20110224003944) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20110223023604) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "instrument_id"
+    t.integer  "user_id"
   end
 
   create_table "albums_instruments", :id => false, :force => true do |t|
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20110223023604) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "wiki_url"
+    t.integer  "user_id"
   end
 
   create_table "directors", :force => true do |t|
@@ -58,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20110223023604) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "images", :force => true do |t|
@@ -77,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20110223023604) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "obra_types", :force => true do |t|
@@ -84,6 +88,7 @@ ActiveRecord::Schema.define(:version => 20110223023604) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
+    t.integer  "user_id"
   end
 
   create_table "orchestras", :force => true do |t|
@@ -91,6 +96,7 @@ ActiveRecord::Schema.define(:version => 20110223023604) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -126,6 +132,7 @@ ActiveRecord::Schema.define(:version => 20110223023604) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|

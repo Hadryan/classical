@@ -2,7 +2,7 @@ class ComposersController < ApplicationController
   before_filter :find_composer,  :only => [:show, :edit, :update, :destroy, :wiki_data ]
 
   def index
-    @composers = Composer.paginate :page => params[:page], :order => :name
+    @composers = current_user.composers.paginate :page => params[:page], :order => :name
   end
 
   def new
@@ -27,7 +27,7 @@ class ComposersController < ApplicationController
   def show
     conditions = {"composer_id_equals" => @composer.id}
     conditions.merge!(params[:search]) if params[:search]
-    @search = Album.search(conditions)
+    @search = current_user.albums.search(conditions)
     @albums = @search.paginate(:page => params[:page])
   end
 
@@ -46,7 +46,7 @@ class ComposersController < ApplicationController
   end
 
   def create
-    @composer = Composer.new(params[:composer])
+    @composer = current_user.composers.new(params[:composer])
 
     respond_to do |format|
       if @composer.save
@@ -66,18 +66,18 @@ class ComposersController < ApplicationController
   end
 
   def composers_completion
-    matches = Composer.find_by_name_like(params[:prefix])
+    matches = current_user.composers.search(:name_starts_with => params[:prefix])
 
-    if matches.empty?
+    if matches.length == 0
       render :text => I18n.t(:no_results)
     else
-      render :partial => matches
+      render :partial => matches.relation
     end
   end
 
   private
     def find_composer
-      @composer = Composer.find(params[:id])
+      @composer = current_user.composers.find(params[:id])
     end
 end
 

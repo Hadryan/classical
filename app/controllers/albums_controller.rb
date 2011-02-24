@@ -2,6 +2,7 @@ class AlbumsController < ApplicationController
   before_filter :find_album,  :only => [:show, :edit, :update, :destroy]
 
   def index
+    params[:search] ||= {}
     if params[:search] || params[:type]
       params[:search] ||= {"#{params[:type]}_name_contains" => params['query']}
       type_key = params[:search].keys.grep(/contains/).first
@@ -9,7 +10,7 @@ class AlbumsController < ApplicationController
       @type = type_key[0..-15] if type_key
     end
 
-    @search = Album.search(params[:search])
+    @search = current_user.albums.search(params[:search])
     @albums = @search.paginate(:page => params[:page])
   end
 
@@ -24,7 +25,7 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    @album = Album.new(params[:album])
+    @album = current_user.albums.new(params[:album])
 
     respond_to do |format|
       if @album.save
@@ -57,7 +58,7 @@ class AlbumsController < ApplicationController
 
   private
   def find_album
-    @album = Album.find(params[:id])
+    @album = current_user.albums.find(params[:id])
   end
 end
 

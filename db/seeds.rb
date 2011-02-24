@@ -10,3 +10,6 @@ puts "Generating admin user..."
 admin_user = User.create(:email => 'admin@admin.com', :password => 'admin1234', :password_confirmation => 'admin1234')
 admin_user.has_role! :admin
 
+puts "Generating test users..."
+test_user = User.create(:email => 'test@test.com', :password => 'test1234', :password_confirmation => 'test1234')
+

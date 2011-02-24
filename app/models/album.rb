@@ -16,6 +16,7 @@
 #  created_at    :datetime
 #  updated_at    :datetime
 #  instrument_id :integer
+#  user_id       :integer
 #
 
 class Album < ActiveRecord::Base
@@ -25,6 +26,7 @@ class Album < ActiveRecord::Base
   belongs_to :director
   belongs_to :orchestra
   belongs_to :instrument
+  belongs_to :user
 
   has_one :image, :as => :imageable
 
@@ -32,6 +34,7 @@ class Album < ActiveRecord::Base
 
   validates :composer, :director, :name, :presence => true
   validates :cd_number, :number, :numericality => true, :allow_blank => true
+  validates :user, :presence => true
 
 end
 

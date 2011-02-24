@@ -5,6 +5,13 @@ FILE_NAME = "#{Rails.root}/db/data/data.csv"
 namespace :importer do
   desc "Import initial data"
   task(:posta => :environment) do
+    user = User.where(:email => 'test@test.com').first
+
+    unless user
+      puts "You need to run 'rake db:seed' first."
+      exit
+    end
+
     line = 1
 
     CSV.foreach(FILE_NAME, :headers => true) do |row|
@@ -17,12 +24,12 @@ namespace :importer do
 
       composer_name = composer_name.blank? ? 'Anonimo' : composer_name.strip.capitalize
 
-      unless (composer = Composer.where(:name => composer_name).first)
+      unless (composer = Composer.where(:user_id => user, :name => composer_name).first)
         #TODO fix for postgres
         birth_date = birth_date.to_i == 0 ? nil : birth_date.to_i
         death_date = death_date.to_i == 0 ? nil : death_date.to_i
 
-        composer = Composer.create({:name => composer_name, :birth_date => (birth_date.nil? ? birth_date : Date.civil(birth_date)), :death_date => (death_date.nil? ? death_date : Date.civil(death_date.to_i))})
+        composer = Composer.create({:user => user, :name => composer_name, :birth_date => (birth_date.nil? ? birth_date : Date.civil(birth_date)), :death_date => (death_date.nil? ? death_date : Date.civil(death_date.to_i))})
       end
 
       obra_type = row['obra_type'].blank? ? 'NN' : row['obra_type'].strip.capitalize
@@ -40,15 +47,16 @@ namespace :importer do
       album = Album.create({
         :name => name,
         :composer => composer,
-        :obra_type => ObraType.where(:name => obra_type).first || ObraType.create(:name => obra_type),
+        :obra_type => ObraType.where(:user_id => user, :name => obra_type).first || ObraType.create(:user => user, :name => obra_type),
         :music_tone => music_tone,
-        :solist => Solist.where(:name => solist_name).first || Solist.create(:name => solist_name),
-        :director => Director.where(:name => director_name).first || Director.create(:name => director_name),
-        :orchestra => Orchestra.where(:name => orchestra_name).first || Orchestra.create(:name => orchestra_name),
-        :instrument => Instrument.where(:name => instrument_name).first || Instrument.create(:name => instrument_name),
+        :solist => Solist.where(:user_id => user, :name => solist_name).first || Solist.create(:user => user, :name => solist_name),
+        :director => Director.where(:user_id => user, :name => director_name).first || Director.create(:user => user, :name => director_name),
+        :orchestra => Orchestra.where(:user_id => user, :name => orchestra_name).first || Orchestra.create(:user => user, :name => orchestra_name),
+        :instrument => Instrument.where(:user_id => user, :name => instrument_name).first || Instrument.create(:user => user, :name => instrument_name),
         :opus_number => opus_number,
         :cd_number => cd_number,
-        :number => obra_number
+        :number => obra_number,
+        :user => user
       })
 
       puts "#{line} - #{album.name}"

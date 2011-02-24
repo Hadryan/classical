@@ -15,6 +15,8 @@ gem 'meta_search'
 gem 'acl9'
 
 group :test, :development do
+  gem 'wirble'
+  gem 'hirb'
   gem 'ruby-debug19', :require => 'ruby-debug'
   gem 'annotate'
   gem 'rspec-rails', '>= 2.0.0'

@@ -25,11 +25,19 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  acts_as_authorization_subject  :association_name => :roles
 
 	belongs_to :app_language
 
-  acts_as_authorization_subject  :association_name => :roles
+  has_many :albums
+  has_many :composers
+  has_many :directors
+  has_many :instruments
+  has_many :obra_types
+  has_many :orchestras
+  has_many :solists
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
 end
 
