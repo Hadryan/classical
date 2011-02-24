@@ -17,7 +17,7 @@
 		    <div id="toplinks">
 			    <div id="toplinks_inner">
             <%- if current_user %>
-              <%= current_user.email %>
+              <%= link_to current_user.email, edit_user_registration_path(current_user) %>
               |
               <%= link_to t('.logout'), destroy_user_session_path %>
             <%- else %>

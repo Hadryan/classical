@@ -169,6 +169,7 @@ es-AR:
         password_confirmation: "Confirma tu contraseña"
         email: "Correo electronico"
         remember_me: "Recordar mis datos"
+        current_password: "Contraseña actual"
 
       album:
         name: Nombre
@@ -266,3 +267,4 @@ es-AR:
       new:
         title: Unite a Classical
         signup: Crear mi cuenta
+
