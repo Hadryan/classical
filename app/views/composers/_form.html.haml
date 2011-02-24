@@ -1,3 +1,5 @@
+= javascript_include_tag 'tiny_mce'
+
 .form
   %h2= t :composer
 
@@ -22,4 +24,10 @@
 
     .form_row_submit
       = f.submit :class => 'button'
+
+:javascript
+  tinyMCE.init({
+    mode : "textareas",
+    theme : "simple"
+  });
 
