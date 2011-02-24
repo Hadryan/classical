@@ -16,7 +16,15 @@
 
 		    <div id="toplinks">
 			    <div id="toplinks_inner">
-
+            <%- if current_user %>
+              <%= current_user.email %>
+              |
+              <%= link_to t('.logout'), destroy_user_session_path %>
+            <%- else %>
+              <%= link_to t('.login'), new_user_session_path %>
+              |
+              <%= link_to t('.signup'), new_user_registration_path %>
+            <%- end %>
 			    </div>
     		</div>
 	    	<div class="clearer">&nbsp;</div>
@@ -30,6 +38,7 @@
     <!-- End Header -->
 
     <!-- Begin Navigation -->
+    <%- if current_user %>
     <div id="navigation">
     	<div class="center_wrapper">
 
@@ -38,6 +47,7 @@
   		  <div class="clearer">&nbsp;</div>
     	</div>
 	  </div>
+	  <%- end %>
 
     <!-- End Navigation -->
     <div id="main_wrapper_outer">

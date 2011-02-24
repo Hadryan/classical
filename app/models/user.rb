@@ -29,5 +29,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
 	belongs_to :app_language
+
+  acts_as_authorization_subject  :association_name => :roles
 end
 

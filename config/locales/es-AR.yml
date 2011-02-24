@@ -164,6 +164,12 @@ es-AR:
         odd: debe ser par
         even: debe ser impar
     attributes:
+      user:
+        password: "Contraseña"
+        password_confirmation: "Confirma tu contraseña"
+        email: "Correo electronico"
+        remember_me: "Recordar mis datos"
+
       album:
         name: Nombre
         composer: Compositor
@@ -246,3 +252,17 @@ es-AR:
   create_msg: Se ha creado con exito.
 
   delete_msg: "Esta seguro que desea eliminar %{name}?"
+
+  layouts:
+    application:
+      login: Iniciar Sesión
+      signup: Regístrate
+      logout: Salir
+  devise:
+    sessions:
+      new:
+        signin: Iniciar sesión
+    registrations:
+      new:
+        title: Unite a Classical
+        signup: Crear mi cuenta

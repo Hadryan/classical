@@ -17,7 +17,7 @@ namespace :importer do
 
       composer_name = composer_name.blank? ? 'Anonimo' : composer_name.strip.capitalize
 
-      unless (composer = Composer.find_by_name(composer_name))
+      unless (composer = Composer.where(:name => composer_name).first)
         #TODO fix for postgres
         birth_date = birth_date.to_i == 0 ? nil : birth_date.to_i
         death_date = death_date.to_i == 0 ? nil : death_date.to_i
@@ -40,12 +40,12 @@ namespace :importer do
       album = Album.create({
         :name => name,
         :composer => composer,
-        :obra_type => ObraType.find_or_create_by_name(obra_type),
+        :obra_type => ObraType.where(:name => obra_type).first || ObraType.create(:name => obra_type),
         :music_tone => music_tone,
-        :solist => Solist.find_or_create_by_name(solist_name),
-        :director => Director.find_or_create_by_name(director_name),
-        :orchestra => Orchestra.find_or_create_by_name(orchestra_name),
-        :instrument => Instrument.find_or_create_by_name(instrument_name),
+        :solist => Solist.where(:name => solist_name).first || Solist.create(:name => solist_name),
+        :director => Director.where(:name => director_name).first || Director.create(:name => director_name),
+        :orchestra => Orchestra.where(:name => orchestra_name).first || Orchestra.create(:name => orchestra_name),
+        :instrument => Instrument.where(:name => instrument_name).first || Instrument.create(:name => instrument_name),
         :opus_number => opus_number,
         :cd_number => cd_number,
         :number => obra_number

@@ -241,7 +241,7 @@ img.right {margin: 0 0 15px 12px;}
 .archive_separator {margin: 0 0 12px;}
 
 /* Messages */
-.error, .notice, .success {
+.error, .notice, .success, .alert {
 	border: 1px solid #DDD;
 	margin-bottom: 1em;
 	padding: 0.6em 0.8em;
@@ -250,8 +250,8 @@ img.right {margin: 0 0 15px 12px;}
 .error {background: #FBE3E4; color: #8A1F11; border-color: #FBC2C4;}
 .error a {color: #8A1F11;}
 
-.notice {background: #FFF6BF; color: #514721; border-color: #FFD324;}
-.notice a {color: #514721;}
+.alert {background: #FFF6BF; color: #514721; border-color: #FFD324;}
+.alert a {color: #514721;}
 
 .notice {background: #E6EFC2; color: #264409; border-color: #C6D880;}
 .notice a {color: #264409;}
