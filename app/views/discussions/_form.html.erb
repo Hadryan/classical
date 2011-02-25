@@ -1,0 +1,9 @@
+<% form_for [discussable, Discussion.new] do |form| %>
+  <h6><%= current_user.email %> says</h6>
+  <%= form.text_area :content, :rows => 2, :cols => 80 %>
+
+  <div class="">
+    <%= submit_tag "Add discussion" %>
+  </div>
+<% end %>
+

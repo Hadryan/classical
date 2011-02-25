@@ -1,0 +1,12 @@
+<div class="discussion">
+  <div class="discussion-user">
+    <%= link_to discussion.user.email, discussion.user %> said:
+  </div>
+  <div class="discussion-content">
+    <%= discussion.content %>
+  </div>
+  <div class="discussion-date">
+    <%= discussion.created_at.to_s(:long) %>
+  </div>
+</div>
+

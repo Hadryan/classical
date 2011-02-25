@@ -2,7 +2,7 @@ class ComposersController < ApplicationController
   before_filter :find_composer,  :only => [:show, :edit, :update, :destroy, :wiki_data ]
 
   def index
-    @composers = current_user.composers.paginate :page => params[:page], :order => :name
+    @composers = Composer.paginate :page => params[:page], :order => :name
   end
 
   def new
@@ -25,24 +25,15 @@ class ComposersController < ApplicationController
   end
 
   def show
+    conditions = {"album_composer_id_equals" => @composer.id}
+    conditions.merge!(params[:search]) if params[:search] && params[:search][:album_composer_id_equals]
+    @user_album_search = current_user.user_albums.search(conditions)
+    @user_albums = @user_album_search.paginate(:page => params[:page])
+
     conditions = {"composer_id_equals" => @composer.id}
-    conditions.merge!(params[:search]) if params[:search]
-    @search = current_user.albums.search(conditions)
+    conditions.merge!(params[:search]) if params[:search] && params[:search][:composer_id_equals]
+    @search = Album.search(conditions)
     @albums = @search.paginate(:page => params[:page])
-  end
-
-  def wiki_data
-    begin
-      locale = 'es'
-
-      url = "http://#{locale}.wikipedia.org/w/index.php?action=render&title=" + @composer.wiki_name
-
-      @data = Hpricot(open(url))
-      @data.search("//img[@src='/skins-1.5/common/images/magnify-clip.png']").remove
-      @data.search("//span[@class='editsection']").remove
-    rescue
-      @data = "Data Composer Not Found." + url
-    end
   end
 
   def create
@@ -76,8 +67,9 @@ class ComposersController < ApplicationController
   end
 
   private
-    def find_composer
-      @composer = current_user.composers.find(params[:id])
-    end
+
+  def find_composer
+    @composer = Composer.find(params[:id])
+  end
 end
 

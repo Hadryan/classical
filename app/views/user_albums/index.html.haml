@@ -1,0 +1,22 @@
+= title t(:albums)
+
+%h1= t :albums
+
+%p= link_to "#{t :new}", new_album_path
+
+= form_tag user_user_albums_path(current_user), :method => :get, :class => 'search-form'  do
+  %p
+    = t :search
+    = text_field_tag :query, @query
+    = select_tag :type, options_for_select([['director', 'director'], ['solista', 'solist'], ['orquesta', 'orchestra'], ['compositor', 'composer']], @type)
+    = submit_tag 'Buscar'
+
+
+= will_paginate @user_albums, :previous_label => t('previous'), :next_label => t('next') if @user_albums.respond_to? 'total_pages'
+
+%table.data_table
+  = render :partial => 'album_headers'
+  %tbody#results= render :partial => @user_albums
+
+= will_paginate @user_albums, :previous_label => t('previous'), :next_label => t('next') if @user_albums.respond_to? 'total_pages'
+

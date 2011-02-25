@@ -1,8 +1,16 @@
 Classical::Application.routes.draw do
   devise_for :users
 
+  resource :user do
+    resources :user_albums
+  end
+
   resources :instruments
-  resources :composers
+
+  resources :composers do
+    resources :discussions
+  end
+
   resources :obra_types
   resources :solists
   resources :directors
@@ -32,6 +40,6 @@ Classical::Application.routes.draw do
 
   #END :)
 
-  root :to => 'albums#index'
+  root :to => 'user_albums#index'
 end
 

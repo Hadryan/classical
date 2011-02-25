@@ -29,7 +29,9 @@ class User < ActiveRecord::Base
 
 	belongs_to :app_language
 
-  has_many :albums
+  has_many :user_albums
+  has_many :albums, :through => :user_albums
+
   has_many :composers
   has_many :directors
   has_many :instruments

@@ -16,7 +16,10 @@
 
 class Composer < ActiveRecord::Base
   has_many :albums
+  has_many :discussions, :as => :discussable
+
   has_one :image, :as => :imageable
+
   belongs_to :user
 
   validates :name, :presence => true, :uniqueness => true
@@ -24,16 +27,9 @@ class Composer < ActiveRecord::Base
 
   accepts_nested_attributes_for :image, :allow_destroy => true
 
-  def self.find_by_name_like(prefix)
-    where('name ilike ?', "#{prefix}%").order(:name)
-  end
-
   def wiki_url
     self.update_attribute(:wiki_url, (Google::Search::Web.new(:language => 'es', :query => "#{self.name} wiki").first.uri rescue nil)) unless self.read_attribute(:wiki_url)
     self.read_attribute(:wiki_url)
   end
-
-  private
-
 end
 

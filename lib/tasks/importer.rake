@@ -63,5 +63,13 @@ namespace :importer do
       line += 1
     end
   end
+
+
+  task(:fix_albums => :environment) do
+    Album.all.each do |album|
+      puts "Fixing album: #{album.name}..."
+      UserAlbum.create(:user_id => album.user_id, :album => album, :cd_number => album.cd_number)
+    end
+  end
 end
 

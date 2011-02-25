@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110224003944) do
+ActiveRecord::Schema.define(:version => 20110225041546) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -22,11 +22,9 @@ ActiveRecord::Schema.define(:version => 20110224003944) do
     t.integer  "solist_id"
     t.integer  "director_id"
     t.integer  "orchestra_id"
-    t.integer  "cd_number"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "instrument_id"
-    t.integer  "user_id"
   end
 
   create_table "albums_instruments", :id => false, :force => true do |t|
@@ -61,6 +59,15 @@ ActiveRecord::Schema.define(:version => 20110224003944) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "discussions", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "content"
+    t.integer  "discussable_id"
+    t.string   "discussable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "images", :force => true do |t|
@@ -133,6 +140,18 @@ ActiveRecord::Schema.define(:version => 20110224003944) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+  end
+
+  create_table "user_albums", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "album_id"
+    t.integer  "cd_number"
+    t.string   "location"
+    t.boolean  "favorite"
+    t.integer  "review_id"
+    t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

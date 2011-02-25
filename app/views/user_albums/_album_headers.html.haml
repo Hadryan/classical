@@ -1,0 +1,15 @@
+%tr
+  %th= sort_link @user_album_search, :album_name
+  - unless @section == 'composers'
+    %th= sort_link @user_album_search, :album_composer_name, t(:composer)
+  - unless @section == 'obra_types'
+    %th= sort_link @user_album_search, :album_obra_type_name, t(:obra_type)
+  - unless @section == 'orchestras'
+    %th= sort_link @user_album_search, :album_orchestra_name, t(:orchestra)
+  - unless @section == 'directors'
+    %th= sort_link @user_album_search, :album_director_name, t(:director)
+  - unless @section == 'solists'
+    %th= sort_link @user_album_search, :album_solist_name, t(:solist)
+  %th= sort_link @user_album_search, :album_opus_number, t(:opus_number)
+  %th= sort_link @user_album_search, :cd_number
+

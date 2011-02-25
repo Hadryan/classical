@@ -10,7 +10,7 @@ class AlbumsController < ApplicationController
       @type = type_key[0..-15] if type_key
     end
 
-    @search = current_user.albums.search(params[:search])
+    @search = Album.search(params[:search])
     @albums = @search.paginate(:page => params[:page])
   end
 
