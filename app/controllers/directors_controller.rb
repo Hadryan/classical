@@ -2,7 +2,7 @@ class DirectorsController < ApplicationController
   before_filter :find_director,  :only => [:show, :edit, :update, :destroy]
 
   def index
-    @directors = current_user.directors.paginate :page => params[:page], :order => :name
+    @directors = Director.paginate :page => params[:page], :order => :name
   end
 
   def new
@@ -13,14 +13,19 @@ class DirectorsController < ApplicationController
   end
 
   def show
+    conditions = {"album_director_id_equals" => @director.id}
+    conditions.merge!(params[:search]) if params[:search] && params[:search][:album_director_id_equals]
+    @user_album_search = current_user.user_albums.search(conditions)
+    @user_albums = @user_album_search.paginate(:page => params[:page])
+
     conditions = {"director_id_equals" => @director.id}
-    conditions.merge!(params[:search]) if params[:search]
-    @search = current_user.albums.search(conditions)
+    conditions.merge!(params[:search]) if params[:search] && params[:search][:director_id_equals]
+    @search = Album.search(conditions)
     @albums = @search.paginate(:page => params[:page])
   end
 
   def create
-    @director = current_user.directors.new(params[:director])
+    @director = Directors.new(params[:director])
 
     respond_to do |format|
       if @director.save
@@ -50,7 +55,7 @@ class DirectorsController < ApplicationController
   end
 
   def director_completion
-    matches = current_user.directors.search(:name_starts_with => params[:prefix])
+    matches = Directors.search(:name_starts_with => params[:prefix])
 
     if matches.length == 0
       render :text => I18n.t(:no_results)
@@ -60,8 +65,9 @@ class DirectorsController < ApplicationController
   end
 
   private
-    def find_director
-      @director = current_user.directors.find(params[:id])
-    end
+
+  def find_director
+    @director = Director.find(params[:id])
+  end
 end
 

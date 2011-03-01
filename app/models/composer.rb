@@ -11,7 +11,6 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  wiki_url    :string(255)
-#  user_id     :integer
 #
 
 class Composer < ActiveRecord::Base
@@ -20,10 +19,7 @@ class Composer < ActiveRecord::Base
 
   has_one :image, :as => :imageable
 
-  belongs_to :user
-
   validates :name, :presence => true, :uniqueness => true
-  validates :user, :presence => true
 
   accepts_nested_attributes_for :image, :allow_destroy => true
 

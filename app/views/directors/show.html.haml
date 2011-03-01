@@ -13,9 +13,24 @@
 #tabs
   %ul
     %li
-      %a{:href => "#albums"}= "Albums (#{@director.albums.size})"
+      %a{:href => "#user-albums"}= "My albums (#{@user_albums.size})"
+    %li
+      %a{:href => "#albums"}= "Albums (#{@albums.size})"
     %li
       %a{:href => "#description"}= t('description')
+    %li
+      %a{:href => "#discussions"}= "Discussions (#{@director.discussions.size})"
+
+
+  #user-albums
+    = will_paginate @user_albums, :previous_label => t('previous'), :next_label => t('next') if @user_albums.respond_to? 'total_pages'
+
+    %table.data_table
+      = render :partial => 'user_albums/album_headers'
+      = render :partial => @user_albums
+
+    = will_paginate @user_albums, :previous_label => t('previous'), :next_label => t('next') if @user_albums.respond_to? 'total_pages'
+    .clear
 
   #albums
     = will_paginate @albums, :previous_label => t('previous'), :next_label => t('next') if @albums.respond_to? 'total_pages'
@@ -29,6 +44,10 @@
 
   #description
     = @director.description
+
+  #discussions
+    = render :partial => 'discussions/form', :locals => {:discussable => @director}
+    = render :partial => @director.discussions
 
 :javascript
   $(function() {

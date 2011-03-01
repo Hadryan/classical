@@ -4,13 +4,18 @@ class InstrumentsController < ApplicationController
   # GET /instruments
   # GET /instruments.xml
   def index
-    @instruments = current_user.instruments.paginate :page => params[:page], :order => :name
+    @instruments = Instrument.paginate :page => params[:page], :order => :name
   end
 
   def show
+    conditions = {"album_instrument_id_equals" => @instrument.id}
+    conditions.merge!(params[:search]) if params[:search] && params[:search][:album_instrument_id_equals]
+    @user_album_search = current_user.user_albums.search(conditions)
+    @user_albums = @user_album_search.paginate(:page => params[:page])
+
     conditions = {"instrument_id_equals" => @instrument.id}
-    conditions.merge!(params[:search]) if params[:search]
-    @search = current_user.albums.search(conditions)
+    conditions.merge!(params[:search]) if params[:search] && params[:search][:instrument_id_equals]
+    @search = Album.search(conditions)
     @albums = @search.paginate(:page => params[:page])
   end
 
@@ -26,7 +31,7 @@ class InstrumentsController < ApplicationController
   # POST /instruments
   # POST /instruments.xml
   def create
-    @instrument = current_user.instruments.new(params[:instrument])
+    @instrument = Instrument.new(params[:instrument])
 
     respond_to do |format|
       if @instrument.save
@@ -60,7 +65,7 @@ class InstrumentsController < ApplicationController
   end
 
   def instrument_completion
-    @instruments = current_user.instruments.search(:name_starts_with => params[:prefix])
+    @instruments = Instrument.search(:name_starts_with => params[:prefix])
 
     if @instruments.length == 0
       render :text => I18n.t(:no_results)
@@ -70,8 +75,9 @@ class InstrumentsController < ApplicationController
   end
 
   private
-    def find_instrument
-      @instrument = current_user.instruments.find(params[:id])
-    end
+
+  def find_instrument
+    @instrument = Instrument.find(params[:id])
+  end
 end
 

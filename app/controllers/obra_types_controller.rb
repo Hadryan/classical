@@ -2,7 +2,7 @@ class ObraTypesController < ApplicationController
   before_filter :find_obra_type,  :only => [:show, :edit, :update, :destroy]
 
   def index
-    @obra_types = current_user.obra_types.paginate :page => params[:page], :order => :name
+    @obra_types = ObraType.paginate :page => params[:page], :order => :name
   end
 
   def new
@@ -13,9 +13,14 @@ class ObraTypesController < ApplicationController
   end
 
   def show
+    conditions = {"album_obra_type_id_equals" => @obra_type.id}
+    conditions.merge!(params[:search]) if params[:search] && params[:search][:album_obra_type_id_equals]
+    @user_album_search = current_user.user_albums.search(conditions)
+    @user_albums = @user_album_search.paginate(:page => params[:page])
+
     conditions = {"obra_type_id_equals" => @obra_type.id}
-    conditions.merge!(params[:search]) if params[:search]
-    @search = current_user.albums.search(conditions)
+    conditions.merge!(params[:search]) if params[:search] && params[:search][:obra_type_id_equals]
+    @search = Album.search(conditions)
     @albums = @search.paginate(:page => params[:page])
   end
 
@@ -62,7 +67,7 @@ class ObraTypesController < ApplicationController
 
   private
     def find_obra_type
-      @obra_type = current_user.obra_types.find(params[:id])
+      @obra_type = ObraType.find(params[:id])
     end
 end
 

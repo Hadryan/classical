@@ -5,17 +5,34 @@ Classical::Application.routes.draw do
     resources :user_albums
   end
 
-  resources :instruments
+  resources :instruments do
+    resources :discussions
+  end
 
   resources :composers do
     resources :discussions
   end
 
-  resources :obra_types
-  resources :solists
-  resources :directors
-  resources :orchestras
-  resources :albums
+  resources :obra_types do
+    resources :discussions
+  end
+
+  resources :solists do
+    resources :discussions
+  end
+
+  resources :directors do
+    resources :discussions
+  end
+
+  resources :orchestras do
+    resources :discussions
+  end
+
+  resources :albums do
+    resources :discussions
+  end
+
   resources :app_languages
 
   #TODO Refactor this routes!!!

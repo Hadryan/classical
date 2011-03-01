@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(:version => 20110225041546) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "wiki_url"
-    t.integer  "user_id"
   end
 
   create_table "directors", :force => true do |t|
@@ -58,7 +57,6 @@ ActiveRecord::Schema.define(:version => 20110225041546) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "discussions", :force => true do |t|
@@ -87,7 +85,6 @@ ActiveRecord::Schema.define(:version => 20110225041546) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "obra_types", :force => true do |t|
@@ -95,7 +92,6 @@ ActiveRecord::Schema.define(:version => 20110225041546) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
-    t.integer  "user_id"
   end
 
   create_table "orchestras", :force => true do |t|
@@ -103,7 +99,6 @@ ActiveRecord::Schema.define(:version => 20110225041546) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -139,7 +134,6 @@ ActiveRecord::Schema.define(:version => 20110225041546) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "user_albums", :force => true do |t|

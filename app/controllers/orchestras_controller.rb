@@ -2,7 +2,7 @@ class OrchestrasController < ApplicationController
   before_filter :find_orchestra,  :only => [:show, :edit, :update, :destroy]
 
   def index
-    @orchestras = current_user.orchestras.paginate :page => params[:page], :order => :name
+    @orchestras = Orchestra.paginate :page => params[:page], :order => :name
   end
 
   def new
@@ -13,9 +13,14 @@ class OrchestrasController < ApplicationController
   end
 
   def show
+    conditions = {"album_orchestra_id_equals" => @orchestra.id}
+    conditions.merge!(params[:search]) if params[:search] && params[:search][:album_orchestra_id_equals]
+    @user_album_search = current_user.user_albums.search(conditions)
+    @user_albums = @user_album_search.paginate(:page => params[:page])
+
     conditions = {"orchestra_id_equals" => @orchestra.id}
-    conditions.merge!(params[:search]) if params[:search]
-    @search = current_user.albums.search(conditions)
+    conditions.merge!(params[:search]) if params[:search] && params[:search][:orchestra_id_equals]
+    @search = Album.search(conditions)
     @albums = @search.paginate(:page => params[:page])
   end
 
@@ -62,7 +67,7 @@ class OrchestrasController < ApplicationController
 
   private
     def find_orchestra
-      @orchestra = current_user.orchestras.find(params[:id])
+      @orchestra = Orchestra.find(params[:id])
     end
 end
 

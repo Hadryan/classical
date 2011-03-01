@@ -2,7 +2,7 @@ class SolistsController < ApplicationController
   before_filter :find_solist,  :only => [:show, :edit, :update, :destroy]
 
   def index
-    @solists = current_user.solists.paginate :page => params[:page], :order => :name
+    @solists = Solist.paginate :page => params[:page], :order => :name
   end
 
   def new
@@ -13,9 +13,14 @@ class SolistsController < ApplicationController
   end
 
   def show
+    conditions = {"album_solist_id_equals" => @solist.id}
+    conditions.merge!(params[:search]) if params[:search] && params[:search][:album_solist_id_equals]
+    @user_album_search = current_user.user_albums.search(conditions)
+    @user_albums = @user_album_search.paginate(:page => params[:page])
+
     conditions = {"solist_id_equals" => @solist.id}
-    conditions.merge!(params[:search]) if params[:search]
-    @search = current_user.albums.search(conditions)
+    conditions.merge!(params[:search]) if params[:search] && params[:search][:solist_id_equals]
+    @search = Album.search(conditions)
     @albums = @search.paginate(:page => params[:page])
   end
 
@@ -61,7 +66,7 @@ class SolistsController < ApplicationController
 
   private
     def find_solist
-      @solist = current_user.solists.find(params[:id])
+      @solist = Solist.find(params[:id])
     end
 end
 
