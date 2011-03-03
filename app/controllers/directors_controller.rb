@@ -25,7 +25,7 @@ class DirectorsController < ApplicationController
   end
 
   def create
-    @director = Directors.new(params[:director])
+    @director = Director.new(params[:director])
 
     respond_to do |format|
       if @director.save
@@ -55,7 +55,7 @@ class DirectorsController < ApplicationController
   end
 
   def director_completion
-    matches = Directors.search(:name_starts_with => params[:prefix])
+    matches = Director.search(:name_starts_with => params[:prefix])
 
     if matches.length == 0
       render :text => I18n.t(:no_results)

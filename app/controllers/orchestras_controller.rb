@@ -55,7 +55,7 @@ class OrchestrasController < ApplicationController
   end
 
   def orchestra_completion
-    @orchestras = current_user.orchestras.search(:name_starts_with => params[:prefix])
+    @orchestras = Orchestra.search(:name_starts_with => params[:prefix])
 
     if @orchestras.length == 0
       render :text => I18n.t(:no_results)

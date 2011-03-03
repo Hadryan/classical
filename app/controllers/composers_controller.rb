@@ -57,7 +57,7 @@ class ComposersController < ApplicationController
   end
 
   def composers_completion
-    matches = current_user.composers.search(:name_starts_with => params[:prefix])
+    matches = Composer.search(:name_starts_with => params[:prefix])
 
     if matches.length == 0
       render :text => I18n.t(:no_results)

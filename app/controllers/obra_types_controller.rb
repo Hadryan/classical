@@ -56,7 +56,7 @@ class ObraTypesController < ApplicationController
 
 
   def obra_type_completion
-     matches = current_user.obra_types.search(:name_starts_with => params[:prefix])
+     matches = ObraType.search(:name_starts_with => params[:prefix])
 
      if matches.length == 0
        render :text => I18n.t(:no_results)

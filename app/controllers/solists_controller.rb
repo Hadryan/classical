@@ -25,7 +25,7 @@ class SolistsController < ApplicationController
   end
 
   def solist_completion
-    @solists = current_user.solists.search(:name_starts_with => params[:prefix])
+    @solists = Solist.search(:name_starts_with => params[:prefix])
 
     if @solists.length == 0
       render :text => I18n.t(:no_results)
