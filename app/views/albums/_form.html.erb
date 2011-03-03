@@ -45,10 +45,6 @@
       <%= f.label :orchestra %>
       <%= select :album, :orchestra_id, Orchestra.find(:all, :order => :name).collect{|orchestra| [orchestra.name, orchestra.id] } %>
     </div>
-    <div class='form_row'>
-      <%= f.label :cd_number %>
-      <%= f.text_field :cd_number,:class => :text %>
-    </div>
     <div class='form_row_submit'>
       <%= f.submit :class => 'button'%>
     </div>
@@ -168,3 +164,4 @@
   });
 // ]]>
 </script>
+

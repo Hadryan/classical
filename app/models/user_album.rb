@@ -18,6 +18,8 @@ class UserAlbum < ActiveRecord::Base
   belongs_to :user
   belongs_to :album
 
+  accepts_nested_attributes_for :album
+
   validates :user, :album, :presence => true
   validates :cd_number, :numericality => true, :allow_blank => true
 end

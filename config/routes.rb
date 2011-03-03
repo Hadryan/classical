@@ -33,6 +33,8 @@ Classical::Application.routes.draw do
     resources :discussions
   end
 
+  resources :user_albums
+
   resources :app_languages
 
   #TODO Refactor this routes!!!

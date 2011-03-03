@@ -58,7 +58,7 @@ class AlbumsController < ApplicationController
 
   private
   def find_album
-    @album = current_user.albums.find(params[:id])
+    @album = Album.find(params[:id])
   end
 end
 

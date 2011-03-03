@@ -1,5 +1,5 @@
 %tr
-  %td= link_to user_album.album.name, user_album.album, :id => 'link_to_data'
+  %td= link_to user_album.album.name, user_album, :id => 'link_to_data'
 
   - unless @section == 'composers'
     %td= link_to(user_album.album.composer.name, user_album.album.composer, :id => 'link_to_data')

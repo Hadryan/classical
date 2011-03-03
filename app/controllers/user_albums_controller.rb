@@ -12,5 +12,14 @@ class UserAlbumsController < ApplicationController
     @user_album_search = current_user.user_albums.search(params[:search])
     @user_albums = @user_album_search.paginate(:page => params[:page])
   end
+
+  def show
+    @user_album = UserAlbum.find(params[:id])
+    @album = @user_album.album
+  end
+
+  def edit
+    @user_album = UserAlbum.find(params[:id])
+  end
 end
 
