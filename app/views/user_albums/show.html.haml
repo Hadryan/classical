@@ -36,6 +36,18 @@
     %b= Album.human_attribute_name :orchestra
     = link_to @album.orchestra.name, @album.orchestra if @album.orchestra
 
+  %p
+    %b= UserAlbum.human_attribute_name :cd_number
+    = @user_album.cd_number
+
+  %p
+    %b= UserAlbum.human_attribute_name :location
+    = @user_album.location
+
+  %p
+    %b= UserAlbum.human_attribute_name :favorite
+    = @user_album.favorite
+
   = link_to t(:edit), edit_user_album_path(@user_album)
   |
   = link_to t(:back), albums_path

@@ -1,4 +1,6 @@
 class UserAlbumsController < ApplicationController
+  before_filter :find_user_album, :only => [:show, :edit, :update]
+
   def index
     params[:search] ||= {}
 
@@ -14,11 +16,26 @@ class UserAlbumsController < ApplicationController
   end
 
   def show
-    @user_album = UserAlbum.find(params[:id])
     @album = @user_album.album
   end
 
   def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @user_album.update_attributes(params[:user_album])
+        #'Album was successfully created.'
+        format.html { redirect_to @user_album, :notice => I18n.t('.update_msg') }
+      else
+        format.html { render :action => "edit" }
+      end
+    end
+  end
+
+  private
+
+  def find_user_album
     @user_album = UserAlbum.find(params[:id])
   end
 end
