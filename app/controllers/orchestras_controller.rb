@@ -25,7 +25,7 @@ class OrchestrasController < ApplicationController
   end
 
   def create
-    @orchestra = current_user.orchestras.new(params[:orchestra])
+    @orchestra = Orchestra.new(params[:orchestra])
 
     respond_to do |format|
       if @orchestra.save

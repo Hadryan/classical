@@ -37,7 +37,7 @@ class ComposersController < ApplicationController
   end
 
   def create
-    @composer = current_user.composers.new(params[:composer])
+    @composer = Composer.new(params[:composer])
 
     respond_to do |format|
       if @composer.save

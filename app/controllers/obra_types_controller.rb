@@ -25,7 +25,7 @@ class ObraTypesController < ApplicationController
   end
 
   def create
-    @obra_type = current_user.obra_types.new(params[:obra_type])
+    @obra_type = ObraType.new(params[:obra_type])
 
     respond_to do |format|
       if @obra_type.save

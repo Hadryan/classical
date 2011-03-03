@@ -35,7 +35,7 @@ class SolistsController < ApplicationController
   end
 
   def create
-    @solist = current_user.solists.new(params[:solist])
+    @solist = Solist.new(params[:solist])
 
     respond_to do |format|
       if @solist.save
