@@ -26,6 +26,8 @@ class Album < ActiveRecord::Base
   belongs_to :instrument
 
   has_many :users, :through => :user_albums
+  has_many :user_albums
+  has_many :discussions, :as => :discussable
 
   has_one :image, :as => :imageable
 
