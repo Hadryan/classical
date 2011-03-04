@@ -39,7 +39,6 @@ class AlbumsController < ApplicationController
   def update
     respond_to do |format|
       if @album.update_attributes(params[:album])
-        #'Album was successfully created.'
         format.html { redirect_to @album, :notice => I18n.t('.update_msg') }
       else
         format.html { render :action => "edit" }

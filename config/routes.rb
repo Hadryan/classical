@@ -31,6 +31,7 @@ Classical::Application.routes.draw do
 
   resources :albums do
     resources :discussions
+    resources :user_albums, :only => [:new]
   end
 
   resources :user_albums

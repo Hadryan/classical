@@ -19,13 +19,17 @@ class UserAlbumsController < ApplicationController
     @album = @user_album.album
   end
 
+  def new
+    @album = Album.find(params[:album_id])
+    @user_album = current_user.user_albums.create(:album => @album)
+  end
+
   def edit
   end
 
   def update
     respond_to do |format|
       if @user_album.update_attributes(params[:user_album])
-        #'Album was successfully created.'
         format.html { redirect_to @user_album, :notice => I18n.t('.update_msg') }
       else
         format.html { render :action => "edit" }
