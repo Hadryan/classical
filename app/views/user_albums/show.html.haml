@@ -1,4 +1,5 @@
 = title @album.name
+%h2= @album.name
 
 #tabs
   %ul
@@ -13,16 +14,12 @@
     .form.album
       .cover_art
         = image_tag @album.image.attachment.url(:thumb) if @album.image
-
       %p
         %b= Album.human_attribute_name :composer
         = link_to @album.composer.name, @album.composer if @album.composer
       %p
         %b= Album.human_attribute_name :obra_type
         = link_to @album.obra_type.name, @album.obra_type if @album.obra_type
-      %p
-        %b= Album.human_attribute_name(:name)
-        = @album.name
       %p
         %b= Album.human_attribute_name :music_tone
         = @album.music_tone
@@ -35,7 +32,6 @@
       %p
         %b= Album.human_attribute_name :instrument
         = link_to @album.instrument.name, @album.instrument if @album.instrument
-
       %p
         %b= Album.human_attribute_name :solist
         = link_to @album.solist.name, @album.solist if @album.solist
@@ -45,15 +41,12 @@
       %p
         %b= Album.human_attribute_name :orchestra
         = link_to @album.orchestra.name, @album.orchestra if @album.orchestra
-
       %p
         %b= UserAlbum.human_attribute_name :cd_number
         = @user_album.cd_number
-
       %p
         %b= UserAlbum.human_attribute_name :location
         = @user_album.location
-
       %p
         %b= UserAlbum.human_attribute_name :favorite
         = @user_album.favorite
@@ -71,6 +64,6 @@
 
 :javascript
   $(function() {
-  $("#tabs").tabs();
+    $("#tabs").tabs();
   });
 
