@@ -20,12 +20,16 @@
 #
 
 class User < ActiveRecord::Base
+  include Gravtastic
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
   acts_as_authorization_subject  :association_name => :roles
+
+  gravtastic
 
 	belongs_to :app_language
 

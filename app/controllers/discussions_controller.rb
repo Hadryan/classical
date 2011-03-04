@@ -2,7 +2,7 @@ class DiscussionsController < ApplicationController
 
   def create
     @discussable = find_discussable
-    @discussion = @discussable.discussions.build(params[:discussion].merge!(:user_id => current_user))
+    @discussion = @discussable.discussions.build(params[:discussion].merge!(:user => current_user))
     if @discussion.save
       flash[:notice] = "Successfully saved discussion."
       redirect_to @discussable

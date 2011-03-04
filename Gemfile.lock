@@ -51,6 +51,7 @@ GEM
       abstract (>= 1.0.0)
     google-search (1.0.2)
       json
+    gravtastic (3.1.0)
     haml (3.0.25)
     hirb (0.4.0)
     i18n (0.5.0)
@@ -132,6 +133,7 @@ DEPENDENCIES
   annotate
   devise
   google-search
+  gravtastic
   haml
   hirb
   meta_search

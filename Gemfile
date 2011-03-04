@@ -11,6 +11,9 @@ gem 'google-search'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'meta_search'
 
+#Gravatar
+gem 'gravtastic'
+
 #Roles
 gem 'acl9'
 
