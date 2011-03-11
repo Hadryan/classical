@@ -36,6 +36,8 @@ class User < ActiveRecord::Base
   has_many :user_albums
   has_many :albums, :through => :user_albums
 
+  has_many :authentications
+
   has_many :composers
   has_many :directors
   has_many :instruments

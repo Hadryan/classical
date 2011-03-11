@@ -29,6 +29,19 @@
     </div>
   <% end %>
 
+  <h2>Authentications</h2>
+
+  <% if current_user.authentications.empty? -%>
+    <a href="/auth/facebook" class="auth_provider"><%= image_tag "facebook-connect-button.png", :alt => "Facebook" %></a>
+  <% end -%>
+
+  <% current_user.authentications.each do |authentication| -%>
+    <tr>
+      <td><%= authentication.provider %></td>
+      <td><%= link_to "Destroy", authentication, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end -%>
+
   <h2>Cancel my account</h2>
 
   <div class='form_row'>
