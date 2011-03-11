@@ -1,5 +1,5 @@
 <div class='form'>
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <h2><%= t('.your_profile') %></h2>
 
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
     <%= devise_error_messages! %>
@@ -10,7 +10,7 @@
     </div>
 
     <div class='form_row'>
-      <%= f.label :password %><i>(leave blank if you don't want to change it)</i></em>
+      <%= f.label :password %><i>(<%= t('.leave_blank') %>)</i></em>
       <%= f.password_field :password, :class => 'text' %>
     </div>
 
@@ -29,7 +29,7 @@
     </div>
   <% end %>
 
-  <h2>Authentications</h2>
+  <h2><%= t('.authentications') %></h2>
 
   <% if current_user.authentications.empty? -%>
     <a href="/auth/facebook" class="auth_provider"><%= image_tag "facebook-connect-button.png", :alt => "Facebook" %></a>
@@ -38,14 +38,14 @@
   <% current_user.authentications.each do |authentication| -%>
     <tr>
       <td><%= authentication.provider %></td>
-      <td><%= link_to "Destroy", authentication, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to t('delete'), authentication, :confirm => t('delete_msg', :name => authentication.provider.capitalize), :method => :delete %></td>
     </tr>
   <% end -%>
 
-  <h2>Cancel my account</h2>
+  <h2><%= t('.cancel_account') %></h2>
 
   <div class='form_row'>
-    Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.
+    <%= t('.unhappy') %> <%= link_to t('.delete_account'), registration_path(resource_name), :confirm => t('delete_msg', :name => current_user.email), :method => :delete %>.
   </div>
 </div>
 

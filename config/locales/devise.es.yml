@@ -24,6 +24,13 @@ es-AR:
       send_instructions: 'Usted recibirá un email con instrucciones de como confirmar su cuenta en unos minutos.'
       confirmed: 'Su cuenta ha sido confirmada exitosamente. Ahora usted puede ingresar.'
     registrations:
+      edit:
+        your_profile: Tu perfil
+        leave_blank: deje en blanco si no quiere cambiarlo
+        cancel_account: Cerrar mi cuenta
+        authentications: "Servicios de autenticación"
+        unhappy: No esta feliz?
+        delete_account: Borrar mi cuenta
       signed_up: "Se ha registrado con exito."
       updated: 'Ha actualizado su cuenta exitosamente.'
       destroyed: 'Adios! Su cuenta ha sido cancelada exitosamente. Esperamos verlo pronto.'
