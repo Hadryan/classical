@@ -93,3 +93,13 @@ en-US:
 
   update: Update
   save: Save
+
+  discussions:
+    form:
+      says: says
+      add_discussion: "Add discussion"
+    discussion:
+      said: said
+
+  discussions_title: _Discussions
+

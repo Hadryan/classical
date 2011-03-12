@@ -259,6 +259,16 @@ es-AR:
       login: Iniciar Sesión
       signup: Regístrate
       logout: Salir
+
+  discussions:
+    form:
+      says: dice
+      add_discussion: "Agregar discusión"
+    discussion:
+      said: dijo
+
+  discussions_title: Discusiones
+
   devise:
     sessions:
       new:

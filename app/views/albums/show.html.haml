@@ -8,7 +8,7 @@
     %li
       %a{:href => "#review-listeners"}= "Reviews / Listeners (#{@album.users.size})"
     %li
-      %a{:href => "#discussions"}= "Discussions (#{@album.discussions.size})"
+      %a{:href => "#discussions"}= "#{t('discussions_title')} (#{@album.discussions.size})"
 
   #info
     .form.album

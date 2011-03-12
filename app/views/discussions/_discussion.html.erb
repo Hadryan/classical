@@ -1,7 +1,7 @@
 <div class="discussion">
   <div class="discussion-user">
   <%= image_tag discussion.user.gravatar_url %>
-    <%= link_to discussion.user.email, discussion.user %> said:
+    <%= link_to discussion.user.email, discussion.user %> <%= t('.said') %>:
   </div>
   <div class="discussion-content">
     <%= discussion.content %>
