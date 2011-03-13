@@ -182,8 +182,12 @@ es-AR:
         solist: Solista
         director: Director
         orchestra: Orquesta
-        cd_number: N° CD
+
         cover_art: Caratula
+      user_album:
+        cd_number: "N° Cd"
+        location: "Ubicación"
+        favorite: Favorito
       composer:
         name: Nombre
         nationality: Nacionalidad
@@ -236,13 +240,14 @@ es-AR:
   orchestra: "Orquesta"
   instrument: "Instrumento"
   opus_number: "Opus N°"
-  cd_number: CD N°
+  cd_number: "Cd N°"
   description: Notas
 
   options: Opciones
   edit: Editar
   editing: Modificando
   back: Atras
+  add: Agregar
 
   no_results: No se encontraron resultados...
 
@@ -254,10 +259,13 @@ es-AR:
 
   delete_msg: "Esta seguro que desea eliminar %{name}?"
 
+  reviews_listeners: "Críticas / Oyentes"
+  info: "Información"
+
   layouts:
     application:
-      login: Iniciar Sesión
-      signup: Regístrate
+      login: "Iniciar Sesión"
+      signup: "Regístrate"
       logout: Salir
 
   discussions:
@@ -272,7 +280,7 @@ es-AR:
   devise:
     sessions:
       new:
-        signin: Iniciar sesión
+        signin: "Iniciar sesión"
     registrations:
       new:
         title: Unite a Classical

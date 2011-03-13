@@ -4,9 +4,9 @@
 #tabs
   %ul
     %li
-      %a{:href => "#info"}= "Info"
+      %a{:href => "#info"}= t('info')
     %li
-      %a{:href => "#review-listeners"}= "Reviews / Listeners (#{@album.users.size})"
+      %a{:href => "#review-listeners"}= "#{t('reviews_listeners')} (#{@album.users.size})"
     %li
       %a{:href => "#discussions"}= "#{t('discussions_title')} (#{@album.discussions.size})"
 
