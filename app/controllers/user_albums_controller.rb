@@ -21,7 +21,11 @@ class UserAlbumsController < ApplicationController
 
   def new
     @album = Album.find(params[:album_id])
-    @user_album = current_user.user_albums.create(:album => @album)
+    @user_album = current_user.user_albums.new(:album => @album)
+
+    if !@user_album.save
+      redirect_to(root_path, :notice => I18n.t('.duplicated_album')) and return
+    end
   end
 
   def edit

@@ -20,7 +20,7 @@ class UserAlbum < ActiveRecord::Base
 
   accepts_nested_attributes_for :album
 
-  validates :user, :album, :presence => true
+  validates :user_id, :presence => true, :uniqueness => {:scope => :album_id}
   validates :cd_number, :numericality => true, :allow_blank => true
 end
 

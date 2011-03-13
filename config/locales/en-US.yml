@@ -87,6 +87,7 @@ en-US:
   back: Back
 
   no_results: No results...
+  duplicated_album: You already added this album.
 
   reviews_listeners: Reviews / Listeners
   info: Info

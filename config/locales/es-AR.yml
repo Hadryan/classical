@@ -258,6 +258,7 @@ es-AR:
   create_msg: Se ha creado con exito.
 
   delete_msg: "Esta seguro que desea eliminar %{name}?"
+  duplicated_album: Ya has agregado este album.
 
   reviews_listeners: "Críticas / Oyentes"
   info: "Información"
