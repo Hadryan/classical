@@ -42,7 +42,7 @@
         %b= Album.human_attribute_name :orchestra
         = link_to @album.orchestra.name, @album.orchestra if @album.orchestra
 
-      = link_to t(:edit), edit_user_album_path(@user_album)
+      = link_to t(:edit), edit_album_path(@album)
       |
       = link_to t(:back), albums_path
 

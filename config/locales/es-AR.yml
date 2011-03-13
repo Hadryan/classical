@@ -218,7 +218,7 @@ es-AR:
   helpers:
     submit:
       create: Grabar
-      update: Actulizar
+      update: Actualizar
 
   albums: "Albums"
   composers: "Compositores"
