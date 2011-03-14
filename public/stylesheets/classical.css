@@ -138,3 +138,11 @@ form.search-form {
   margin: 1.2em 0 0.2em 1.6em;
 }
 
+.discussion {
+  min-height: 80px;
+}
+
+.discussion img {
+  float: left;
+}
+

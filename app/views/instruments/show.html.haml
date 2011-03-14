@@ -43,6 +43,7 @@
   #discussions
     = render :partial => 'discussions/form', :locals => {:discussable => @instrument}
     = render :partial => @instrument.discussions
+    .clear
 
 :javascript
   $(function() {

@@ -61,6 +61,7 @@
   #discussions
     = render :partial => 'discussions/form', :locals => {:discussable => @album}
     = render :partial => @album.discussions
+    .clear
 
 :javascript
   $(function() {

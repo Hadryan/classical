@@ -48,6 +48,7 @@
   #discussions
     = render :partial => 'discussions/form', :locals => {:discussable => @director}
     = render :partial => @director.discussions
+    .clear
 
 :javascript
   $(function() {

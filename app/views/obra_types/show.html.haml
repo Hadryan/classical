@@ -47,6 +47,7 @@
   #discussions
     = render :partial => 'discussions/form', :locals => {:discussable => @obra_type}
     = render :partial => @obra_type.discussions
+    .clear
 
 :javascript
   $(function() {

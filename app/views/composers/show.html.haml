@@ -57,6 +57,7 @@
   #discussions
     = render :partial => 'discussions/form', :locals => {:discussable => @composer}
     = render :partial => @composer.discussions
+    .clear
 
 :javascript
   $(function() {

@@ -4,8 +4,7 @@ class DiscussionsController < ApplicationController
     @discussable = find_discussable
     @discussion = @discussable.discussions.build(params[:discussion].merge!(:user => current_user))
     if @discussion.save
-      flash[:notice] = "Successfully saved discussion."
-      redirect_to @discussable
+      redirect_to @discussable, :notice => I18n.t('.create_msg')
     else
       render :action => 'new'
     end
