@@ -80,6 +80,10 @@ th .current {
   padding-right: 63px;
 }
 
+input#query {
+  height: 17px;
+}
+
 input#search_field {
   background-image: url('/images/search_small.png');
   background-repeat: no-repeat;
