@@ -47,7 +47,7 @@
 
   #discussions
     = render :partial => 'discussions/form', :locals => {:discussable => @director}
-    = render :partial => @director.discussions
+    .user-discussions= render :partial => @director.discussions
     .clear
 
 :javascript

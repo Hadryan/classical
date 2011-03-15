@@ -1,9 +1,13 @@
-<%= form_for [discussable, Discussion.new] do |form| %>
-  <h6><%= current_user.email %> <%= t('.says') %></h6>
-  <%= form.text_area :content, :rows => 2, :cols => 80 %>
+<div class="discussion">
+  <%= form_for [discussable, Discussion.new] do |form| %>
+    <%= image_tag current_user.gravatar_url, :class => 'bordered' %>
 
-  <div class="">
-    <%= submit_tag t('.add_discussion') %>
-  </div>
-<% end %>
+    <h6><%= current_user.email %> <%= t('.says') %></h6>
+    <%= form.text_area :content, :rows => 2, :cols => 80 %>
+
+    <div class="button">
+      <%= submit_tag t('.add_discussion') %>
+    </div>
+  <% end %>
+</div>
 

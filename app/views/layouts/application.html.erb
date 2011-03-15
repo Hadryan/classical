@@ -20,11 +20,11 @@
               <%= link_to current_user.email, edit_user_registration_path(current_user) %>
               |
               <%= link_to t('.logout'), destroy_user_session_path %>
-            <%- else %>
+            <% else %>
               <%= link_to t('.login'), new_user_session_path %>
               |
               <%= link_to t('.signup'), new_user_registration_path %>
-            <%- end %>
+            <% end %>
 			    </div>
     		</div>
 	    	<div class="clearer">&nbsp;</div>
@@ -47,7 +47,7 @@
   		  <div class="clearer">&nbsp;</div>
     	</div>
 	  </div>
-	  <%- end %>
+	  <% end %>
 
     <!-- End Navigation -->
     <div id="main_wrapper_outer">

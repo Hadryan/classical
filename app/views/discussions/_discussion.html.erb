@@ -1,12 +1,12 @@
 <div class="discussion">
-  <%= image_tag discussion.user.gravatar_url %>
+  <%= image_tag discussion.user.gravatar_url, :class => 'bordered' %>
   <div class="discussion-user">
     <%= link_to discussion.user.email, discussion.user %> <%= t('.said') %>:
   </div>
   <div class="discussion-content">
     <%= discussion.content %>
   </div>
-  <div class="discussion-date">
+  <div class="post_date">
     <%= l discussion.created_at %>
   </div>
 </div>

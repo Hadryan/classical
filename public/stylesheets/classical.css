@@ -139,10 +139,21 @@ form.search-form {
 }
 
 .discussion {
+  padding: 15px 0;
   min-height: 80px;
+  border-top: 1px solid #DDDDCC;
+}
+
+#discussions div:first-child {
+    border-top: medium none;
 }
 
 .discussion img {
+  margin-right: 10px;
   float: left;
+}
+
+.discussion .button {
+  margin-top: 5px;
 }
 

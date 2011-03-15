@@ -46,7 +46,7 @@
 
   #discussions
     = render :partial => 'discussions/form', :locals => {:discussable => @orchestra}
-    = render :partial => @orchestra.discussions
+    .user-discussions= render :partial => @orchestra.discussions
     .clear
 
 :javascript
