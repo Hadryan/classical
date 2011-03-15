@@ -8,7 +8,7 @@
   %p
     = t :search
     = text_field_tag :query, @query
-    = select_tag :type, options_for_select([['director', 'director'], ['solista', 'solist'], ['orquesta', 'orchestra'], ['compositor', 'composer']], @type)
+    = select_tag :type, options_for_select([['nombre', 'name'], ['director', 'director_name'], ['solista', 'solist_name'], ['orquesta', 'orchestra_name'], ['compositor', 'composer_name']], @type)
     = submit_tag 'Buscar'
 
 
