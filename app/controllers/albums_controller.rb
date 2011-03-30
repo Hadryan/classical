@@ -10,7 +10,7 @@ class AlbumsController < ApplicationController
     end
 
     @search = Album.search(params[:search])
-    @albums = @search.paginate(:page => params[:page])
+    @albums = @search.page(params[:page])
   end
 
   def new

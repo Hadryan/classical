@@ -80,9 +80,9 @@ blockquote {
 ------------------------------------------------------------------- */
 
 table.data_table {
-	border: 1px solid #CCB;
 	margin-bottom: 2em;
 	width: 100%;
+	display: inline;
 }
 table.data_table th {
 	background: url('img/grain_dark.gif');

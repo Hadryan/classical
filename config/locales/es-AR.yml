@@ -253,8 +253,11 @@ es-AR:
 
   no_results: No se encontraron resultados...
 
-  previous: Anterior
-  next: Siguiente
+  views:
+    pagination:
+      previous: "< Anterior"
+      next: "Siguiente >"
+      truncate: "..."
 
   update_msg: Se ha actulizado con exito.
   create_msg: Se ha creado con exito.

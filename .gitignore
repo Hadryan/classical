@@ -5,3 +5,6 @@ tmp/.*
 tmp/profile*
 nbproject*
 .directory
+.redcar
+db/backups
+
