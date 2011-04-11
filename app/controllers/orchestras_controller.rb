@@ -16,12 +16,12 @@ class OrchestrasController < ApplicationController
     conditions = {"album_orchestra_id_equals" => @orchestra.id}
     conditions.merge!(params[:search]) if params[:search] && params[:search][:album_orchestra_id_equals]
     @user_album_search = current_user.user_albums.search(conditions)
-    @user_albums = @user_album_search.paginate(:page => params[:page])
+    @user_albums = @user_album_search.page(params[:page])
 
     conditions = {"orchestra_id_equals" => @orchestra.id}
     conditions.merge!(params[:search]) if params[:search] && params[:search][:orchestra_id_equals]
     @search = Album.search(conditions)
-    @albums = @search.paginate(:page => params[:page])
+    @albums = @search.page(params[:page])
   end
 
   def create

@@ -13,17 +13,15 @@
 
 <%= paginate @composers %>
 
-<div id="results">
-  <table class="data_table">
-    <tr>
-      <th><%= t :name %> </th>
-      <th colspan=2><%= t :options %> </th>
-    </tr>
-    <tbody>
-      <%= render :partial => @composers %>
-    </tbody>
-  </table>
-</div>
+<table class="data_table">
+  <tr>
+    <th><%= t :name %> </th>
+    <th colspan=2><%= t :options %> </th>
+  </tr>
+  <tbody id="results">
+    <%= render :partial => @composers %>
+  </tbody>
+</table>
 
 <%= paginate @composers %>
 

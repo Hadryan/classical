@@ -22,23 +22,23 @@
       %a{:href => "#discussions"}= "#{t('discussions_title')} (#{@solist.discussions.size})"
 
   #user-albums
-    = will_paginate @user_albums, :previous_label => t('previous'), :next_label => t('next') if @user_albums.respond_to? 'total_pages'
+    = paginate @user_albums
 
     %table.data_table
       = render :partial => 'user_albums/album_headers'
       = render :partial => @user_albums
 
-    = will_paginate @user_albums, :previous_label => t('previous'), :next_label => t('next') if @user_albums.respond_to? 'total_pages'
+    = paginate @user_albums
     .clear
 
   #albums
-    = will_paginate @albums, :previous_label => t('previous'), :next_label => t('next') if @albums.respond_to? 'total_pages'
+    = paginate @albums
 
     %table.data_table
       = render :partial => 'albums/album_headers'
       = render :partial => @albums
 
-    = will_paginate @albums, :previous_label => t('previous'), :next_label => t('next') if @albums.respond_to? 'total_pages'
+    = paginate @albums
     .clear
 
   #description
