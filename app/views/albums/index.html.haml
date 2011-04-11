@@ -11,12 +11,9 @@
     = select_tag :type, options_for_select([['nombre', 'name'], ['director', 'director_name'], ['solista', 'solist_name'], ['orquesta', 'orchestra_name'], ['compositor', 'composer_name']], @type)
     = submit_tag 'Buscar'
 
+.pagination-links= render :partial => 'paginator'
 
-= will_paginate @albums, :previous_label => t('previous'), :next_label => t('next') if @albums.respond_to? 'total_pages'
+#results= render :partial => 'albums'
 
-%table.data_table
-  = render :partial => 'album_headers'
-  %tbody#results= render :partial => @albums
-
-= will_paginate @albums, :previous_label => t('previous'), :next_label => t('next') if @albums.respond_to? 'total_pages'
+.pagination-links= render :partial => 'paginator'
 

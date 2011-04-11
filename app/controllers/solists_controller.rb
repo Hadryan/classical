@@ -2,7 +2,7 @@ class SolistsController < ApplicationController
   before_filter :find_solist,  :only => [:show, :edit, :update, :destroy]
 
   def index
-    @solists = Solist.paginate :page => params[:page], :order => :name
+    @solists = Solist.order(:name).page(params[:page])
   end
 
   def new

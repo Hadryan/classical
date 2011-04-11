@@ -2,7 +2,7 @@ class DirectorsController < ApplicationController
   before_filter :find_director,  :only => [:show, :edit, :update, :destroy]
 
   def index
-    @directors = Director.paginate :page => params[:page], :order => :name
+    @directors = Director.order(:name).page(params[:page])
   end
 
   def new

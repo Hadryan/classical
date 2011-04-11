@@ -11,7 +11,9 @@
   <%= text_field_tag :search_field %>
 <% end -%>
 
-<%= will_paginate @obra_types, :previous_label => t('previous'), :next_label => t('next') %>
+<div class="paginator">
+  <%= paginate @obra_types %>
+</div>
 
 <table class="data_table">
   <tr>
@@ -23,7 +25,9 @@
   </tbody>
 </table>
 
-<%= will_paginate @obra_types, :previous_label => t('previous'), :next_label => t('next') %>
+<div class="paginator">
+  <%= paginate @obra_types %>
+</div>
 
 <script type="text/javascript" language="javascript" charset="utf-8">
 // <![CDATA[

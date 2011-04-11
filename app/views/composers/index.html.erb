@@ -11,19 +11,21 @@
   <%= text_field_tag :search_field %>
 <% end %>
 
-<%= will_paginate @composers, :previous_label => t('previous'), :next_label => t('next') %>
+<%= paginate @composers %>
 
-<table class="data_table">
-  <tr>
-    <th><%= t :name %> </th>
-    <th colspan=2><%= t :options %> </th>
-  </tr>
-  <tbody id="results">
-    <%= render :partial => @composers %>
-  </tbody>
-</table>
+<div id="results">
+  <table class="data_table">
+    <tr>
+      <th><%= t :name %> </th>
+      <th colspan=2><%= t :options %> </th>
+    </tr>
+    <tbody>
+      <%= render :partial => @composers %>
+    </tbody>
+  </table>
+</div>
 
-<%= will_paginate @composers, :previous_label => t('previous'), :next_label => t('next') %>
+<%= paginate @composers %>
 
 <script type="text/javascript" language="javascript" charset="utf-8">
 // <![CDATA[

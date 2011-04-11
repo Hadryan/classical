@@ -2,7 +2,7 @@ class OrchestrasController < ApplicationController
   before_filter :find_orchestra,  :only => [:show, :edit, :update, :destroy]
 
   def index
-    @orchestras = Orchestra.paginate :page => params[:page], :order => :name
+    @orchestras = Orchestra.order(:name).page(params[:page])
   end
 
   def new

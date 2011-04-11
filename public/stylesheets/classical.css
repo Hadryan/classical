@@ -91,7 +91,6 @@ input#search_field {
 }
 
 .pagination {
-  float: right;
   margin: 10px;
   text-align: right;
 }

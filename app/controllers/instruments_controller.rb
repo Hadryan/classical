@@ -4,7 +4,7 @@ class InstrumentsController < ApplicationController
   # GET /instruments
   # GET /instruments.xml
   def index
-    @instruments = Instrument.paginate :page => params[:page], :order => :name
+    @instruments = Instrument.order(:name).page(params[:page])
   end
 
   def show

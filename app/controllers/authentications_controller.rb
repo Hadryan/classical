@@ -12,9 +12,9 @@ class AuthenticationsController < ApplicationController
       flash[:notice] = "Authentication successful."
       redirect_to authentications_url
     else
-      user = User.new
+      user = User.new_from_facebook(omniauth)
       user.authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
-      user.save!
+      user.save(false)
       flash[:notice] = "Signed in successfully."
       sign_in_and_redirect(:user, user)
     end

@@ -2,7 +2,7 @@ class ObraTypesController < ApplicationController
   before_filter :find_obra_type,  :only => [:show, :edit, :update, :destroy]
 
   def index
-    @obra_types = ObraType.paginate :page => params[:page], :order => :name
+    @obra_types = ObraType.order(:name).page(params[:page])
   end
 
   def new

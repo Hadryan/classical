@@ -10,7 +10,10 @@
   <%= text_field_tag :search_field %>
 <% end -%>
 
-<%= will_paginate @orchestras, :previous_label => t('previous'), :next_label => t('next') %>
+<div class="paginator">
+  <%= paginate @orchestras %>
+</div>
+
 <table class="data_table">
   <tr>
     <th><%= t :name %> </th>
@@ -21,7 +24,7 @@
   </tbody>
 </table>
 
-<%= will_paginate @orchestras, :previous_label => t('previous'), :next_label => t('next') %>
+<%= paginate @orchestras %>
 
 <script type="text/javascript" language="javascript" charset="utf-8">
 // <![CDATA[

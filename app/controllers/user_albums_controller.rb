@@ -10,7 +10,7 @@ class UserAlbumsController < ApplicationController
     end
 
     @user_album_search = current_user.user_albums.search(params[:search])
-    @user_albums = @user_album_search.paginate(:page => params[:page])
+    @user_albums = @user_album_search.page(params[:page])
   end
 
   def show
