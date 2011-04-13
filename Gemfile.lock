@@ -2,7 +2,7 @@ GIT
   remote: git://github.com/sferik/rails_admin.git
   revision: b9c50a44a1e21840b265ab58a8edd10ac69b338c
   specs:
-    rails_admin (0.0.2)
+    rails_admin (0.0.1)
       builder (~> 2.1.0)
       rails (~> 3.0.6)
 
@@ -208,4 +208,3 @@ DEPENDENCIES
   rspec-rails (>= 2.0.0)
   ruby-debug19
   wirble
-
