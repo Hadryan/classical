@@ -144,7 +144,7 @@ es-AR:
         composer: Compositor
         obra_type: Tipo de obra
         music_tone: Tono musical
-        obra_number: N° de Obra
+        number: N° de Obra
         opus_number: N° de Opus
         instrument: Instrumentos
         solist: Solista
