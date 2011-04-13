@@ -176,8 +176,8 @@ es-AR:
         composer: Compositor
         obra_type: Tipo de obra
         music_tone: Tono musical
-        obra_number: Numero de obra
-        opus_number: N° Opus
+        obra_number: N° de Obra
+        opus_number: N° de Opus
         instrument: Instrumentos
         solist: Solista
         director: Director
@@ -235,7 +235,8 @@ es-AR:
   director: "Director"
   orchestra: "Orquesta"
   instrument: "Instrumento"
-  opus_number: "Opus N°"
+  number: "N° de Obra"
+  opus_number: "N° de Opus"
   cd_number: CD N°
   description: Notas
 
