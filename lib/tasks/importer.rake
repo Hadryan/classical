@@ -38,8 +38,8 @@ namespace :importer do
       director_name = row['director'].blank? ? 'Anonimo' : row['director'].strip.capitalize
       orchestra_name = row['orchestra'].blank? ? 'Sin nombre' : row['orchestra'].strip.capitalize
       instrument_name = row['instrument'].blank? ? 'NN' : row['instrument'].strip.capitalize
-      obra_number = row['obra_number']
-      opus_number = row['opus_number'].to_s.strip == '0' ? nil : row['opus_number']
+      obra_number = row['obra_number'].to_s.strip == '0' ? nil : row['obra_number'].to_s.strip
+      opus_number = row['opus_number'].to_s.strip == '0' ? nil : row['opus_number'].to_s.strip
 
       cd_number = row['cd_number'].to_i
       cd_number = cd_number == 0 ? nil : cd_number.abs
@@ -55,7 +55,7 @@ namespace :importer do
         :instrument => Instrument.where(:user_id => user, :name => instrument_name).first || Instrument.create(:user => user, :name => instrument_name),
         :opus_number => opus_number,
         :cd_number => cd_number,
-        :number => obra_number,
+        :obra_number => obra_number,
         :user => user
       })
 

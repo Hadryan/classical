@@ -10,14 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110224003944) do
+ActiveRecord::Schema.define(:version => 20110415221834) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
     t.integer  "composer_id"
     t.integer  "obra_type_id"
     t.string   "music_tone"
-    t.integer  "number"
+    t.string   "obra_number"
     t.string   "opus_number"
     t.integer  "solist_id"
     t.integer  "director_id"

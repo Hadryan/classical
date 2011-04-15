@@ -7,7 +7,7 @@
 #  composer_id   :integer
 #  obra_type_id  :integer
 #  music_tone    :string(255)
-#  number        :integer
+#  obra_number   :string(255)
 #  opus_number   :string(255)
 #  solist_id     :integer
 #  director_id   :integer
@@ -33,7 +33,7 @@ class Album < ActiveRecord::Base
   accepts_nested_attributes_for :image, :allow_destroy => true
 
   validates :composer, :director, :presence => true
-  validates :cd_number, :number, :numericality => true, :allow_blank => true
+  validates :cd_number, :numericality => true, :allow_blank => true
   validates :user, :presence => true
 
 end
