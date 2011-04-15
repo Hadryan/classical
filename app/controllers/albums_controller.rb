@@ -2,9 +2,8 @@ class AlbumsController < ApplicationController
   before_filter :find_album,  :only => [:show, :edit, :update, :destroy]
 
   def index
-    params[:search] ||= {}
-    if params[:search] || params[:type]
-      params[:search] ||= {"#{params[:type]}_name_contains" => params['query']}
+    if params[:type]
+      params[:search] = {"#{params[:type]}_name_contains" => params['query']}
       type_key = params[:search].keys.grep(/contains/).first
       @query = params[:search][type_key]
       @type = type_key[0..-15] if type_key
