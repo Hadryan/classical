@@ -19,11 +19,9 @@
     </div>
 
     <div class='form_row_submit'>
+      <a href="/auth/facebook" class="auth_provider"><%= image_tag "facebook-connect-button.png", :alt => "Facebook", :class => 'facebook-connect-img' %></a>
       <%= f.submit t(".signin"), :class => 'button' %>
     </div>
   <% end %>
 </div>
-
-<a href="/auth/facebook" class="auth_provider">
-  <%= image_tag "facebook-connect-button.png", :alt => "Facebook" %></a>
 
