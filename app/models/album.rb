@@ -34,6 +34,13 @@ class Album < ActiveRecord::Base
   accepts_nested_attributes_for :image, :allow_destroy => true
 
   validates :composer, :director, :name, :presence => true
-  validates :number, :numericality => true, :allow_blank => true
+
+  def owned_by?(user)
+    self.users.include? user
+  end
+
+  def user_album_for_user(user)
+    self.user_albums.where(:user_id => user).first
+  end
 end
 

@@ -9,7 +9,9 @@ class AlbumsController < ApplicationController
       @type = type_key[0..-10] if type_key
     end
 
-    @search = Album.search(params[:search])
+    params[:search] ||= {}
+    params[:search][:meta_sort] ||= 'name.asc'
+    @search = Album.includes(:composer, :obra_type, :solist, :director, :orchestra).search(params[:search])
     @albums = @search.page(params[:page])
   end
 

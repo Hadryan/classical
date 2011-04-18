@@ -16,11 +16,16 @@
   - unless @section == 'solists'
     %td= link_to album.solist.to_s, album.solist, :id => 'link_to_data'
 
-  %td= album.number
+  %td= album.obra_number
 
   %td= album.opus_number
   %td
-    = link_to new_album_user_album_path(album) do
-      = image_tag 'add.png', :width => 16
-      = t('add')
+    - if album.owned_by?(current_user)
+      = link_to edit_user_album_path(album.user_album_for_user(current_user)) do
+        = image_tag 'edit.gif', :width => 16
+        = t('edit')
+    - else
+      = link_to new_album_user_album_path(album) do
+        = image_tag 'add.png', :width => 16
+        = t('add')
 

@@ -9,6 +9,9 @@ class UserAlbumsController < ApplicationController
       @type = type_key[6..-10] if type_key
     end
 
+    params[:search] ||= {}
+    params[:search][:meta_sort] ||= 'name.asc'
+
     @user_album_search = current_user.user_albums.search(params[:search])
     @user_albums = @user_album_search.page(params[:page])
   end
